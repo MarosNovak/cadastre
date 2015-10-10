@@ -12,7 +12,6 @@
 		1E34EC351BC96D6100AE67D8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E34EC341BC96D6100AE67D8 /* ViewController.m */; };
 		1E34EC381BC96D6100AE67D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E34EC361BC96D6100AE67D8 /* Main.storyboard */; };
 		1E34EC3A1BC96D6100AE67D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E34EC391BC96D6100AE67D8 /* Assets.xcassets */; };
-		1E34EC3D1BC96D6100AE67D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E34EC3B1BC96D6100AE67D8 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,7 +23,6 @@
 		1E34EC341BC96D6100AE67D8 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		1E34EC371BC96D6100AE67D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1E34EC391BC96D6100AE67D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		1E34EC3C1BC96D6100AE67D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1E34EC3E1BC96D6100AE67D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -58,14 +56,9 @@
 		1E34EC2C1BC96D6100AE67D8 /* cadastre */ = {
 			isa = PBXGroup;
 			children = (
-				1E34EC301BC96D6100AE67D8 /* AppDelegate.h */,
-				1E34EC311BC96D6100AE67D8 /* AppDelegate.m */,
-				1E34EC331BC96D6100AE67D8 /* ViewController.h */,
-				1E34EC341BC96D6100AE67D8 /* ViewController.m */,
-				1E34EC361BC96D6100AE67D8 /* Main.storyboard */,
-				1E34EC391BC96D6100AE67D8 /* Assets.xcassets */,
-				1E34EC3B1BC96D6100AE67D8 /* LaunchScreen.storyboard */,
-				1E34EC3E1BC96D6100AE67D8 /* Info.plist */,
+				1E34EC441BC9703B00AE67D8 /* Application */,
+				1E34EC451BC9704200AE67D8 /* Controller */,
+				1E34EC461BC9704900AE67D8 /* View */,
 				1E34EC2D1BC96D6100AE67D8 /* Supporting Files */,
 			);
 			path = cadastre;
@@ -74,9 +67,37 @@
 		1E34EC2D1BC96D6100AE67D8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1E34EC3E1BC96D6100AE67D8 /* Info.plist */,
 				1E34EC2E1BC96D6100AE67D8 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1E34EC441BC9703B00AE67D8 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				1E34EC301BC96D6100AE67D8 /* AppDelegate.h */,
+				1E34EC311BC96D6100AE67D8 /* AppDelegate.m */,
+			);
+			name = Application;
+			sourceTree = "<group>";
+		};
+		1E34EC451BC9704200AE67D8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1E34EC331BC96D6100AE67D8 /* ViewController.h */,
+				1E34EC341BC96D6100AE67D8 /* ViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		1E34EC461BC9704900AE67D8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1E34EC361BC96D6100AE67D8 /* Main.storyboard */,
+				1E34EC391BC96D6100AE67D8 /* Assets.xcassets */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,7 +157,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1E34EC3D1BC96D6100AE67D8 /* LaunchScreen.storyboard in Resources */,
 				1E34EC3A1BC96D6100AE67D8 /* Assets.xcassets in Resources */,
 				1E34EC381BC96D6100AE67D8 /* Main.storyboard in Resources */,
 			);
@@ -164,14 +184,6 @@
 				1E34EC371BC96D6100AE67D8 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		1E34EC3B1BC96D6100AE67D8 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1E34EC3C1BC96D6100AE67D8 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -300,6 +312,7 @@
 				1E34EC431BC96D6100AE67D8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
