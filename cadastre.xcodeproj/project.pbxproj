@@ -12,6 +12,14 @@
 		1E34EC351BC96D6100AE67D8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E34EC341BC96D6100AE67D8 /* ViewController.m */; };
 		1E34EC381BC96D6100AE67D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E34EC361BC96D6100AE67D8 /* Main.storyboard */; };
 		1E34EC3A1BC96D6100AE67D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E34EC391BC96D6100AE67D8 /* Assets.xcassets */; };
+		1EEBCDDD1BC9720D00809DC2 /* BSNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EEBCDCD1BC9720D00809DC2 /* BSNode.m */; settings = {ASSET_TAGS = (); }; };
+		1EEBCDDE1BC9720D00809DC2 /* BSTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EEBCDD01BC9720D00809DC2 /* BSTree.m */; settings = {ASSET_TAGS = (); }; };
+		1EEBCDDF1BC9720D00809DC2 /* LinkedList.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EEBCDD21BC9720D00809DC2 /* LinkedList.m */; settings = {ASSET_TAGS = (); }; };
+		1EEBCDE01BC9720D00809DC2 /* LLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EEBCDD41BC9720D00809DC2 /* LLNode.m */; settings = {ASSET_TAGS = (); }; };
+		1EEBCDE11BC9720D00809DC2 /* Owner.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EEBCDD61BC9720D00809DC2 /* Owner.m */; settings = {ASSET_TAGS = (); }; };
+		1EEBCDE21BC9720D00809DC2 /* TestNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EEBCDD81BC9720D00809DC2 /* TestNode.m */; settings = {ASSET_TAGS = (); }; };
+		1EEBCDE31BC9720D00809DC2 /* Treap.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EEBCDDA1BC9720D00809DC2 /* Treap.m */; settings = {ASSET_TAGS = (); }; };
+		1EEBCDE41BC9720D00809DC2 /* TreapNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EEBCDDC1BC9720D00809DC2 /* TreapNode.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +32,23 @@
 		1E34EC371BC96D6100AE67D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1E34EC391BC96D6100AE67D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1E34EC3E1BC96D6100AE67D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1EEBCDCC1BC9720D00809DC2 /* BSNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSNode.h; sourceTree = "<group>"; };
+		1EEBCDCD1BC9720D00809DC2 /* BSNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSNode.m; sourceTree = "<group>"; };
+		1EEBCDCE1BC9720D00809DC2 /* BSNodeData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSNodeData.h; sourceTree = "<group>"; };
+		1EEBCDCF1BC9720D00809DC2 /* BSTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSTree.h; sourceTree = "<group>"; };
+		1EEBCDD01BC9720D00809DC2 /* BSTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSTree.m; sourceTree = "<group>"; };
+		1EEBCDD11BC9720D00809DC2 /* LinkedList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinkedList.h; sourceTree = "<group>"; };
+		1EEBCDD21BC9720D00809DC2 /* LinkedList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinkedList.m; sourceTree = "<group>"; };
+		1EEBCDD31BC9720D00809DC2 /* LLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLNode.h; sourceTree = "<group>"; };
+		1EEBCDD41BC9720D00809DC2 /* LLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLNode.m; sourceTree = "<group>"; };
+		1EEBCDD51BC9720D00809DC2 /* Owner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Owner.h; sourceTree = "<group>"; };
+		1EEBCDD61BC9720D00809DC2 /* Owner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Owner.m; sourceTree = "<group>"; };
+		1EEBCDD71BC9720D00809DC2 /* TestNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestNode.h; sourceTree = "<group>"; };
+		1EEBCDD81BC9720D00809DC2 /* TestNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestNode.m; sourceTree = "<group>"; };
+		1EEBCDD91BC9720D00809DC2 /* Treap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Treap.h; sourceTree = "<group>"; };
+		1EEBCDDA1BC9720D00809DC2 /* Treap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Treap.m; sourceTree = "<group>"; };
+		1EEBCDDB1BC9720D00809DC2 /* TreapNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TreapNode.h; sourceTree = "<group>"; };
+		1EEBCDDC1BC9720D00809DC2 /* TreapNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TreapNode.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +82,8 @@
 			isa = PBXGroup;
 			children = (
 				1E34EC441BC9703B00AE67D8 /* Application */,
+				1EEBCDE91BC9728200809DC2 /* Structures */,
+				1EEBCDE61BC9725700809DC2 /* Model */,
 				1E34EC451BC9704200AE67D8 /* Controller */,
 				1E34EC461BC9704900AE67D8 /* View */,
 				1E34EC2D1BC96D6100AE67D8 /* Supporting Files */,
@@ -98,6 +125,61 @@
 				1E34EC391BC96D6100AE67D8 /* Assets.xcassets */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		1EEBCDE51BC9724E00809DC2 /* Treap */ = {
+			isa = PBXGroup;
+			children = (
+				1EEBCDD71BC9720D00809DC2 /* TestNode.h */,
+				1EEBCDD81BC9720D00809DC2 /* TestNode.m */,
+				1EEBCDD91BC9720D00809DC2 /* Treap.h */,
+				1EEBCDDA1BC9720D00809DC2 /* Treap.m */,
+				1EEBCDDB1BC9720D00809DC2 /* TreapNode.h */,
+				1EEBCDDC1BC9720D00809DC2 /* TreapNode.m */,
+			);
+			name = Treap;
+			sourceTree = "<group>";
+		};
+		1EEBCDE61BC9725700809DC2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1EEBCDD51BC9720D00809DC2 /* Owner.h */,
+				1EEBCDD61BC9720D00809DC2 /* Owner.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		1EEBCDE71BC9725D00809DC2 /* Linked List */ = {
+			isa = PBXGroup;
+			children = (
+				1EEBCDD11BC9720D00809DC2 /* LinkedList.h */,
+				1EEBCDD21BC9720D00809DC2 /* LinkedList.m */,
+				1EEBCDD31BC9720D00809DC2 /* LLNode.h */,
+				1EEBCDD41BC9720D00809DC2 /* LLNode.m */,
+			);
+			name = "Linked List";
+			sourceTree = "<group>";
+		};
+		1EEBCDE81BC9726600809DC2 /* BS Tree */ = {
+			isa = PBXGroup;
+			children = (
+				1EEBCDCE1BC9720D00809DC2 /* BSNodeData.h */,
+				1EEBCDCC1BC9720D00809DC2 /* BSNode.h */,
+				1EEBCDCD1BC9720D00809DC2 /* BSNode.m */,
+				1EEBCDCF1BC9720D00809DC2 /* BSTree.h */,
+				1EEBCDD01BC9720D00809DC2 /* BSTree.m */,
+			);
+			name = "BS Tree";
+			sourceTree = "<group>";
+		};
+		1EEBCDE91BC9728200809DC2 /* Structures */ = {
+			isa = PBXGroup;
+			children = (
+				1EEBCDE81BC9726600809DC2 /* BS Tree */,
+				1EEBCDE71BC9725D00809DC2 /* Linked List */,
+				1EEBCDE51BC9724E00809DC2 /* Treap */,
+			);
+			name = Structures;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,8 +251,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1EEBCDE41BC9720D00809DC2 /* TreapNode.m in Sources */,
+				1EEBCDE31BC9720D00809DC2 /* Treap.m in Sources */,
+				1EEBCDDF1BC9720D00809DC2 /* LinkedList.m in Sources */,
+				1EEBCDDE1BC9720D00809DC2 /* BSTree.m in Sources */,
 				1E34EC351BC96D6100AE67D8 /* ViewController.m in Sources */,
+				1EEBCDE01BC9720D00809DC2 /* LLNode.m in Sources */,
 				1E34EC321BC96D6100AE67D8 /* AppDelegate.m in Sources */,
+				1EEBCDE11BC9720D00809DC2 /* Owner.m in Sources */,
+				1EEBCDDD1BC9720D00809DC2 /* BSNode.m in Sources */,
+				1EEBCDE21BC9720D00809DC2 /* TestNode.m in Sources */,
 				1E34EC2F1BC96D6100AE67D8 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
