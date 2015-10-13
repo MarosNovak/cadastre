@@ -17,7 +17,7 @@
 		1EEBCDDF1BC9720D00809DC2 /* LinkedList.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EEBCDD21BC9720D00809DC2 /* LinkedList.m */; settings = {ASSET_TAGS = (); }; };
 		1EEBCDE01BC9720D00809DC2 /* LLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EEBCDD41BC9720D00809DC2 /* LLNode.m */; settings = {ASSET_TAGS = (); }; };
 		1EEBCDE11BC9720D00809DC2 /* Owner.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EEBCDD61BC9720D00809DC2 /* Owner.m */; settings = {ASSET_TAGS = (); }; };
-		1EEBCDE21BC9720D00809DC2 /* TestNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EEBCDD81BC9720D00809DC2 /* TestNode.m */; settings = {ASSET_TAGS = (); }; };
+		1EEBCDE21BC9720D00809DC2 /* TestObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EEBCDD81BC9720D00809DC2 /* TestObject.m */; settings = {ASSET_TAGS = (); }; };
 		1EEBCDE31BC9720D00809DC2 /* Treap.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EEBCDDA1BC9720D00809DC2 /* Treap.m */; settings = {ASSET_TAGS = (); }; };
 		1EEBCDE41BC9720D00809DC2 /* TreapNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EEBCDDC1BC9720D00809DC2 /* TreapNode.m */; settings = {ASSET_TAGS = (); }; };
 		1EEBCDEC1BC97A0B00809DC2 /* Property.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EEBCDEB1BC97A0B00809DC2 /* Property.m */; settings = {ASSET_TAGS = (); }; };
@@ -48,8 +48,8 @@
 		1EEBCDD41BC9720D00809DC2 /* LLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLNode.m; sourceTree = "<group>"; };
 		1EEBCDD51BC9720D00809DC2 /* Owner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Owner.h; sourceTree = "<group>"; };
 		1EEBCDD61BC9720D00809DC2 /* Owner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Owner.m; sourceTree = "<group>"; };
-		1EEBCDD71BC9720D00809DC2 /* TestNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestNode.h; sourceTree = "<group>"; };
-		1EEBCDD81BC9720D00809DC2 /* TestNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestNode.m; sourceTree = "<group>"; };
+		1EEBCDD71BC9720D00809DC2 /* TestObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestObject.h; sourceTree = "<group>"; };
+		1EEBCDD81BC9720D00809DC2 /* TestObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestObject.m; sourceTree = "<group>"; };
 		1EEBCDD91BC9720D00809DC2 /* Treap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Treap.h; sourceTree = "<group>"; };
 		1EEBCDDA1BC9720D00809DC2 /* Treap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Treap.m; sourceTree = "<group>"; };
 		1EEBCDDB1BC9720D00809DC2 /* TreapNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TreapNode.h; sourceTree = "<group>"; };
@@ -145,8 +145,8 @@
 		1EEBCDE51BC9724E00809DC2 /* Treap */ = {
 			isa = PBXGroup;
 			children = (
-				1EEBCDD71BC9720D00809DC2 /* TestNode.h */,
-				1EEBCDD81BC9720D00809DC2 /* TestNode.m */,
+				1EEBCDD71BC9720D00809DC2 /* TestObject.h */,
+				1EEBCDD81BC9720D00809DC2 /* TestObject.m */,
 				1EEBCDD91BC9720D00809DC2 /* Treap.h */,
 				1EEBCDDA1BC9720D00809DC2 /* Treap.m */,
 				1EEBCDDB1BC9720D00809DC2 /* TreapNode.h */,
@@ -200,8 +200,8 @@
 		1EEBCDE91BC9728200809DC2 /* Structures */ = {
 			isa = PBXGroup;
 			children = (
-				1EEBCDE81BC9726600809DC2 /* BS Tree */,
 				1EEBCDE71BC9725D00809DC2 /* Linked List */,
+				1EEBCDE81BC9726600809DC2 /* BS Tree */,
 				1EEBCDE51BC9724E00809DC2 /* Treap */,
 			);
 			name = Structures;
@@ -289,7 +289,7 @@
 				1EEBCDF81BC97AAF00809DC2 /* PropertyList.m in Sources */,
 				1EEBCDE11BC9720D00809DC2 /* Owner.m in Sources */,
 				1EEBCDDD1BC9720D00809DC2 /* BSNode.m in Sources */,
-				1EEBCDE21BC9720D00809DC2 /* TestNode.m in Sources */,
+				1EEBCDE21BC9720D00809DC2 /* TestObject.m in Sources */,
 				1EEBCDF21BC97A8200809DC2 /* Cadastre.m in Sources */,
 				1E34EC2F1BC96D6100AE67D8 /* main.m in Sources */,
 			);

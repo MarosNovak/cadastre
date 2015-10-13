@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "Treap.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [Treap generateTest];
+    
     return YES;
 }
 

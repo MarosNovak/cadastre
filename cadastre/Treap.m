@@ -7,7 +7,7 @@
 //
 
 #import "Treap.h"
-#import "TestNode.h"
+#import "TestObject.h"
 
 @implementation Treap
 
@@ -47,7 +47,7 @@
                 actualNode = (TreapNode *)actualNode.leftChild;
             }
         } else {
-//            NSLog(@"This node already exists");
+            NSLog(@"This node already exists");
             return NO;
         }
     } while (YES);
@@ -58,10 +58,10 @@
 {
     while (node.priority < ((TreapNode *)node.parent).priority) {
         if ([node compare:node.parent] < 0) {
-//            NSLog(@"Right rotation");
+            NSLog(@"Right rotation");
             [self rightRotation:(TreapNode *)node.parent];
         } else {
-//            NSLog(@"Left rotation");
+            NSLog(@"Left rotation");
             [self leftRotation:(TreapNode *)node.parent];
         }
         if (node == self.root) {
@@ -197,17 +197,17 @@
 {
     Treap *treap = [Treap new];
     
-    for (int i = 1; i < 1000000; i++) {
-        [treap add:[TreapNode nodeWithData:[TestNode nodeWithData]]];
+    for (int i = 1; i < 10000; i++) {
+        [treap add:[TreapNode nodeWithData:[TestObject nodeWithData]]];
     }
     
     NSArray *array = [treap inOrderTraversalForNode:treap.root];
     for (TreapNode *node in array) {
-        NSLog(@"%d, %@",node.priority, ((TestNode *)node.data).data);
+        NSLog(@"%ld, %@",(long)node.priority, ((TestObject *)node.data).data);
     }
     NSArray *level = [treap levelOrderTraversal];
     for (TreapNode *node in level) {
-        NSLog(@"%d, %@",node.priority, ((TestNode *)node.data).data);
+        NSLog(@"%ld, %@",(long)node.priority, ((TestObject *)node.data).data);
     }
 //    v jednom cykle s random hodnotami
 //    50/50 mazanie vkladanie

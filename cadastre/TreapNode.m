@@ -7,7 +7,7 @@
 //
 
 #import "TreapNode.h"
-#import "TestNode.h"
+#import "TestObject.h"
 
 @implementation TreapNode
 
@@ -33,7 +33,7 @@
 
 - (NSString *)values
 {
-    return [NSString stringWithFormat:@"%@, Priority: %d",((TestNode *)self.data).data, self.priority];
+    return [NSString stringWithFormat:@"%@, Priority: %ld",((TestObject *)self.data).data, (long)self.priority];
 }
 
 - (NSString *)description

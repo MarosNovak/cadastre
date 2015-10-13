@@ -6,11 +6,11 @@
 //  Copyright © 2015 Maros Novak. All rights reserved.
 //
 
-#import "TestNode.h"
+#import "TestObject.h"
 
 static NSString const *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-@implementation TestNode
+@implementation TestObject
 
 - (id)initWithData:(NSString *)data
 {
@@ -20,20 +20,20 @@ static NSString const *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRS
     return self;
 }
 
-+ (TestNode *)nodeWithData
++ (TestObject *)nodeWithData
 {
     NSMutableString *randomString =[NSMutableString stringWithCapacity:4];
     
     for (int i = 0; i < 4; i++) {
         [randomString appendFormat: @"%C", [letters characterAtIndex: arc4random_uniform([letters length])]];
     }
-    return [[TestNode alloc] initWithData:randomString];
+    return [[TestObject alloc] initWithData:randomString];
 }
 
 - (NSComparisonResult)compare:(id)other
 {
-    if ([other isKindOfClass:[TestNode class]]) {
-        return [self.data compare:((TestNode *)other).data];
+    if ([other isKindOfClass:[TestObject class]]) {
+        return [self.data compare:((TestObject *)other).data];
     }
     return -2;
 }

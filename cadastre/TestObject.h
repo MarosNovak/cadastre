@@ -9,10 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "BSNodeData.h"
 
-@interface TestNode : NSObject <BSNodeData>
+@interface TestObject : NSObject <BSNodeData>
 
 @property (nonatomic, strong) NSString *data;
 
-+ (TestNode *)nodeWithData;
++ (TestObject *)nodeWithData;
 
 @end
