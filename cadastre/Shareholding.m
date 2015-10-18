@@ -6,8 +6,8 @@
 //  Copyright © 2015 Maros Novak. All rights reserved.
 //
 
-#import "Ownership.h"
+#import "Shareholding.h"
 
-@implementation Ownership
+@implementation Shareholding
 
 @end

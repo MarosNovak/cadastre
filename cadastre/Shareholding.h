@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "Owner.h"
 
-@interface Ownership : NSObject
+@interface Shareholding : NSObject
 
 @property (strong, nonatomic) Owner *owner;
 

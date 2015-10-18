@@ -6,9 +6,9 @@
 //  Copyright © 2015 Maros Novak. All rights reserved.
 //
 
-#import "Owner.h"
+#import "Citizen.h"
 
-@implementation Owner
+@implementation Citizen
 
 - (id)initWithBirthNumber:(NSString *)birthNumber
                      name:(NSString *)name
@@ -22,16 +22,16 @@
     return self;
 }
 
-- (Owner *)itemWithBirthNumber:(NSString *)birthNumber
+- (Citizen *)itemWithBirthNumber:(NSString *)birthNumber
                           name:(NSString *)name
                        surname:(NSString *)surname
 {
-    return [[Owner alloc] initWithBirthNumber:birthNumber name:name surname:surname];
+    return [[Citizen alloc] initWithBirthNumber:birthNumber name:name surname:surname];
 }
 
 - (NSComparisonResult)compare:(id)other
 {
-    return [self.birthNumber compare:((Owner *)other).birthNumber];
+    return [self.birthNumber compare:((Citizen *)other).birthNumber];
 }
 
 @end

@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "BSNodeData.h"
 
-@interface Owner : NSObject <BSNodeData>
+@interface Citizen : NSObject <BSNodeData>
 
 @property (strong, nonatomic) NSString *birthNumber;
 @property (strong, nonatomic) NSString *name;
@@ -17,7 +17,7 @@
 
 @property (strong, nonatomic) NSMutableArray *propertyLists;
 
-- (Owner *)itemWithBirthNumber:(NSString *)birthNumber
+- (Citizen *)itemWithBirthNumber:(NSString *)birthNumber
                           name:(NSString *)name
                        surname:(NSString *)surname;
 
