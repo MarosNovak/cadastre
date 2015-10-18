@@ -7,10 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "BSNodeData.h"
 
-@interface CadastreArea : NSObject
+@interface CadastreArea : NSObject <BSNodeData>
 
 @property (strong, nonatomic) NSNumber *number;
 @property (strong, nonatomic) NSString *name;
+
++ (CadastreArea *)areaWithName:(NSString *)name
+                        number:(NSNumber *)number;
 
 @end

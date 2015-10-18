@@ -7,9 +7,13 @@
 //
 
 #import "CitizenController.h"
-#import "InsertionController.h"
+#import "Cadastre.h"
 
-@interface CitizenController ()
+@interface CitizenController () <UITextFieldDelegate>
+
+@property (weak, nonatomic) IBOutlet UITextField *birthNumberField;
+@property (weak, nonatomic) IBOutlet UITextField *nameField;
+@property (weak, nonatomic) IBOutlet UITextField *surnameField;
 
 @end
 
@@ -20,68 +24,37 @@
     [super viewDidLoad];
 }
 
-#pragma mark - Table view data source
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    InsertionController *insertionVC = segue.destinationViewController;
-    if ([segue.identifier isEqualToString:@"addCitizen"]) {
-        insertionVC.type = InsertionTypeCitizen;
+    if (textField == self.birthNumberField) {
+        [self.surnameField becomeFirstResponder];
     }
+    if (textField == self.nameField) {
+        [self.surnameField becomeFirstResponder];
+    }
+    if (textField == self.surnameField) {
+        [self.surnameField resignFirstResponder];
+        [self addCitizen];
+    }
+    return NO;
 }
 
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+- (void)addCitizen
+{
+    NSString *birthNumber = self.birthNumberField.text;
+    NSString *name = self.nameField.text;
+    NSString *surname = self.surnameField.text;
     
-    // Configure the cell...
-    
-    return cell;
+    [[Cadastre sharedCadastre] addCitizenWithBirthNumber:birthNumber name:name surname:surname];
+   
+    [self clearFields];
 }
-*/
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+- (void)clearFields
+{
+    self.birthNumberField.text = nil;
+    self.nameField.text = nil;
+    self.surnameField.text = nil;
 }
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

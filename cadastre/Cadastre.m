@@ -8,11 +8,15 @@
 
 #import "Cadastre.h"
 #import "Citizen.h"
+#import "CadastreArea.h"
+#import "CadastreAreaNodeByName.h"
+#import "CadastreAreaNodeByNumber.h"
 
 @interface Cadastre ()
 
 @property (strong, nonatomic) Treap *citizens;
-@property (strong, nonatomic) Treap *areas;
+@property (strong, nonatomic) Treap *areasByName;
+@property (strong, nonatomic) Treap *areasByNumber;
 
 @end
 
@@ -28,24 +32,39 @@
     dispatch_once(&once, ^{
         cadastre = [Cadastre new];
         cadastre.citizens = [Treap new];
-        cadastre.areas = [Treap new];
+        cadastre.areasByName = [Treap new];
+        cadastre.areasByNumber = [Treap new];
     });
     return cadastre;
 }
 
 #pragma mark - Insertion
 
-- (void)addCitizenWithBirthNumber:(NSString *)birthNumber
+- (BOOL)addCitizenWithBirthNumber:(NSString *)birthNumber
                              name:(NSString *)name
                           surname:(NSString *)surname
 {
     Citizen *newCitizen = [[Citizen alloc] initWithBirthNumber:birthNumber name:name surname:surname];
-    [self.citizens addObject:newCitizen];
+    return [self.citizens addObject:newCitizen];
+}
+
+- (BOOL)addCadastreAreaWithNumber:(NSInteger)number
+                             name:(NSString *)name
+{
+    CadastreArea *newArea = [CadastreArea areaWithName:name number:[NSNumber numberWithInteger:number]];
+    
+    BOOL added = [self.areasByName add:[CadastreAreaNodeByName nodeWithData:newArea]];
+    if (added) {
+        added = [self.areasByNumber add:[CadastreAreaNodeByNumber nodeWithData:newArea]];
+        if (added) return YES;
+        else [self.areasByName remove:[CadastreAreaNodeByName nodeWithData:newArea]];
+    }
+    return NO;
 }
 
 #pragma mark - Fetches
 
-- (Citizen *)searchCitizensByBirthNumber:(NSString *)birthNumber
+- (Citizen *)citizenByBirthNumber:(NSString *)birthNumber
 {
     return (Citizen *)[self.citizens findObject:[Citizen citizenWithBirthNumber:birthNumber]];
 }

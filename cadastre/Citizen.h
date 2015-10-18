@@ -27,4 +27,8 @@
                                name:(NSString *)name
                             surname:(NSString *)surname;
 
+#pragma mark - Misc
+
+- (NSString *)fullName;
+
 @end

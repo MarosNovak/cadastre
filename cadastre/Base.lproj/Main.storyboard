@@ -15,12 +15,97 @@
                         <animations/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
+                            <tableViewSection headerTitle="add citizen" footerTitle="15. Pridanie občana." id="EXf-KJ-Cg5">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="50" id="yOb-QE-TMZ">
+                                        <rect key="frame" x="0.0" y="114" width="600" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yOb-QE-TMZ" id="4IH-tN-TAJ">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="49"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Birth number" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ZY1-tD-r4E">
+                                                    <rect key="frame" x="16" y="8" width="576" height="33"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="QgL-LG-Sre" id="dcm-fg-7XW"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstItem="ZY1-tD-r4E" firstAttribute="top" secondItem="4IH-tN-TAJ" secondAttribute="topMargin" id="3uG-Zm-kiy"/>
+                                                <constraint firstItem="ZY1-tD-r4E" firstAttribute="trailing" secondItem="4IH-tN-TAJ" secondAttribute="trailingMargin" id="Jz5-BO-30y"/>
+                                                <constraint firstItem="ZY1-tD-r4E" firstAttribute="leading" secondItem="4IH-tN-TAJ" secondAttribute="leadingMargin" constant="8" id="Upy-vQ-B2I"/>
+                                                <constraint firstItem="ZY1-tD-r4E" firstAttribute="bottom" secondItem="4IH-tN-TAJ" secondAttribute="bottomMargin" id="cYE-yW-SYk"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="50" id="uyt-53-X1Y">
+                                        <rect key="frame" x="0.0" y="164" width="600" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uyt-53-X1Y" id="4t1-p3-EGf">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="49"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="yGL-g1-H0l">
+                                                    <rect key="frame" x="16" y="8" width="576" height="33"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="next"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="QgL-LG-Sre" id="nRf-7x-ROV"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstItem="yGL-g1-H0l" firstAttribute="top" secondItem="4t1-p3-EGf" secondAttribute="topMargin" id="81s-mb-stT"/>
+                                                <constraint firstItem="yGL-g1-H0l" firstAttribute="leading" secondItem="4t1-p3-EGf" secondAttribute="leadingMargin" constant="8" id="IW3-cl-vUe"/>
+                                                <constraint firstItem="yGL-g1-H0l" firstAttribute="bottom" secondItem="4t1-p3-EGf" secondAttribute="bottomMargin" id="pm1-yC-QzC"/>
+                                                <constraint firstItem="yGL-g1-H0l" firstAttribute="trailing" secondItem="4t1-p3-EGf" secondAttribute="trailingMargin" id="rx1-NN-Aoh"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="50" id="OYl-cT-Fx4">
+                                        <rect key="frame" x="0.0" y="214" width="600" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OYl-cT-Fx4" id="cli-X8-lxc">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="49"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Surname" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="p7v-AU-I6R">
+                                                    <rect key="frame" x="16" y="8" width="576" height="33"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="QgL-LG-Sre" id="XoU-eN-vEP"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstItem="p7v-AU-I6R" firstAttribute="bottom" secondItem="cli-X8-lxc" secondAttribute="bottomMargin" id="Bhn-Lw-MBt"/>
+                                                <constraint firstItem="p7v-AU-I6R" firstAttribute="leading" secondItem="cli-X8-lxc" secondAttribute="leadingMargin" constant="8" id="Eed-hE-a3r"/>
+                                                <constraint firstItem="p7v-AU-I6R" firstAttribute="top" secondItem="cli-X8-lxc" secondAttribute="topMargin" id="KNF-4a-wqI"/>
+                                                <constraint firstItem="p7v-AU-I6R" firstAttribute="trailing" secondItem="cli-X8-lxc" secondAttribute="trailingMargin" id="YOe-vs-bwS"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                             <tableViewSection headerTitle="Search" id="9yS-Px-r4M">
                                 <string key="footerTitle">2. Vyhľadanie obyvateľa podľa rodného čísla a výpis jeho trvalého pobytu (vypíšu sa všetky informácie o nehnuteľnosti, ktorú obýva)
 3. Výpis všetkých osôb, ktoré majú trvalý pobyt v zadanej nehnuteľnosti (zadá sa číslo katastrálneho územia, číslo listu vlastníctva a súpisné číslo)</string>
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="enh-93-Gf6" style="IBUITableViewCellStyleDefault" id="iHF-dH-HfR">
-                                        <rect key="frame" x="0.0" y="114" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="331" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iHF-dH-HfR" id="1Tb-5J-8gl">
                                             <rect key="frame" x="0.0" y="0.0" width="567" height="43"/>
@@ -43,7 +128,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="hnP-S4-Eeb" style="IBUITableViewCellStyleDefault" id="ZZb-Zy-aSJ">
-                                        <rect key="frame" x="0.0" y="158" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="375" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZZb-Zy-aSJ" id="9wA-NZ-7Ef">
                                             <rect key="frame" x="0.0" y="0.0" width="567" height="43"/>
@@ -64,37 +149,10 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="insertion" footerTitle="15. Pridanie občana." id="EXf-KJ-Cg5">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="OQS-rO-YYB" style="IBUITableViewCellStyleDefault" id="47V-2u-ilE">
-                                        <rect key="frame" x="0.0" y="317" width="600" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="47V-2u-ilE" id="lIk-4p-JjB">
-                                            <rect key="frame" x="0.0" y="0.0" width="567" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Add citizen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OQS-rO-YYB">
-                                                    <rect key="frame" x="15" y="0.0" width="550" height="43"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <animations/>
-                                        </tableViewCellContentView>
-                                        <animations/>
-                                        <connections>
-                                            <segue destination="88w-w9-U4N" kind="show" identifier="addCitizen" id="wbQ-S6-oxL"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
                             <tableViewSection headerTitle="deletion" footerTitle="18. Odstránenie občana (definovaný rodným číslom)." id="DC1-9B-GKI">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="jHZ-07-zCq" style="IBUITableViewCellStyleDefault" id="oOw-3Y-RdO">
-                                        <rect key="frame" x="0.0" y="428" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="534" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oOw-3Y-RdO" id="VHJ-ZB-Szd">
                                             <rect key="frame" x="0.0" y="0.0" width="567" height="43"/>
@@ -120,7 +178,7 @@
 názvom).</string>
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="7Ay-cZ-mt1" style="IBUITableViewCellStyleDefault" id="hMM-LH-s9c">
-                                        <rect key="frame" x="0.0" y="539" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="645" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hMM-LH-s9c" id="ffY-xn-neA">
                                             <rect key="frame" x="0.0" y="0.0" width="567" height="43"/>
@@ -148,6 +206,11 @@ názvom).</string>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Citizens" id="Mxu-In-52b"/>
+                    <connections>
+                        <outlet property="birthNumberField" destination="ZY1-tD-r4E" id="gCo-oV-jhe"/>
+                        <outlet property="nameField" destination="yGL-g1-H0l" id="5kg-N1-E63"/>
+                        <outlet property="surnameField" destination="p7v-AU-I6R" id="q67-g2-NJV"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ime-Or-Hwt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -357,9 +420,6 @@ území (definované jeho číslom).</string>
                                             <animations/>
                                         </tableViewCellContentView>
                                         <animations/>
-                                        <connections>
-                                            <segue destination="88w-w9-U4N" kind="show" id="Rph-Me-TZt"/>
-                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -427,295 +487,6 @@ definovaný rodným číslom.</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JO2-U3-77d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="76" y="830"/>
-        </scene>
-        <!--Insertion Controller-->
-        <scene sceneID="S1e-xO-kZi">
-            <objects>
-                <tableViewController id="88w-w9-U4N" customClass="InsertionController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="static" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="fcI-Ev-w9c">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <animations/>
-                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
-                        <sections>
-                            <tableViewSection id="J6E-YU-mUb">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="birthNumberIdentifier" rowHeight="50" id="yOb-QE-TMZ">
-                                        <rect key="frame" x="0.0" y="99" width="600" height="50"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yOb-QE-TMZ" id="4IH-tN-TAJ">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="49"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Birth number" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ZY1-tD-r4E">
-                                                    <rect key="frame" x="16" y="8" width="576" height="33"/>
-                                                    <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
-                                                </textField>
-                                            </subviews>
-                                            <animations/>
-                                            <constraints>
-                                                <constraint firstItem="ZY1-tD-r4E" firstAttribute="top" secondItem="4IH-tN-TAJ" secondAttribute="topMargin" id="3uG-Zm-kiy"/>
-                                                <constraint firstItem="ZY1-tD-r4E" firstAttribute="trailing" secondItem="4IH-tN-TAJ" secondAttribute="trailingMargin" id="Jz5-BO-30y"/>
-                                                <constraint firstItem="ZY1-tD-r4E" firstAttribute="leading" secondItem="4IH-tN-TAJ" secondAttribute="leadingMargin" constant="8" id="Upy-vQ-B2I"/>
-                                                <constraint firstItem="ZY1-tD-r4E" firstAttribute="bottom" secondItem="4IH-tN-TAJ" secondAttribute="bottomMargin" id="cYE-yW-SYk"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <animations/>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CitizenNameIdentifier" rowHeight="50" id="uyt-53-X1Y">
-                                        <rect key="frame" x="0.0" y="149" width="600" height="50"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uyt-53-X1Y" id="4t1-p3-EGf">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="49"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="yGL-g1-H0l">
-                                                    <rect key="frame" x="16" y="8" width="576" height="33"/>
-                                                    <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="next"/>
-                                                </textField>
-                                            </subviews>
-                                            <animations/>
-                                            <constraints>
-                                                <constraint firstItem="yGL-g1-H0l" firstAttribute="top" secondItem="4t1-p3-EGf" secondAttribute="topMargin" id="81s-mb-stT"/>
-                                                <constraint firstItem="yGL-g1-H0l" firstAttribute="leading" secondItem="4t1-p3-EGf" secondAttribute="leadingMargin" constant="8" id="IW3-cl-vUe"/>
-                                                <constraint firstItem="yGL-g1-H0l" firstAttribute="bottom" secondItem="4t1-p3-EGf" secondAttribute="bottomMargin" id="pm1-yC-QzC"/>
-                                                <constraint firstItem="yGL-g1-H0l" firstAttribute="trailing" secondItem="4t1-p3-EGf" secondAttribute="trailingMargin" id="rx1-NN-Aoh"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <animations/>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CitizenSurnameIdentifier" rowHeight="50" id="OYl-cT-Fx4">
-                                        <rect key="frame" x="0.0" y="199" width="600" height="50"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OYl-cT-Fx4" id="cli-X8-lxc">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="49"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Surname" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="p7v-AU-I6R">
-                                                    <rect key="frame" x="16" y="8" width="576" height="33"/>
-                                                    <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done"/>
-                                                </textField>
-                                            </subviews>
-                                            <animations/>
-                                            <constraints>
-                                                <constraint firstItem="p7v-AU-I6R" firstAttribute="bottom" secondItem="cli-X8-lxc" secondAttribute="bottomMargin" id="Bhn-Lw-MBt"/>
-                                                <constraint firstItem="p7v-AU-I6R" firstAttribute="leading" secondItem="cli-X8-lxc" secondAttribute="leadingMargin" constant="8" id="Eed-hE-a3r"/>
-                                                <constraint firstItem="p7v-AU-I6R" firstAttribute="top" secondItem="cli-X8-lxc" secondAttribute="topMargin" id="KNF-4a-wqI"/>
-                                                <constraint firstItem="p7v-AU-I6R" firstAttribute="trailing" secondItem="cli-X8-lxc" secondAttribute="trailingMargin" id="YOe-vs-bwS"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <animations/>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                            <tableViewSection id="1G8-iZ-x8y">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="50" id="cbJ-5y-mQt">
-                                        <rect key="frame" x="0.0" y="285" width="600" height="50"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cbJ-5y-mQt" id="TNn-St-hZl">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="49"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aTo-tH-WiR">
-                                                    <rect key="frame" x="16" y="8" width="576" height="33"/>
-                                                    <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
-                                                </textField>
-                                            </subviews>
-                                            <animations/>
-                                            <constraints>
-                                                <constraint firstItem="aTo-tH-WiR" firstAttribute="trailing" secondItem="TNn-St-hZl" secondAttribute="trailingMargin" id="2rT-0s-yOd"/>
-                                                <constraint firstItem="aTo-tH-WiR" firstAttribute="leading" secondItem="TNn-St-hZl" secondAttribute="leadingMargin" constant="8" id="9dc-px-m6U"/>
-                                                <constraint firstItem="aTo-tH-WiR" firstAttribute="bottom" secondItem="TNn-St-hZl" secondAttribute="bottomMargin" id="Vi5-JG-HL4"/>
-                                                <constraint firstItem="aTo-tH-WiR" firstAttribute="top" secondItem="TNn-St-hZl" secondAttribute="topMargin" id="Vja-P8-klG"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <animations/>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="50" id="x5v-pe-aDL">
-                                        <rect key="frame" x="0.0" y="335" width="600" height="50"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="x5v-pe-aDL" id="rBE-AY-0GC">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="49"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="k0i-at-8Za">
-                                                    <rect key="frame" x="16" y="8" width="576" height="33"/>
-                                                    <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
-                                                </textField>
-                                            </subviews>
-                                            <animations/>
-                                            <constraints>
-                                                <constraint firstItem="k0i-at-8Za" firstAttribute="bottom" secondItem="rBE-AY-0GC" secondAttribute="bottomMargin" id="0HH-u9-Jfm"/>
-                                                <constraint firstItem="k0i-at-8Za" firstAttribute="trailing" secondItem="rBE-AY-0GC" secondAttribute="trailingMargin" id="FV7-tj-VAX"/>
-                                                <constraint firstItem="k0i-at-8Za" firstAttribute="leading" secondItem="rBE-AY-0GC" secondAttribute="leadingMargin" constant="8" id="JAM-ui-DOg"/>
-                                                <constraint firstItem="k0i-at-8Za" firstAttribute="top" secondItem="rBE-AY-0GC" secondAttribute="topMargin" id="zmV-4I-8tQ"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <animations/>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                            <tableViewSection id="cZx-lb-kUM">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="50" id="fg4-JV-Exw">
-                                        <rect key="frame" x="0.0" y="421" width="600" height="50"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fg4-JV-Exw" id="77k-Z9-JZ1">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="49"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Property number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g3H-4M-6Rt">
-                                                    <rect key="frame" x="16" y="8" width="576" height="33"/>
-                                                    <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
-                                                </textField>
-                                            </subviews>
-                                            <animations/>
-                                            <constraints>
-                                                <constraint firstItem="g3H-4M-6Rt" firstAttribute="top" secondItem="77k-Z9-JZ1" secondAttribute="topMargin" id="CbE-O3-KLt"/>
-                                                <constraint firstItem="g3H-4M-6Rt" firstAttribute="trailing" secondItem="77k-Z9-JZ1" secondAttribute="trailingMargin" id="GnE-j9-MOg"/>
-                                                <constraint firstItem="g3H-4M-6Rt" firstAttribute="bottom" secondItem="77k-Z9-JZ1" secondAttribute="bottomMargin" id="e6X-Kx-MPw"/>
-                                                <constraint firstItem="g3H-4M-6Rt" firstAttribute="leading" secondItem="77k-Z9-JZ1" secondAttribute="leadingMargin" constant="8" id="iAN-5k-Gxe"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <animations/>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="50" id="1K9-VB-wyw">
-                                        <rect key="frame" x="0.0" y="471" width="600" height="50"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1K9-VB-wyw" id="qFc-0b-5Eg">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="49"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Property List number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tO4-9E-tOl">
-                                                    <rect key="frame" x="16" y="8" width="576" height="33"/>
-                                                    <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
-                                                </textField>
-                                            </subviews>
-                                            <animations/>
-                                            <constraints>
-                                                <constraint firstItem="tO4-9E-tOl" firstAttribute="bottom" secondItem="qFc-0b-5Eg" secondAttribute="bottomMargin" id="A31-9B-sFK"/>
-                                                <constraint firstItem="tO4-9E-tOl" firstAttribute="trailing" secondItem="qFc-0b-5Eg" secondAttribute="trailingMargin" id="FUR-Ct-SLb"/>
-                                                <constraint firstItem="tO4-9E-tOl" firstAttribute="leading" secondItem="qFc-0b-5Eg" secondAttribute="leadingMargin" constant="8" id="hED-mz-YWw"/>
-                                                <constraint firstItem="tO4-9E-tOl" firstAttribute="top" secondItem="qFc-0b-5Eg" secondAttribute="topMargin" id="svM-SN-23x"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <animations/>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="50" id="qnI-FI-lOn">
-                                        <rect key="frame" x="0.0" y="521" width="600" height="50"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qnI-FI-lOn" id="baR-hh-QGz">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="49"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Cadastre area number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TWj-Cb-FUl">
-                                                    <rect key="frame" x="16" y="8" width="576" height="33"/>
-                                                    <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" returnKeyType="done"/>
-                                                </textField>
-                                            </subviews>
-                                            <animations/>
-                                            <constraints>
-                                                <constraint firstItem="TWj-Cb-FUl" firstAttribute="leading" secondItem="baR-hh-QGz" secondAttribute="leadingMargin" constant="8" id="40f-SO-CRo"/>
-                                                <constraint firstItem="TWj-Cb-FUl" firstAttribute="bottom" secondItem="baR-hh-QGz" secondAttribute="bottomMargin" id="HZt-5P-6tv"/>
-                                                <constraint firstItem="TWj-Cb-FUl" firstAttribute="top" secondItem="baR-hh-QGz" secondAttribute="topMargin" id="di7-Fi-wWq"/>
-                                                <constraint firstItem="TWj-Cb-FUl" firstAttribute="trailing" secondItem="baR-hh-QGz" secondAttribute="trailingMargin" id="rUc-li-Gml"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <animations/>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                            <tableViewSection id="DGj-Gy-C3u">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="50" id="2zP-fF-RNB">
-                                        <rect key="frame" x="0.0" y="607" width="600" height="50"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2zP-fF-RNB" id="WL6-y1-ume">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="49"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Property number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CW7-ce-ajK">
-                                                    <rect key="frame" x="16" y="8" width="576" height="33"/>
-                                                    <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
-                                                </textField>
-                                            </subviews>
-                                            <animations/>
-                                            <constraints>
-                                                <constraint firstItem="CW7-ce-ajK" firstAttribute="bottom" secondItem="WL6-y1-ume" secondAttribute="bottomMargin" id="JNr-Sb-bPL"/>
-                                                <constraint firstItem="CW7-ce-ajK" firstAttribute="trailing" secondItem="WL6-y1-ume" secondAttribute="trailingMargin" id="LNx-M8-xyl"/>
-                                                <constraint firstItem="CW7-ce-ajK" firstAttribute="leading" secondItem="WL6-y1-ume" secondAttribute="leadingMargin" constant="8" id="NMx-f2-U1o"/>
-                                                <constraint firstItem="CW7-ce-ajK" firstAttribute="top" secondItem="WL6-y1-ume" secondAttribute="topMargin" id="iwP-NS-6km"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <animations/>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="50" id="JsP-cq-rta">
-                                        <rect key="frame" x="0.0" y="657" width="600" height="50"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JsP-cq-rta" id="LzA-HE-WuS">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="49"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Cadastre area number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xyf-xM-NT9">
-                                                    <rect key="frame" x="16" y="8" width="576" height="33"/>
-                                                    <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
-                                                </textField>
-                                            </subviews>
-                                            <animations/>
-                                            <constraints>
-                                                <constraint firstItem="Xyf-xM-NT9" firstAttribute="bottom" secondItem="LzA-HE-WuS" secondAttribute="bottomMargin" id="AJA-Y3-jlE"/>
-                                                <constraint firstItem="Xyf-xM-NT9" firstAttribute="top" secondItem="LzA-HE-WuS" secondAttribute="topMargin" id="B7K-PM-qvI"/>
-                                                <constraint firstItem="Xyf-xM-NT9" firstAttribute="trailing" secondItem="LzA-HE-WuS" secondAttribute="trailingMargin" id="KuN-0Q-ZUv"/>
-                                                <constraint firstItem="Xyf-xM-NT9" firstAttribute="leading" secondItem="LzA-HE-WuS" secondAttribute="leadingMargin" constant="8" id="ofF-dz-8RS"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <animations/>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                        </sections>
-                        <connections>
-                            <outlet property="dataSource" destination="88w-w9-U4N" id="emr-3T-SrB"/>
-                            <outlet property="delegate" destination="88w-w9-U4N" id="xyQ-gp-6PA"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="XCu-Th-qPA">
-                        <barButtonItem key="rightBarButtonItem" title="Add" id="5wZ-7W-L39">
-                            <connections>
-                                <action selector="add:" destination="88w-w9-U4N" id="Vhb-68-U8Z"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="citizenBirthNumberField" destination="ZY1-tD-r4E" id="f1q-Vq-b9I"/>
-                        <outlet property="citizenNameField" destination="yGL-g1-H0l" id="IP4-Hz-aSh"/>
-                        <outlet property="citizenSurnameField" destination="p7v-AU-I6R" id="s4t-ss-mIU"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jfi-4G-u3c" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="792" y="628"/>
         </scene>
         <!--Property lists-->
         <scene sceneID="Fik-lx-7Iv">
@@ -794,9 +565,6 @@ definovaný rodným číslom.</string>
                                             <animations/>
                                         </tableViewCellContentView>
                                         <animations/>
-                                        <connections>
-                                            <segue destination="88w-w9-U4N" kind="show" id="CNo-2i-OKA"/>
-                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -896,10 +664,68 @@ číslom).
                         <animations/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
+                            <tableViewSection headerTitle="insertion" footerTitle="21. Pridanie katastrálneho územia." id="40H-Q0-flr">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="50" id="cbJ-5y-mQt">
+                                        <rect key="frame" x="0.0" y="114" width="600" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cbJ-5y-mQt" id="TNn-St-hZl">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="49"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Cadastre area number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aTo-tH-WiR">
+                                                    <rect key="frame" x="16" y="8" width="576" height="33"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="1HW-i0-co2" id="R2u-qo-i4Q"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstItem="aTo-tH-WiR" firstAttribute="trailing" secondItem="TNn-St-hZl" secondAttribute="trailingMargin" id="2rT-0s-yOd"/>
+                                                <constraint firstItem="aTo-tH-WiR" firstAttribute="leading" secondItem="TNn-St-hZl" secondAttribute="leadingMargin" constant="8" id="9dc-px-m6U"/>
+                                                <constraint firstItem="aTo-tH-WiR" firstAttribute="bottom" secondItem="TNn-St-hZl" secondAttribute="bottomMargin" id="Vi5-JG-HL4"/>
+                                                <constraint firstItem="aTo-tH-WiR" firstAttribute="top" secondItem="TNn-St-hZl" secondAttribute="topMargin" id="Vja-P8-klG"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="50" id="x5v-pe-aDL">
+                                        <rect key="frame" x="0.0" y="164" width="600" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="x5v-pe-aDL" id="rBE-AY-0GC">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="49"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Cadastre area name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="k0i-at-8Za">
+                                                    <rect key="frame" x="16" y="8" width="576" height="33"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="1HW-i0-co2" id="NsT-xp-j8f"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstItem="k0i-at-8Za" firstAttribute="bottom" secondItem="rBE-AY-0GC" secondAttribute="bottomMargin" id="0HH-u9-Jfm"/>
+                                                <constraint firstItem="k0i-at-8Za" firstAttribute="trailing" secondItem="rBE-AY-0GC" secondAttribute="trailingMargin" id="FV7-tj-VAX"/>
+                                                <constraint firstItem="k0i-at-8Za" firstAttribute="leading" secondItem="rBE-AY-0GC" secondAttribute="leadingMargin" constant="8" id="JAM-ui-DOg"/>
+                                                <constraint firstItem="k0i-at-8Za" firstAttribute="top" secondItem="rBE-AY-0GC" secondAttribute="topMargin" id="zmV-4I-8tQ"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                             <tableViewSection headerTitle="List" footerTitle="14. Výpis všetkých katastrálnych území utriedených podľa ich názvov." id="Xj4-eM-add">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="bqp-Gf-wbF" style="IBUITableViewCellStyleDefault" id="UYL-kW-Sbf">
-                                        <rect key="frame" x="0.0" y="114" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="281" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UYL-kW-Sbf" id="Fdb-c9-rvc">
                                             <rect key="frame" x="0.0" y="0.0" width="567" height="43"/>
@@ -920,37 +746,10 @@ číslom).
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="insertion" footerTitle="21. Pridanie katastrálneho územia." id="40H-Q0-flr">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="yc3-gp-xcY" style="IBUITableViewCellStyleDefault" id="dF8-JK-Gu7">
-                                        <rect key="frame" x="0.0" y="225" width="600" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dF8-JK-Gu7" id="iKq-N3-XBG">
-                                            <rect key="frame" x="0.0" y="0.0" width="567" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Add cadastre area" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yc3-gp-xcY">
-                                                    <rect key="frame" x="15" y="0.0" width="550" height="43"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <animations/>
-                                        </tableViewCellContentView>
-                                        <animations/>
-                                        <connections>
-                                            <segue destination="88w-w9-U4N" kind="show" identifier="addCadastreArea" id="Ird-c9-2Se"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
                             <tableViewSection headerTitle="deletion" footerTitle="22. Odstránenie katastrálneho územia (definované jeho číslom). Agenda sa presunie do iného katastrálneho územia." id="urD-lH-Nmh">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="T4q-T5-BUh" style="IBUITableViewCellStyleDefault" id="qoW-bV-xow">
-                                        <rect key="frame" x="0.0" y="336" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="392" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qoW-bV-xow" id="jTH-mc-lNY">
                                             <rect key="frame" x="0.0" y="0.0" width="567" height="43"/>
@@ -978,6 +777,10 @@ číslom).
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Cadastre area" id="RYK-Ls-ixc"/>
+                    <connections>
+                        <outlet property="cadastreAreaNameField" destination="k0i-at-8Za" id="SdN-fL-X16"/>
+                        <outlet property="cadastreAreaNumberField" destination="aTo-tH-WiR" id="4Y2-OA-mZi"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iGP-o4-bjG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1085,7 +888,4 @@ číslom).
             <point key="canvasLocation" x="-644" y="152"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="wbQ-S6-oxL"/>
-    </inferredMetricsTieBreakers>
 </document>

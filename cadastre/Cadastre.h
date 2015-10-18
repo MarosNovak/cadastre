@@ -14,10 +14,13 @@
 
 + (Cadastre *)sharedCadastre;
 
-- (void)addCitizenWithBirthNumber:(NSString *)birthNumber
+- (BOOL)addCitizenWithBirthNumber:(NSString *)birthNumber
                              name:(NSString *)name
                           surname:(NSString *)surname;
 
-- (Citizen *)searchCitizensByBirthNumber:(NSString *)birthNumber;
+- (BOOL)addCadastreAreaWithNumber:(NSInteger)number
+                             name:(NSString *)name;
+
+- (Citizen *)citizenByBirthNumber:(NSString *)birthNumber;
 
 @end

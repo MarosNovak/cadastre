@@ -18,4 +18,27 @@
 
 @implementation CadastreArea
 
+- (id)initWithNumber:(NSNumber *)number
+                name:(NSString *)name
+{
+    if (self = [super init]) {
+        _number = number;
+        _name = name;
+        _properties = [Treap new];
+        _propertyLists = [Treap new];
+    }
+    return self;
+}
+
++ (CadastreArea *)areaWithName:(NSString *)name
+                        number:(NSNumber *)number
+{
+    return [[CadastreArea alloc] initWithNumber:number name:name];
+}
+
+- (NSComparisonResult)compare:(id)other
+{
+    return [self.number compare:((CadastreArea *)other).number];
+}
+
 @end

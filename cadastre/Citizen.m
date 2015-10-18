@@ -35,9 +35,18 @@
     return [[Citizen alloc] initWithBirthNumber:birthNumber name:name surname:surname];
 }
 
+#pragma mark - Override
+
 - (NSComparisonResult)compare:(id)other
 {
     return [self.birthNumber compare:((Citizen *)other).birthNumber];
+}
+
+#pragma mark - Misc
+
+- (NSString *)fullName
+{
+    return [NSString stringWithFormat:@"%@ %@", self.name, self.surname];
 }
 
 @end

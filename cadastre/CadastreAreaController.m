@@ -7,9 +7,12 @@
 //
 
 #import "CadastreAreaController.h"
-#import "InsertionController.h"
+#import "Cadastre.h"
 
-@interface CadastreAreaController ()
+@interface CadastreAreaController () <UITextFieldDelegate>
+
+@property (weak, nonatomic) IBOutlet UITextField *cadastreAreaNumberField;
+@property (weak, nonatomic) IBOutlet UITextField *cadastreAreaNameField;
 
 @end
 
@@ -20,12 +23,28 @@
     [super viewDidLoad];
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    InsertionController *insertionVC = segue.destinationViewController;
-    if ([segue.identifier isEqualToString:@"addCadastreArea"]) {
-        insertionVC.type = InsertionTypeCadastreArea;
+    if (textField == self.cadastreAreaNameField) {
+        [self.cadastreAreaNameField resignFirstResponder];
+        [self addCadastreArea];
     }
+    return NO;
+}
+
+- (void)addCadastreArea
+{
+    NSString *number = self.cadastreAreaNumberField.text;
+    NSString *name = self.cadastreAreaNameField.text;
+    [[Cadastre sharedCadastre] addCadastreAreaWithNumber:[number integerValue] name:name];
+    
+    [self clearFields];
+}
+
+- (void)clearFields
+{
+    self.cadastreAreaNumberField.text = nil;
+    self.cadastreAreaNameField.text = nil;
 }
 
 @end
