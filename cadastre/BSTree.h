@@ -20,4 +20,12 @@
 
 - (BSNode *)find:(BSNode *)node;
 
+- (id<BSNodeData>)findObject:(id<BSNodeData>)object;
+
+- (BOOL)removeObject:(id<BSNodeData>)object;
+
+- (BOOL)addObject:(id<BSNodeData>)object;
+
+- (NSUInteger)count;
+
 @end

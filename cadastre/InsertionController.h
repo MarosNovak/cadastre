@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+typedef enum : NSUInteger {
+    InsertionTypeCitizen,
+    InsertionTypeProperty,
+    InsertionTypeCadastreArea,
+    InsertionTypePropertyList
+} InsertionType;
+
 @interface InsertionController : UITableViewController
+
+@property (nonatomic) InsertionType type;
 
 @end

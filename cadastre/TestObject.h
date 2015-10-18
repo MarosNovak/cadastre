@@ -13,6 +13,8 @@
 
 @property (nonatomic, strong) NSString *data;
 
-+ (TestObject *)nodeWithData;
+- (id)initWithData:(NSString *)data;
+
++ (TestObject *)objectWithRandomData;
 
 @end

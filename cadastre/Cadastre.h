@@ -8,7 +8,16 @@
 
 #import <Foundation/Foundation.h>
 #import "Treap.h"
+#import "Citizen.h"
 
 @interface Cadastre : NSObject
+
++ (Cadastre *)sharedCadastre;
+
+- (void)addCitizenWithBirthNumber:(NSString *)birthNumber
+                             name:(NSString *)name
+                          surname:(NSString *)surname;
+
+- (Citizen *)searchCitizensByBirthNumber:(NSString *)birthNumber;
 
 @end

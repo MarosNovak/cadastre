@@ -12,5 +12,6 @@
 @interface Treap : BSTree
 
 + (void)generateTest;
++ (void)removeTest;
 
 @end

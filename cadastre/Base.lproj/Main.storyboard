@@ -2,21 +2,22 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="DUr-l4-k4O">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Citizens-->
         <scene sceneID="2Ol-8e-OYx">
             <objects>
-                <tableViewController id="QgL-LG-Sre" sceneMemberID="viewController">
+                <tableViewController id="QgL-LG-Sre" customClass="CitizenController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="JhN-l9-65g">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
                             <tableViewSection headerTitle="Search" id="9yS-Px-r4M">
-                                <mutableString key="footerTitle">2. Vyhľadanie obyvateľa podľa rodného čísla a výpis jeho trvalého pobytu (vypíšu sa všetky informácie o nehnuteľnosti, ktorú obýva)
-3. Výpis všetkých osôb, ktoré majú trvalý pobyt v zadanej nehnuteľnosti (zadá sa číslo katastrálneho územia, číslo listu vlastníctva a súpisné číslo)</mutableString>
+                                <string key="footerTitle">2. Vyhľadanie obyvateľa podľa rodného čísla a výpis jeho trvalého pobytu (vypíšu sa všetky informácie o nehnuteľnosti, ktorú obýva)
+3. Výpis všetkých osôb, ktoré majú trvalý pobyt v zadanej nehnuteľnosti (zadá sa číslo katastrálneho územia, číslo listu vlastníctva a súpisné číslo)</string>
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="enh-93-Gf6" style="IBUITableViewCellStyleDefault" id="iHF-dH-HfR">
                                         <rect key="frame" x="0.0" y="114" width="600" height="44"/>
@@ -30,13 +31,16 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <animations/>
                                         </tableViewCellContentView>
                                         <animations/>
+                                        <connections>
+                                            <segue destination="PhR-9A-sQt" kind="show" identifier="searchByBirthNumber" id="o9w-rE-eHe"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="hnP-S4-Eeb" style="IBUITableViewCellStyleDefault" id="ZZb-Zy-aSJ">
                                         <rect key="frame" x="0.0" y="158" width="600" height="44"/>
@@ -50,7 +54,7 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -74,13 +78,16 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <animations/>
                                         </tableViewCellContentView>
                                         <animations/>
+                                        <connections>
+                                            <segue destination="88w-w9-U4N" kind="show" identifier="addCitizen" id="wbQ-S6-oxL"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -98,7 +105,7 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -124,7 +131,7 @@ názvom).</string>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -144,21 +151,86 @@ názvom).</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ime-Or-Hwt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="76" y="-701"/>
+            <point key="canvasLocation" x="76" y="-526"/>
+        </scene>
+        <!--Search-->
+        <scene sceneID="jQF-JH-Vau">
+            <objects>
+                <tableViewController id="PhR-9A-sQt" customClass="SearchController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="7PY-e9-b1w">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" text="" showsSearchResultsButton="YES" id="7gJ-7O-OjY">
+                            <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <animations/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="PhR-9A-sQt" id="4IR-3e-nrO"/>
+                            </connections>
+                        </searchBar>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="Mph-wU-FK8" detailTextLabel="K3t-RU-3bx" style="IBUITableViewCellStyleSubtitle" id="7nU-Hh-LXM">
+                                <rect key="frame" x="0.0" y="136" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7nU-Hh-LXM" id="E5q-ob-PyA">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Mph-wU-FK8">
+                                            <rect key="frame" x="15" y="5" width="32" height="20"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="K3t-RU-3bx">
+                                            <rect key="frame" x="15" y="25" width="41" height="14"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <animations/>
+                                </tableViewCellContentView>
+                                <animations/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="PhR-9A-sQt" id="xNa-94-97h"/>
+                            <outlet property="delegate" destination="PhR-9A-sQt" id="3Ny-9T-aZ2"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Search" id="zAe-KV-byu"/>
+                    <connections>
+                        <outlet property="searchBar" destination="7gJ-7O-OjY" id="ekx-pM-N7k"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jlb-Dd-8WQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="792" y="-526"/>
         </scene>
         <!--Properties-->
         <scene sceneID="Vfi-Mz-jwF">
             <objects>
-                <tableViewController id="PBz-C8-YLR" sceneMemberID="viewController">
+                <tableViewController id="PBz-C8-YLR" customClass="PropertyController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="Cog-jg-cFZ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
                             <tableViewSection headerTitle="Search" id="qa4-hA-64E">
-                                <mutableString key="footerTitle">1. Vyhľadanie nehnuteľnosti podľa súpisného čísla a čísla katastrálneho územia. 
-5. Vyhľadanie nehnuteľnosti podľa súpisného čísla a názvu katastrálneho územia. Po nájdení nehnuteľnosti je potrebné zobraziť všetky evidované údaje vrátane všetkých údajov z listu vlastníctva na ktorom je nehnuteľnosť zapísaná.8. Výpis všetkých nehnuteľností majiteľa (definovaný rodným číslom) vzadanom katastrálnom území (definované jeho číslom).7. Výpis nehnuteľností v zadanom katastrálnom území (definované názvom) utriedených podľa ich súpisných čísel aj s ich popisom.9. Výpis všetkých nehnuteľností majiteľa (definovaný rodným číslom).</mutableString>
+                                <string key="footerTitle">1. Vyhľadanie nehnuteľnosti podľa súpisného čísla a čísla katastrálneho územia. 
+5. Vyhľadanie nehnuteľnosti podľa súpisného čísla a názvu katastrálneho územia. Po nájdení nehnuteľnosti je potrebné zobraziť všetky evidované údaje vrátane všetkých údajov z listu vlastníctva na ktorom je nehnuteľnosť zapísaná.
+8. Výpis všetkých nehnuteľností majiteľa (definovaný rodným číslom) vzadanom katastrálnom území (definované jeho číslom).
+7. Výpis nehnuteľností v zadanom katastrálnom území (definované názvom) utriedených podľa ich súpisných čísel aj s ich popisom.
+9. Výpis všetkých nehnuteľností majiteľa (definovaný rodným číslom).</string>
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="AWX-gs-UHU" style="IBUITableViewCellStyleDefault" id="wFr-uG-KHQ">
                                         <rect key="frame" x="0.0" y="114" width="600" height="44"/>
@@ -172,7 +244,7 @@ názvom).</string>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -192,7 +264,7 @@ názvom).</string>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -212,7 +284,7 @@ názvom).</string>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -232,7 +304,7 @@ názvom).</string>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -252,7 +324,7 @@ názvom).</string>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -263,7 +335,8 @@ názvom).</string>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="insertion" id="yhy-Mc-Ej5">
-                                <string key="footerTitle">17. Pridanie nehnuteľnosti na list vlastníctva (definovaný číslom) v zadanom katastrálnomúzemí (definované jeho číslom).</string>
+                                <string key="footerTitle">17. Pridanie nehnuteľnosti na list vlastníctva (definovaný číslom) v zadanom katastrálnom
+území (definované jeho číslom).</string>
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="bXM-Lh-jnl" style="IBUITableViewCellStyleDefault" id="hmu-0p-Spx">
                                         <rect key="frame" x="0.0" y="529" width="600" height="44"/>
@@ -277,18 +350,22 @@ názvom).</string>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <animations/>
                                         </tableViewCellContentView>
                                         <animations/>
+                                        <connections>
+                                            <segue destination="88w-w9-U4N" kind="show" id="Rph-Me-TZt"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="deletion" id="U5I-GL-OFz">
-                                <string key="footerTitle">20. Odstránenie nehnuteľnosti (definovaná popisným číslom) z listu vlastníctva (definovanýčíslom) v zadanom katastrálnom území (definované jeho číslom).</string>
+                                <string key="footerTitle">20. Odstránenie nehnuteľnosti (definovaná popisným číslom) z listu vlastníctva (definovaný
+číslom) v zadanom katastrálnom území (definované jeho číslom).</string>
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="xGT-Zq-DzI" style="IBUITableViewCellStyleDefault" id="HNl-Gl-X8A">
                                         <rect key="frame" x="0.0" y="656" width="600" height="44"/>
@@ -302,7 +379,7 @@ názvom).</string>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -313,7 +390,9 @@ názvom).</string>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="update" id="NEp-MH-BI9">
-                                <string key="footerTitle">11.Zmena majiteľa (definovaný rodným číslom) nehnuteľnosti (definovaná súpisnýmčíslom) v zadanom katastrálnom území (definované jeho číslom). Nový majiteľ jedefinovaný rodným číslom.</string>
+                                <string key="footerTitle">11.Zmena majiteľa (definovaný rodným číslom) nehnuteľnosti (definovaná súpisným
+číslom) v zadanom katastrálnom území (definované jeho číslom). Nový majiteľ je
+definovaný rodným číslom.</string>
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="9Lz-Bw-McO" style="IBUITableViewCellStyleDefault" id="XxZ-DU-XSQ">
                                         <rect key="frame" x="0.0" y="783" width="600" height="44"/>
@@ -327,7 +406,7 @@ názvom).</string>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -347,20 +426,310 @@ názvom).</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JO2-U3-77d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="76" y="1011"/>
+            <point key="canvasLocation" x="76" y="830"/>
+        </scene>
+        <!--Insertion Controller-->
+        <scene sceneID="S1e-xO-kZi">
+            <objects>
+                <tableViewController id="88w-w9-U4N" customClass="InsertionController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="static" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="fcI-Ev-w9c">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <sections>
+                            <tableViewSection id="J6E-YU-mUb">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="birthNumberIdentifier" rowHeight="50" id="yOb-QE-TMZ">
+                                        <rect key="frame" x="0.0" y="99" width="600" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yOb-QE-TMZ" id="4IH-tN-TAJ">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="49"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Birth number" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ZY1-tD-r4E">
+                                                    <rect key="frame" x="16" y="8" width="576" height="33"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                </textField>
+                                            </subviews>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstItem="ZY1-tD-r4E" firstAttribute="top" secondItem="4IH-tN-TAJ" secondAttribute="topMargin" id="3uG-Zm-kiy"/>
+                                                <constraint firstItem="ZY1-tD-r4E" firstAttribute="trailing" secondItem="4IH-tN-TAJ" secondAttribute="trailingMargin" id="Jz5-BO-30y"/>
+                                                <constraint firstItem="ZY1-tD-r4E" firstAttribute="leading" secondItem="4IH-tN-TAJ" secondAttribute="leadingMargin" constant="8" id="Upy-vQ-B2I"/>
+                                                <constraint firstItem="ZY1-tD-r4E" firstAttribute="bottom" secondItem="4IH-tN-TAJ" secondAttribute="bottomMargin" id="cYE-yW-SYk"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CitizenNameIdentifier" rowHeight="50" id="uyt-53-X1Y">
+                                        <rect key="frame" x="0.0" y="149" width="600" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uyt-53-X1Y" id="4t1-p3-EGf">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="49"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="yGL-g1-H0l">
+                                                    <rect key="frame" x="16" y="8" width="576" height="33"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="next"/>
+                                                </textField>
+                                            </subviews>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstItem="yGL-g1-H0l" firstAttribute="top" secondItem="4t1-p3-EGf" secondAttribute="topMargin" id="81s-mb-stT"/>
+                                                <constraint firstItem="yGL-g1-H0l" firstAttribute="leading" secondItem="4t1-p3-EGf" secondAttribute="leadingMargin" constant="8" id="IW3-cl-vUe"/>
+                                                <constraint firstItem="yGL-g1-H0l" firstAttribute="bottom" secondItem="4t1-p3-EGf" secondAttribute="bottomMargin" id="pm1-yC-QzC"/>
+                                                <constraint firstItem="yGL-g1-H0l" firstAttribute="trailing" secondItem="4t1-p3-EGf" secondAttribute="trailingMargin" id="rx1-NN-Aoh"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CitizenSurnameIdentifier" rowHeight="50" id="OYl-cT-Fx4">
+                                        <rect key="frame" x="0.0" y="199" width="600" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OYl-cT-Fx4" id="cli-X8-lxc">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="49"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Surname" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="p7v-AU-I6R">
+                                                    <rect key="frame" x="16" y="8" width="576" height="33"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done"/>
+                                                </textField>
+                                            </subviews>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstItem="p7v-AU-I6R" firstAttribute="bottom" secondItem="cli-X8-lxc" secondAttribute="bottomMargin" id="Bhn-Lw-MBt"/>
+                                                <constraint firstItem="p7v-AU-I6R" firstAttribute="leading" secondItem="cli-X8-lxc" secondAttribute="leadingMargin" constant="8" id="Eed-hE-a3r"/>
+                                                <constraint firstItem="p7v-AU-I6R" firstAttribute="top" secondItem="cli-X8-lxc" secondAttribute="topMargin" id="KNF-4a-wqI"/>
+                                                <constraint firstItem="p7v-AU-I6R" firstAttribute="trailing" secondItem="cli-X8-lxc" secondAttribute="trailingMargin" id="YOe-vs-bwS"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection id="1G8-iZ-x8y">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="50" id="cbJ-5y-mQt">
+                                        <rect key="frame" x="0.0" y="285" width="600" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cbJ-5y-mQt" id="TNn-St-hZl">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="49"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aTo-tH-WiR">
+                                                    <rect key="frame" x="16" y="8" width="576" height="33"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                </textField>
+                                            </subviews>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstItem="aTo-tH-WiR" firstAttribute="trailing" secondItem="TNn-St-hZl" secondAttribute="trailingMargin" id="2rT-0s-yOd"/>
+                                                <constraint firstItem="aTo-tH-WiR" firstAttribute="leading" secondItem="TNn-St-hZl" secondAttribute="leadingMargin" constant="8" id="9dc-px-m6U"/>
+                                                <constraint firstItem="aTo-tH-WiR" firstAttribute="bottom" secondItem="TNn-St-hZl" secondAttribute="bottomMargin" id="Vi5-JG-HL4"/>
+                                                <constraint firstItem="aTo-tH-WiR" firstAttribute="top" secondItem="TNn-St-hZl" secondAttribute="topMargin" id="Vja-P8-klG"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="50" id="x5v-pe-aDL">
+                                        <rect key="frame" x="0.0" y="335" width="600" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="x5v-pe-aDL" id="rBE-AY-0GC">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="49"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="k0i-at-8Za">
+                                                    <rect key="frame" x="16" y="8" width="576" height="33"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                </textField>
+                                            </subviews>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstItem="k0i-at-8Za" firstAttribute="bottom" secondItem="rBE-AY-0GC" secondAttribute="bottomMargin" id="0HH-u9-Jfm"/>
+                                                <constraint firstItem="k0i-at-8Za" firstAttribute="trailing" secondItem="rBE-AY-0GC" secondAttribute="trailingMargin" id="FV7-tj-VAX"/>
+                                                <constraint firstItem="k0i-at-8Za" firstAttribute="leading" secondItem="rBE-AY-0GC" secondAttribute="leadingMargin" constant="8" id="JAM-ui-DOg"/>
+                                                <constraint firstItem="k0i-at-8Za" firstAttribute="top" secondItem="rBE-AY-0GC" secondAttribute="topMargin" id="zmV-4I-8tQ"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection id="cZx-lb-kUM">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="50" id="fg4-JV-Exw">
+                                        <rect key="frame" x="0.0" y="421" width="600" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fg4-JV-Exw" id="77k-Z9-JZ1">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="49"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Property number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g3H-4M-6Rt">
+                                                    <rect key="frame" x="16" y="8" width="576" height="33"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                </textField>
+                                            </subviews>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstItem="g3H-4M-6Rt" firstAttribute="top" secondItem="77k-Z9-JZ1" secondAttribute="topMargin" id="CbE-O3-KLt"/>
+                                                <constraint firstItem="g3H-4M-6Rt" firstAttribute="trailing" secondItem="77k-Z9-JZ1" secondAttribute="trailingMargin" id="GnE-j9-MOg"/>
+                                                <constraint firstItem="g3H-4M-6Rt" firstAttribute="bottom" secondItem="77k-Z9-JZ1" secondAttribute="bottomMargin" id="e6X-Kx-MPw"/>
+                                                <constraint firstItem="g3H-4M-6Rt" firstAttribute="leading" secondItem="77k-Z9-JZ1" secondAttribute="leadingMargin" constant="8" id="iAN-5k-Gxe"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="50" id="1K9-VB-wyw">
+                                        <rect key="frame" x="0.0" y="471" width="600" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1K9-VB-wyw" id="qFc-0b-5Eg">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="49"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Property List number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tO4-9E-tOl">
+                                                    <rect key="frame" x="16" y="8" width="576" height="33"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                </textField>
+                                            </subviews>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstItem="tO4-9E-tOl" firstAttribute="bottom" secondItem="qFc-0b-5Eg" secondAttribute="bottomMargin" id="A31-9B-sFK"/>
+                                                <constraint firstItem="tO4-9E-tOl" firstAttribute="trailing" secondItem="qFc-0b-5Eg" secondAttribute="trailingMargin" id="FUR-Ct-SLb"/>
+                                                <constraint firstItem="tO4-9E-tOl" firstAttribute="leading" secondItem="qFc-0b-5Eg" secondAttribute="leadingMargin" constant="8" id="hED-mz-YWw"/>
+                                                <constraint firstItem="tO4-9E-tOl" firstAttribute="top" secondItem="qFc-0b-5Eg" secondAttribute="topMargin" id="svM-SN-23x"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="50" id="qnI-FI-lOn">
+                                        <rect key="frame" x="0.0" y="521" width="600" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qnI-FI-lOn" id="baR-hh-QGz">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="49"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Cadastre area number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TWj-Cb-FUl">
+                                                    <rect key="frame" x="16" y="8" width="576" height="33"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                                </textField>
+                                            </subviews>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstItem="TWj-Cb-FUl" firstAttribute="leading" secondItem="baR-hh-QGz" secondAttribute="leadingMargin" constant="8" id="40f-SO-CRo"/>
+                                                <constraint firstItem="TWj-Cb-FUl" firstAttribute="bottom" secondItem="baR-hh-QGz" secondAttribute="bottomMargin" id="HZt-5P-6tv"/>
+                                                <constraint firstItem="TWj-Cb-FUl" firstAttribute="top" secondItem="baR-hh-QGz" secondAttribute="topMargin" id="di7-Fi-wWq"/>
+                                                <constraint firstItem="TWj-Cb-FUl" firstAttribute="trailing" secondItem="baR-hh-QGz" secondAttribute="trailingMargin" id="rUc-li-Gml"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection id="DGj-Gy-C3u">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="50" id="2zP-fF-RNB">
+                                        <rect key="frame" x="0.0" y="607" width="600" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2zP-fF-RNB" id="WL6-y1-ume">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="49"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Property number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CW7-ce-ajK">
+                                                    <rect key="frame" x="16" y="8" width="576" height="33"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                </textField>
+                                            </subviews>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstItem="CW7-ce-ajK" firstAttribute="bottom" secondItem="WL6-y1-ume" secondAttribute="bottomMargin" id="JNr-Sb-bPL"/>
+                                                <constraint firstItem="CW7-ce-ajK" firstAttribute="trailing" secondItem="WL6-y1-ume" secondAttribute="trailingMargin" id="LNx-M8-xyl"/>
+                                                <constraint firstItem="CW7-ce-ajK" firstAttribute="leading" secondItem="WL6-y1-ume" secondAttribute="leadingMargin" constant="8" id="NMx-f2-U1o"/>
+                                                <constraint firstItem="CW7-ce-ajK" firstAttribute="top" secondItem="WL6-y1-ume" secondAttribute="topMargin" id="iwP-NS-6km"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="50" id="JsP-cq-rta">
+                                        <rect key="frame" x="0.0" y="657" width="600" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JsP-cq-rta" id="LzA-HE-WuS">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="49"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Cadastre area number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xyf-xM-NT9">
+                                                    <rect key="frame" x="16" y="8" width="576" height="33"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                </textField>
+                                            </subviews>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstItem="Xyf-xM-NT9" firstAttribute="bottom" secondItem="LzA-HE-WuS" secondAttribute="bottomMargin" id="AJA-Y3-jlE"/>
+                                                <constraint firstItem="Xyf-xM-NT9" firstAttribute="top" secondItem="LzA-HE-WuS" secondAttribute="topMargin" id="B7K-PM-qvI"/>
+                                                <constraint firstItem="Xyf-xM-NT9" firstAttribute="trailing" secondItem="LzA-HE-WuS" secondAttribute="trailingMargin" id="KuN-0Q-ZUv"/>
+                                                <constraint firstItem="Xyf-xM-NT9" firstAttribute="leading" secondItem="LzA-HE-WuS" secondAttribute="leadingMargin" constant="8" id="ofF-dz-8RS"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="88w-w9-U4N" id="emr-3T-SrB"/>
+                            <outlet property="delegate" destination="88w-w9-U4N" id="xyQ-gp-6PA"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="XCu-Th-qPA">
+                        <barButtonItem key="rightBarButtonItem" title="Add" id="5wZ-7W-L39">
+                            <connections>
+                                <action selector="add:" destination="88w-w9-U4N" id="Vhb-68-U8Z"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="citizenBirthNumberField" destination="ZY1-tD-r4E" id="f1q-Vq-b9I"/>
+                        <outlet property="citizenNameField" destination="yGL-g1-H0l" id="IP4-Hz-aSh"/>
+                        <outlet property="citizenSurnameField" destination="p7v-AU-I6R" id="s4t-ss-mIU"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jfi-4G-u3c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="792" y="628"/>
         </scene>
         <!--Property lists-->
         <scene sceneID="Fik-lx-7Iv">
             <objects>
-                <tableViewController id="pE5-zr-2XW" sceneMemberID="viewController">
+                <tableViewController id="pE5-zr-2XW" customClass="PropertyListController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="fT8-TN-qfk">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
                             <tableViewSection headerTitle="Search" id="5G4-KN-RoS">
-                                <mutableString key="footerTitle">4. Vyhľadanie listu vlastníctva podľa jeho čísla a čísla katastrálneho územia.6. Vyhľadanie listu vlastníctva podľa jeho čísla a názvu katastrálneho územia. Po nájdení listu vlastníctva je potrebné zobraziť všetky evidované údaje vrátane všetkých údajov o majiteľoch nehnuteľností zapísaných na liste vlastníctva (mená, priezviská, majetkové podiely...).</mutableString>
+                                <string key="footerTitle">4. Vyhľadanie listu vlastníctva podľa jeho čísla a čísla katastrálneho územia.
+6. Vyhľadanie listu vlastníctva podľa jeho čísla a názvu katastrálneho územia. Po nájdení listu vlastníctva je potrebné zobraziť všetky evidované údaje vrátane všetkých údajov o majiteľoch nehnuteľností zapísaných na liste vlastníctva (mená, priezviská, majetkové podiely...).</string>
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="tId-fA-2ze" style="IBUITableViewCellStyleDefault" id="w55-02-Uns">
                                         <rect key="frame" x="0.0" y="114" width="600" height="44"/>
@@ -374,7 +743,7 @@ názvom).</string>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -394,7 +763,7 @@ názvom).</string>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -418,18 +787,24 @@ názvom).</string>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <animations/>
                                         </tableViewCellContentView>
                                         <animations/>
+                                        <connections>
+                                            <segue destination="88w-w9-U4N" kind="show" id="CNo-2i-OKA"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="deletion" id="g5Q-Xn-Mqt">
-                                <mutableString key="footerTitle">13. Odstránenie majetkového podielu majiteľa (definovaný rodným číslom) z listu vlastníctva (definovaný číslom) v zadanom katastrálnom území (definované jehočíslom).19. Odstránenie listu vlastníctva (definovaný číslom) v zadanom katastrálnom území(definované jeho číslom). Nehnuteľnosti sa presunú na iný list vlastníctva.</mutableString>
+                                <string key="footerTitle">13. Odstránenie majetkového podielu majiteľa (definovaný rodným číslom) z listu vlastníctva (definovaný číslom) v zadanom katastrálnom území (definované jeho
+číslom).
+19. Odstránenie listu vlastníctva (definovaný číslom) v zadanom katastrálnom území
+(definované jeho číslom). Nehnuteľnosti sa presunú na iný list vlastníctva.</string>
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="hmX-mY-S6C" style="IBUITableViewCellStyleDefault" id="ZQo-hN-KIv">
                                         <rect key="frame" x="0.0" y="428" width="600" height="44"/>
@@ -443,7 +818,7 @@ názvom).</string>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -463,7 +838,7 @@ názvom).</string>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -474,7 +849,8 @@ názvom).</string>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="update" id="Id6-FK-ASe">
-                                <string key="footerTitle">12. Zapísanie majetkového podielu majiteľa (definovaný rodným číslom) na list vlastníctva(definovaný číslom) v zadanom katastrálnom území (definované jeho číslom)</string>
+                                <string key="footerTitle">12. Zapísanie majetkového podielu majiteľa (definovaný rodným číslom) na list vlastníctva
+(definovaný číslom) v zadanom katastrálnom území (definované jeho číslom)</string>
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="0Gi-j7-jjX" style="IBUITableViewCellStyleDefault" id="gGD-cB-Eum">
                                         <rect key="frame" x="0.0" y="647" width="600" height="44"/>
@@ -488,7 +864,7 @@ názvom).</string>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -508,17 +884,17 @@ názvom).</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c1c-yw-caS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="76" y="1835"/>
+            <point key="canvasLocation" x="76" y="1500"/>
         </scene>
         <!--Cadastre area-->
         <scene sceneID="QtS-zl-iAs">
             <objects>
-                <tableViewController id="1HW-i0-co2" sceneMemberID="viewController">
+                <tableViewController id="1HW-i0-co2" customClass="CadastreAreaController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="cQO-zy-nnS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
                             <tableViewSection headerTitle="List" footerTitle="14. Výpis všetkých katastrálnych území utriedených podľa ich názvov." id="Xj4-eM-add">
                                 <cells>
@@ -534,7 +910,7 @@ názvom).</string>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -558,13 +934,16 @@ názvom).</string>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <animations/>
                                         </tableViewCellContentView>
                                         <animations/>
+                                        <connections>
+                                            <segue destination="88w-w9-U4N" kind="show" identifier="addCadastreArea" id="Ird-c9-2Se"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -582,7 +961,7 @@ názvom).</string>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -643,7 +1022,7 @@ názvom).</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5wn-VO-I73" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-644" y="-701"/>
+            <point key="canvasLocation" x="-644" y="-526"/>
         </scene>
         <!--Properties-->
         <scene sceneID="Yna-cz-JdG">
@@ -663,7 +1042,7 @@ názvom).</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RKy-s5-PXJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-644" y="1003"/>
+            <point key="canvasLocation" x="-644" y="830"/>
         </scene>
         <!--Property lists-->
         <scene sceneID="qNQ-yH-bLJ">
@@ -683,7 +1062,7 @@ názvom).</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EmP-Ql-hkV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-644" y="1835"/>
+            <point key="canvasLocation" x="-644" y="1500"/>
         </scene>
         <!--Cadastre area-->
         <scene sceneID="Fy5-Kl-oOP">
@@ -706,4 +1085,7 @@ názvom).</string>
             <point key="canvasLocation" x="-644" y="152"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="wbQ-S6-oxL"/>
+    </inferredMetricsTieBreakers>
 </document>

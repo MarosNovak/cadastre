@@ -16,6 +16,16 @@
     return [[TreapNode alloc] initWithData:data];
 }
 
+- (id)initWithData:(id<BSNodeData>)data priority:(NSInteger)priority
+{
+    self = [super init];
+    if (self) {
+        self.data = data;
+        self.priority = priority;
+    }
+    return self;
+}
+
 - (id)initWithData:(id<BSNodeData>)data
 {
     self = [super init];

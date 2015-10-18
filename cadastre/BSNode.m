@@ -19,9 +19,22 @@
     return self;
 }
 
++ (BSNode *)nodeWithData:(id<BSNodeData>)data
+{
+    return [[BSNode alloc] initWithData:data];
+}
+
 - (NSComparisonResult)compare:(BSNode *)other
 {
     return [self.data compare:other.data];
+}
+
+- (BOOL)isLeaf
+{
+    if (self.rightChild || self.leftChild) {
+        return NO;
+    }
+    return YES;
 }
 
 @end

@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Owner.h"
+#import "Citizen.h"
 
 @interface Shareholding : NSObject
 
-@property (strong, nonatomic) Owner *owner;
+@property (strong, nonatomic) Citizen *owner;
 
 @end

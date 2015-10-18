@@ -9,21 +9,26 @@
 /* Begin PBXBuildFile section */
 		1E34EC2F1BC96D6100AE67D8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E34EC2E1BC96D6100AE67D8 /* main.m */; };
 		1E34EC321BC96D6100AE67D8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E34EC311BC96D6100AE67D8 /* AppDelegate.m */; };
-		1E34EC351BC96D6100AE67D8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E34EC341BC96D6100AE67D8 /* ViewController.m */; };
 		1E34EC381BC96D6100AE67D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E34EC361BC96D6100AE67D8 /* Main.storyboard */; };
 		1E34EC3A1BC96D6100AE67D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E34EC391BC96D6100AE67D8 /* Assets.xcassets */; };
+		1E5C847C1BD3EF1E00593B96 /* CitizenController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E5C847B1BD3EF1E00593B96 /* CitizenController.m */; settings = {ASSET_TAGS = (); }; };
+		1E5C847F1BD3EF3900593B96 /* PropertyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E5C847E1BD3EF3900593B96 /* PropertyController.m */; settings = {ASSET_TAGS = (); }; };
+		1E5C84821BD3EF6100593B96 /* CadastreAreaController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E5C84811BD3EF6100593B96 /* CadastreAreaController.m */; settings = {ASSET_TAGS = (); }; };
+		1E5C84851BD3EF7100593B96 /* PropertyListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E5C84841BD3EF7100593B96 /* PropertyListController.m */; settings = {ASSET_TAGS = (); }; };
+		1E5C84881BD3EFC200593B96 /* InsertionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E5C84871BD3EFC200593B96 /* InsertionController.m */; settings = {ASSET_TAGS = (); }; };
+		1E5C848F1BD4139100593B96 /* SearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E5C848E1BD4139100593B96 /* SearchController.m */; settings = {ASSET_TAGS = (); }; };
 		1EEBCDDD1BC9720D00809DC2 /* BSNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EEBCDCD1BC9720D00809DC2 /* BSNode.m */; settings = {ASSET_TAGS = (); }; };
 		1EEBCDDE1BC9720D00809DC2 /* BSTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EEBCDD01BC9720D00809DC2 /* BSTree.m */; settings = {ASSET_TAGS = (); }; };
 		1EEBCDDF1BC9720D00809DC2 /* LinkedList.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EEBCDD21BC9720D00809DC2 /* LinkedList.m */; settings = {ASSET_TAGS = (); }; };
 		1EEBCDE01BC9720D00809DC2 /* LLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EEBCDD41BC9720D00809DC2 /* LLNode.m */; settings = {ASSET_TAGS = (); }; };
-		1EEBCDE11BC9720D00809DC2 /* Owner.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EEBCDD61BC9720D00809DC2 /* Owner.m */; settings = {ASSET_TAGS = (); }; };
+		1EEBCDE11BC9720D00809DC2 /* Citizen.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EEBCDD61BC9720D00809DC2 /* Citizen.m */; settings = {ASSET_TAGS = (); }; };
 		1EEBCDE21BC9720D00809DC2 /* TestObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EEBCDD81BC9720D00809DC2 /* TestObject.m */; settings = {ASSET_TAGS = (); }; };
 		1EEBCDE31BC9720D00809DC2 /* Treap.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EEBCDDA1BC9720D00809DC2 /* Treap.m */; settings = {ASSET_TAGS = (); }; };
 		1EEBCDE41BC9720D00809DC2 /* TreapNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EEBCDDC1BC9720D00809DC2 /* TreapNode.m */; settings = {ASSET_TAGS = (); }; };
 		1EEBCDEC1BC97A0B00809DC2 /* Property.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EEBCDEB1BC97A0B00809DC2 /* Property.m */; settings = {ASSET_TAGS = (); }; };
 		1EEBCDEF1BC97A6400809DC2 /* CadastreArea.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EEBCDEE1BC97A6400809DC2 /* CadastreArea.m */; settings = {ASSET_TAGS = (); }; };
 		1EEBCDF21BC97A8200809DC2 /* Cadastre.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EEBCDF11BC97A8200809DC2 /* Cadastre.m */; settings = {ASSET_TAGS = (); }; };
-		1EEBCDF51BC97A9300809DC2 /* Ownership.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EEBCDF41BC97A9300809DC2 /* Ownership.m */; settings = {ASSET_TAGS = (); }; };
+		1EEBCDF51BC97A9300809DC2 /* Shareholding.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EEBCDF41BC97A9300809DC2 /* Shareholding.m */; settings = {ASSET_TAGS = (); }; };
 		1EEBCDF81BC97AAF00809DC2 /* PropertyList.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EEBCDF71BC97AAF00809DC2 /* PropertyList.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
@@ -32,11 +37,21 @@
 		1E34EC2E1BC96D6100AE67D8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1E34EC301BC96D6100AE67D8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1E34EC311BC96D6100AE67D8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		1E34EC331BC96D6100AE67D8 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		1E34EC341BC96D6100AE67D8 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		1E34EC371BC96D6100AE67D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1E34EC391BC96D6100AE67D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1E34EC3E1BC96D6100AE67D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1E5C847A1BD3EF1E00593B96 /* CitizenController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CitizenController.h; sourceTree = "<group>"; };
+		1E5C847B1BD3EF1E00593B96 /* CitizenController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CitizenController.m; sourceTree = "<group>"; };
+		1E5C847D1BD3EF3900593B96 /* PropertyController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PropertyController.h; sourceTree = "<group>"; };
+		1E5C847E1BD3EF3900593B96 /* PropertyController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PropertyController.m; sourceTree = "<group>"; };
+		1E5C84801BD3EF6100593B96 /* CadastreAreaController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CadastreAreaController.h; sourceTree = "<group>"; };
+		1E5C84811BD3EF6100593B96 /* CadastreAreaController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CadastreAreaController.m; sourceTree = "<group>"; };
+		1E5C84831BD3EF7100593B96 /* PropertyListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PropertyListController.h; sourceTree = "<group>"; };
+		1E5C84841BD3EF7100593B96 /* PropertyListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PropertyListController.m; sourceTree = "<group>"; };
+		1E5C84861BD3EFC200593B96 /* InsertionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InsertionController.h; sourceTree = "<group>"; };
+		1E5C84871BD3EFC200593B96 /* InsertionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InsertionController.m; sourceTree = "<group>"; };
+		1E5C848D1BD4139100593B96 /* SearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchController.h; sourceTree = "<group>"; };
+		1E5C848E1BD4139100593B96 /* SearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchController.m; sourceTree = "<group>"; };
 		1EEBCDCC1BC9720D00809DC2 /* BSNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSNode.h; sourceTree = "<group>"; };
 		1EEBCDCD1BC9720D00809DC2 /* BSNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSNode.m; sourceTree = "<group>"; };
 		1EEBCDCE1BC9720D00809DC2 /* BSNodeData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSNodeData.h; sourceTree = "<group>"; };
@@ -46,8 +61,8 @@
 		1EEBCDD21BC9720D00809DC2 /* LinkedList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinkedList.m; sourceTree = "<group>"; };
 		1EEBCDD31BC9720D00809DC2 /* LLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLNode.h; sourceTree = "<group>"; };
 		1EEBCDD41BC9720D00809DC2 /* LLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLNode.m; sourceTree = "<group>"; };
-		1EEBCDD51BC9720D00809DC2 /* Owner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Owner.h; sourceTree = "<group>"; };
-		1EEBCDD61BC9720D00809DC2 /* Owner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Owner.m; sourceTree = "<group>"; };
+		1EEBCDD51BC9720D00809DC2 /* Citizen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Citizen.h; sourceTree = "<group>"; };
+		1EEBCDD61BC9720D00809DC2 /* Citizen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Citizen.m; sourceTree = "<group>"; };
 		1EEBCDD71BC9720D00809DC2 /* TestObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestObject.h; sourceTree = "<group>"; };
 		1EEBCDD81BC9720D00809DC2 /* TestObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestObject.m; sourceTree = "<group>"; };
 		1EEBCDD91BC9720D00809DC2 /* Treap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Treap.h; sourceTree = "<group>"; };
@@ -60,8 +75,8 @@
 		1EEBCDEE1BC97A6400809DC2 /* CadastreArea.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CadastreArea.m; sourceTree = "<group>"; };
 		1EEBCDF01BC97A8200809DC2 /* Cadastre.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cadastre.h; sourceTree = "<group>"; };
 		1EEBCDF11BC97A8200809DC2 /* Cadastre.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cadastre.m; sourceTree = "<group>"; };
-		1EEBCDF31BC97A9300809DC2 /* Ownership.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ownership.h; sourceTree = "<group>"; };
-		1EEBCDF41BC97A9300809DC2 /* Ownership.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ownership.m; sourceTree = "<group>"; };
+		1EEBCDF31BC97A9300809DC2 /* Shareholding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shareholding.h; sourceTree = "<group>"; };
+		1EEBCDF41BC97A9300809DC2 /* Shareholding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shareholding.m; sourceTree = "<group>"; };
 		1EEBCDF61BC97AAF00809DC2 /* PropertyList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PropertyList.h; sourceTree = "<group>"; };
 		1EEBCDF71BC97AAF00809DC2 /* PropertyList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PropertyList.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -127,8 +142,14 @@
 		1E34EC451BC9704200AE67D8 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				1E34EC331BC96D6100AE67D8 /* ViewController.h */,
-				1E34EC341BC96D6100AE67D8 /* ViewController.m */,
+				1E5C848D1BD4139100593B96 /* SearchController.h */,
+				1E5C848E1BD4139100593B96 /* SearchController.m */,
+				1E5C848C1BD3EFE100593B96 /* Citizen */,
+				1E5C848A1BD3EFCE00593B96 /* Cadastre area */,
+				1E5C84891BD3EFC700593B96 /* Property */,
+				1E5C848B1BD3EFD500593B96 /* Property List */,
+				1E5C84861BD3EFC200593B96 /* InsertionController.h */,
+				1E5C84871BD3EFC200593B96 /* InsertionController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -140,6 +161,42 @@
 				1E34EC391BC96D6100AE67D8 /* Assets.xcassets */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		1E5C84891BD3EFC700593B96 /* Property */ = {
+			isa = PBXGroup;
+			children = (
+				1E5C847D1BD3EF3900593B96 /* PropertyController.h */,
+				1E5C847E1BD3EF3900593B96 /* PropertyController.m */,
+			);
+			name = Property;
+			sourceTree = "<group>";
+		};
+		1E5C848A1BD3EFCE00593B96 /* Cadastre area */ = {
+			isa = PBXGroup;
+			children = (
+				1E5C84801BD3EF6100593B96 /* CadastreAreaController.h */,
+				1E5C84811BD3EF6100593B96 /* CadastreAreaController.m */,
+			);
+			name = "Cadastre area";
+			sourceTree = "<group>";
+		};
+		1E5C848B1BD3EFD500593B96 /* Property List */ = {
+			isa = PBXGroup;
+			children = (
+				1E5C84831BD3EF7100593B96 /* PropertyListController.h */,
+				1E5C84841BD3EF7100593B96 /* PropertyListController.m */,
+			);
+			name = "Property List";
+			sourceTree = "<group>";
+		};
+		1E5C848C1BD3EFE100593B96 /* Citizen */ = {
+			isa = PBXGroup;
+			children = (
+				1E5C847A1BD3EF1E00593B96 /* CitizenController.h */,
+				1E5C847B1BD3EF1E00593B96 /* CitizenController.m */,
+			);
+			name = Citizen;
 			sourceTree = "<group>";
 		};
 		1EEBCDE51BC9724E00809DC2 /* Treap */ = {
@@ -160,12 +217,12 @@
 			children = (
 				1EEBCDF01BC97A8200809DC2 /* Cadastre.h */,
 				1EEBCDF11BC97A8200809DC2 /* Cadastre.m */,
-				1EEBCDD51BC9720D00809DC2 /* Owner.h */,
-				1EEBCDD61BC9720D00809DC2 /* Owner.m */,
+				1EEBCDD51BC9720D00809DC2 /* Citizen.h */,
+				1EEBCDD61BC9720D00809DC2 /* Citizen.m */,
 				1EEBCDED1BC97A6400809DC2 /* CadastreArea.h */,
 				1EEBCDEE1BC97A6400809DC2 /* CadastreArea.m */,
-				1EEBCDF31BC97A9300809DC2 /* Ownership.h */,
-				1EEBCDF41BC97A9300809DC2 /* Ownership.m */,
+				1EEBCDF31BC97A9300809DC2 /* Shareholding.h */,
+				1EEBCDF41BC97A9300809DC2 /* Shareholding.m */,
 				1EEBCDF61BC97AAF00809DC2 /* PropertyList.h */,
 				1EEBCDF71BC97AAF00809DC2 /* PropertyList.m */,
 				1EEBCDEA1BC97A0B00809DC2 /* Property.h */,
@@ -277,20 +334,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				1EEBCDE41BC9720D00809DC2 /* TreapNode.m in Sources */,
+				1E5C84821BD3EF6100593B96 /* CadastreAreaController.m in Sources */,
 				1EEBCDEF1BC97A6400809DC2 /* CadastreArea.m in Sources */,
+				1E5C848F1BD4139100593B96 /* SearchController.m in Sources */,
 				1EEBCDE31BC9720D00809DC2 /* Treap.m in Sources */,
 				1EEBCDEC1BC97A0B00809DC2 /* Property.m in Sources */,
-				1EEBCDF51BC97A9300809DC2 /* Ownership.m in Sources */,
+				1EEBCDF51BC97A9300809DC2 /* Shareholding.m in Sources */,
 				1EEBCDDF1BC9720D00809DC2 /* LinkedList.m in Sources */,
+				1E5C84881BD3EFC200593B96 /* InsertionController.m in Sources */,
 				1EEBCDDE1BC9720D00809DC2 /* BSTree.m in Sources */,
-				1E34EC351BC96D6100AE67D8 /* ViewController.m in Sources */,
+				1E5C847F1BD3EF3900593B96 /* PropertyController.m in Sources */,
 				1EEBCDE01BC9720D00809DC2 /* LLNode.m in Sources */,
 				1E34EC321BC96D6100AE67D8 /* AppDelegate.m in Sources */,
 				1EEBCDF81BC97AAF00809DC2 /* PropertyList.m in Sources */,
-				1EEBCDE11BC9720D00809DC2 /* Owner.m in Sources */,
+				1E5C847C1BD3EF1E00593B96 /* CitizenController.m in Sources */,
+				1EEBCDE11BC9720D00809DC2 /* Citizen.m in Sources */,
 				1EEBCDDD1BC9720D00809DC2 /* BSNode.m in Sources */,
 				1EEBCDE21BC9720D00809DC2 /* TestObject.m in Sources */,
 				1EEBCDF21BC97A8200809DC2 /* Cadastre.m in Sources */,
+				1E5C84851BD3EF7100593B96 /* PropertyListController.m in Sources */,
 				1E34EC2F1BC96D6100AE67D8 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

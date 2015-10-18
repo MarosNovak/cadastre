@@ -18,6 +18,12 @@
     return self;
 }
 
+- (BOOL)addObject:(id<BSNodeData>)object;
+{
+    BSNode *node = [[BSNode alloc] initWithData:object];
+    return [self add:node];
+}
+
 - (BOOL)add:(BSNode *)node
 {
     if (!self.root) {
@@ -162,6 +168,46 @@
     } else return nil;
 }
 
+- (BOOL)removeObject:(id<BSNodeData>)object
+{
+    BSNode *nodeToRemove = [self findNodeWithData:object];
+    if (nodeToRemove) {
+        return [self remove:nodeToRemove];
+    } else {
+        return NO;
+    }
+}
+
+- (BSNode *)findNodeWithData:(id<BSNodeData>)data
+{
+    BSNode *node = [BSNode nodeWithData:data];
+    BSNode *actual = self.root;
+    
+    do {
+        if (!actual) {
+            NSLog(@"Node not found");
+            return nil;
+        }
+        
+        if ([actual compare:node] > 0) {
+            actual = actual.leftChild;
+        }
+        else if ([actual compare:node] < 0) {
+            actual = actual.rightChild;
+        }
+        else {
+            return actual;
+        }
+    } while (YES);
+}
+
+- (id<BSNodeData>)findObject:(id<BSNodeData>)object;
+{
+    BSNode *node = [[BSNode alloc] initWithData:object];
+    
+    return [self find:node].data;
+}
+
 - (BSNode *)find:(BSNode *)node
 {
     BSNode *actual = self.root;
@@ -180,6 +226,22 @@
             return actual;
         }
     } while (YES);
+}
+
+- (NSUInteger)count
+{
+    return [self countNode:self.root];
+}
+
+- (NSUInteger)countNode:(BSNode *)node
+{
+    if (!node) return 0;
+    
+    NSUInteger count = 1;
+    if (node.leftChild) count += [self countNode:node.leftChild];
+    if (node.rightChild) count += [self countNode:node.rightChild];
+    
+    return count;
 }
 
 @end

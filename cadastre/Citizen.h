@@ -17,8 +17,14 @@
 
 @property (strong, nonatomic) NSMutableArray *propertyLists;
 
-- (Citizen *)itemWithBirthNumber:(NSString *)birthNumber
-                          name:(NSString *)name
-                       surname:(NSString *)surname;
+- (id)initWithBirthNumber:(NSString *)birthNumber
+                     name:(NSString *)name
+                  surname:(NSString *)surname;
+
++ (Citizen *)citizenWithBirthNumber:(NSString *)birthNumber;
+
++ (Citizen *)citizenWithBirthNumber:(NSString *)birthNumber
+                               name:(NSString *)name
+                            surname:(NSString *)surname;
 
 @end

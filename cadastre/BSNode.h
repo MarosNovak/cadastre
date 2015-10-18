@@ -19,6 +19,10 @@
 
 - (id)initWithData:(id<BSNodeData>)data;
 
++ (BSNode *)nodeWithData:(id<BSNodeData>)data;
+
 - (NSComparisonResult)compare:(BSNode *)other;
+
+- (BOOL)isLeaf;
 
 @end
