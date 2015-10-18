@@ -23,4 +23,8 @@
 
 - (Citizen *)citizenByBirthNumber:(NSString *)birthNumber;
 
+- (NSArray *)cadastreAreas;
+
+- (BOOL)removeCitizenByBirthNumber:(NSString *)birthNumber;
+
 @end

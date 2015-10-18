@@ -69,6 +69,16 @@
     return (Citizen *)[self.citizens findObject:[Citizen citizenWithBirthNumber:birthNumber]];
 }
 
+- (NSArray *)cadastreAreas
+{
+    return [self.areasByName levelOrderTraversal];
+}
+
 #pragma mark - Deletions
+
+- (BOOL)removeCitizenByBirthNumber:(NSString *)birthNumber
+{
+    return [self.citizens removeObject:[Citizen citizenWithBirthNumber:birthNumber]];
+}
 
 @end

@@ -14,4 +14,6 @@
 + (void)generateTest;
 + (void)removeTest;
 
+- (NSArray *)levelOrderTraversal;
+
 @end

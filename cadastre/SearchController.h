@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+typedef enum : NSUInteger {
+    SearchTypeCitizensByBirthNumber,
+    SearchTypeNone,
+} SearchType;
+
 @interface SearchController : UITableViewController
+
+@property (nonatomic) SearchType searchType;
 
 @end

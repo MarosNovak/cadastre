@@ -187,6 +187,7 @@
         }
     } else {
         self.root = nil;
+        return YES;
     }
     return NO;
 }
@@ -211,7 +212,7 @@
         if (leftChild) [stack addObject:leftChild];
         if (rightChild) [stack addObject:rightChild];
         
-        [levelOrderArray addObject:current];
+        [levelOrderArray addObject:current.data];
         
         [stack removeObjectAtIndex:0];
     }

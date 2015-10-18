@@ -7,6 +7,7 @@
 //
 
 #import "CadastreAreaController.h"
+#import "SearchController.h"
 #import "Cadastre.h"
 
 @interface CadastreAreaController () <UITextFieldDelegate>
@@ -36,6 +37,7 @@
 {
     NSString *number = self.cadastreAreaNumberField.text;
     NSString *name = self.cadastreAreaNameField.text;
+    
     [[Cadastre sharedCadastre] addCadastreAreaWithNumber:[number integerValue] name:name];
     
     [self clearFields];
@@ -45,6 +47,14 @@
 {
     self.cadastreAreaNumberField.text = nil;
     self.cadastreAreaNameField.text = nil;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    SearchController *searchVC = segue.destinationViewController;
+    if ([segue.identifier isEqualToString:@"showList"]) {
+        searchVC.searchType = SearchTypeNone;
+    }
 }
 
 @end
