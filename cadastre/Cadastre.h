@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "Treap.h"
 #import "Citizen.h"
+#import "CadastreArea.h"
 
 @interface Cadastre : NSObject
 
@@ -22,6 +23,8 @@
                              name:(NSString *)name;
 
 - (Citizen *)citizenByBirthNumber:(NSString *)birthNumber;
+
+- (CadastreArea *)areaByNumber:(NSNumber *)number;
 
 - (NSArray *)cadastreAreas;
 

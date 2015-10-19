@@ -35,6 +35,8 @@
 
     switch (self.searchType) {
         case SearchTypeNone:
+            self.searchBar.hidden = YES;
+            [self.searchBar resignFirstResponder];
             self.result = [[Cadastre sharedCadastre] cadastreAreas];
         default:
             break;

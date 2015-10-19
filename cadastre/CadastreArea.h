@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "BSNodeData.h"
+#import "PropertyList.h"
 
 @interface CadastreArea : NSObject <BSNodeData>
 
@@ -16,5 +17,9 @@
 
 + (CadastreArea *)areaWithName:(NSString *)name
                         number:(NSNumber *)number;
+
++ (CadastreArea *)areaWithNumber:(NSNumber *)number;
+
+- (BOOL)addPropertyListWithNumber:(NSNumber *)number;
 
 @end

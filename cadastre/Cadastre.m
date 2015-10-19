@@ -7,8 +7,6 @@
 //
 
 #import "Cadastre.h"
-#import "Citizen.h"
-#import "CadastreArea.h"
 #import "CadastreAreaNodeByName.h"
 #import "CadastreAreaNodeByNumber.h"
 
@@ -67,6 +65,12 @@
 - (Citizen *)citizenByBirthNumber:(NSString *)birthNumber
 {
     return (Citizen *)[self.citizens findObject:[Citizen citizenWithBirthNumber:birthNumber]];
+}
+
+- (CadastreArea *)areaByNumber:(NSNumber *)number
+{
+    CadastreArea *area = [CadastreArea areaWithNumber:number];
+    return (CadastreArea *)[self.areasByNumber findObject:area];
 }
 
 - (NSArray *)cadastreAreas

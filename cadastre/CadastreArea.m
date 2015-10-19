@@ -36,9 +36,20 @@
     return [[CadastreArea alloc] initWithNumber:number name:name];
 }
 
++ (CadastreArea *)areaWithNumber:(NSNumber *)number
+{
+    return [[CadastreArea alloc] initWithNumber:number name:nil];
+}
+
 - (NSComparisonResult)compare:(id)other
 {
     return [self.number compare:((CadastreArea *)other).number];
+}
+
+- (BOOL)addPropertyListWithNumber:(NSNumber*)number
+{
+    PropertyList *list = [[PropertyList alloc] initWithNumber:number cadastreArea:self];
+    return [self.propertyLists addObject:list];
 }
 
 @end
