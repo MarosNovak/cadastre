@@ -49,4 +49,9 @@
     return [NSString stringWithFormat:@"%@ %@", self.name, self.surname];
 }
 
+- (NSString *)CSVString
+{
+    return [NSString stringWithFormat:@"%@,%@,%@\n",self.birthNumber,self.name, self.surname];
+}
+
 @end

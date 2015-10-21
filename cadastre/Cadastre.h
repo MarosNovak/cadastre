@@ -11,6 +11,9 @@
 #import "Citizen.h"
 #import "CadastreArea.h"
 
+#define kHomeDirectory      @"Documents"
+#define kCitizensCSVFile    @"citizens.csv"
+
 @interface Cadastre : NSObject
 
 + (Cadastre *)sharedCadastre;
@@ -29,5 +32,8 @@
 - (NSArray *)cadastreAreas;
 
 - (BOOL)removeCitizenByBirthNumber:(NSString *)birthNumber;
+
+- (void)exportToCSV;
+- (BOOL)importFromCSV;
 
 @end

@@ -11,11 +11,11 @@
 
 @interface TreapNode : BSNode
 
+@property (nonatomic) NSInteger priority;
+
 + (TreapNode *)nodeWithData:(id<BSNodeData>)data;
 
 - (id)initWithData:(id<BSNodeData>)data priority:(NSInteger)priority;
-
-@property (nonatomic) NSInteger priority;
 
 - (NSString *)values;
 

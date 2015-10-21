@@ -10,6 +10,8 @@
 
 @implementation BSTree
 
+#pragma mark - Initializations
+
 - (instancetype)initWithFirstObject:(id <BSNodeData>)object
 {
     if (self == [super init]) {
@@ -17,6 +19,8 @@
     }
     return self;
 }
+
+#pragma mark - Insert
 
 - (BOOL)addObject:(id<BSNodeData>)object;
 {
@@ -53,6 +57,18 @@
             }
         }
     } while (YES);
+}
+
+#pragma mark - Delete
+
+- (BOOL)removeObject:(id<BSNodeData>)object
+{
+    BSNode *nodeToRemove = [self findNodeWithData:object];
+    if (nodeToRemove) {
+        return [self remove:nodeToRemove];
+    } else {
+        return NO;
+    }
 }
 
 - (BOOL)remove:(BSNode *)node
@@ -99,6 +115,61 @@
     
     return NO;
 }
+
+#pragma mark - Find
+
+- (id<BSNodeData>)findObject:(id<BSNodeData>)object;
+{
+    BSNode *node = [[BSNode alloc] initWithData:object];
+    
+    return [self find:node].data;
+}
+
+- (BSNode *)findNodeWithData:(id<BSNodeData>)data
+{
+    BSNode *node = [BSNode nodeWithData:data];
+    BSNode *actual = self.root;
+    
+    do {
+        if (!actual) {
+            NSLog(@"Node not found");
+            return nil;
+        }
+        
+        if ([actual compare:node] > 0) {
+            actual = actual.leftChild;
+        }
+        else if ([actual compare:node] < 0) {
+            actual = actual.rightChild;
+        }
+        else {
+            return actual;
+        }
+    } while (YES);
+}
+
+- (BSNode *)find:(BSNode *)node
+{
+    BSNode *actual = self.root;
+    
+    do {
+        if (!actual) {
+            NSLog(@"Node not found");
+            return nil;
+        }
+        if ([actual compare:node] > 0) {
+            actual = actual.leftChild;
+        } else if ([actual compare:node] < 0) {
+            actual = actual.rightChild;
+        } else {
+            NSLog(@"Node found");
+            return actual;
+        }
+    } while (YES);
+}
+
+
+#pragma mark - Private methods
 
 - (BSNode *)findParent:(BSNode *)node
 {
@@ -168,71 +239,14 @@
     } else return nil;
 }
 
-- (BOOL)removeObject:(id<BSNodeData>)object
-{
-    BSNode *nodeToRemove = [self findNodeWithData:object];
-    if (nodeToRemove) {
-        return [self remove:nodeToRemove];
-    } else {
-        return NO;
-    }
-}
-
-- (BSNode *)findNodeWithData:(id<BSNodeData>)data
-{
-    BSNode *node = [BSNode nodeWithData:data];
-    BSNode *actual = self.root;
-    
-    do {
-        if (!actual) {
-            NSLog(@"Node not found");
-            return nil;
-        }
-        
-        if ([actual compare:node] > 0) {
-            actual = actual.leftChild;
-        }
-        else if ([actual compare:node] < 0) {
-            actual = actual.rightChild;
-        }
-        else {
-            return actual;
-        }
-    } while (YES);
-}
-
-- (id<BSNodeData>)findObject:(id<BSNodeData>)object;
-{
-    BSNode *node = [[BSNode alloc] initWithData:object];
-    
-    return [self find:node].data;
-}
-
-- (BSNode *)find:(BSNode *)node
-{
-    BSNode *actual = self.root;
-    
-    do {
-        if (!actual) {
-            NSLog(@"Node not found");
-            return nil;
-        }
-        if ([actual compare:node] > 0) {
-            actual = actual.leftChild;
-        } else if ([actual compare:node] < 0) {
-            actual = actual.rightChild;
-        } else {
-            NSLog(@"Node found");
-            return actual;
-        }
-    } while (YES);
-}
+#pragma mark - Misc
 
 - (NSUInteger)count
 {
     return [self countNode:self.root];
 }
 
+#warning rekurziu odstranit
 - (NSUInteger)countNode:(BSNode *)node
 {
     if (!node) return 0;
@@ -242,6 +256,44 @@
     if (node.rightChild) count += [self countNode:node.rightChild];
     
     return count;
+}
+
+#pragma mark - CSV
+
+- (void)exportToCSV:(NSString *)file
+{
+    NSString *directory = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
+    NSString *path = [directory stringByAppendingPathComponent:file];
+    NSOutputStream *outputStream = [NSOutputStream outputStreamToFileAtPath:path append:YES];
+    
+    [outputStream open];
+    
+    NSMutableArray *stack = [NSMutableArray array];
+    if (self.root) {
+        [stack addObject:self.root];
+    }
+    
+    BSNode *current;
+    BSNode *leftChild;
+    BSNode *rightChild;
+    
+    while (stack.count > 0) {
+        current = [stack objectAtIndex:0];
+        leftChild = current.leftChild;
+        rightChild = current.rightChild;
+        
+        if (leftChild) [stack addObject:leftChild];
+        if (rightChild) [stack addObject:rightChild];
+
+        NSString *stringToWrite = [current.data CSVString];
+        const uint8_t *convertedString = (const uint8_t *)stringToWrite.UTF8String;
+        
+        [outputStream write:convertedString maxLength:stringToWrite.length];
+        
+        [stack removeObjectAtIndex:0];
+    }
+    
+    [outputStream close];
 }
 
 @end

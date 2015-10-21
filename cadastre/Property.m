@@ -10,4 +10,20 @@
 
 @implementation Property
 
+//+ (Property *)propertyWithCadastreArea:(CadastreArea *)area
+//{
+//    return [[Property alloc] initWithNumber:[NSNumber numberWithInteger:propertyListNumber++]
+//                               cadastreArea:area];
+//}
+//
+//- (id)initWithNumber:(NSNumber *)number
+//        cadastreArea:(CadastreArea *)area
+//{
+//    if (self == [super init]) {
+//        _number = number;
+//        _area = area;
+//    }
+//    return self;
+//}
+
 @end

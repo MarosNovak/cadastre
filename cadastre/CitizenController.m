@@ -57,4 +57,15 @@
     self.surnameField.text = nil;
 }
 
+#warning pridat feedback do ui
+- (IBAction)save:(id)sender
+{
+    [[Cadastre sharedCadastre] exportToCSV];
+}
+
+- (IBAction)load:(id)sender
+{
+    [[Cadastre sharedCadastre] importFromCSV];
+}
+
 @end

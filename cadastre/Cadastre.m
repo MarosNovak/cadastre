@@ -9,6 +9,7 @@
 #import "Cadastre.h"
 #import "CadastreAreaNodeByName.h"
 #import "CadastreAreaNodeByNumber.h"
+#import "CSVLoader.h"
 
 @interface Cadastre ()
 
@@ -51,10 +52,10 @@
 {
     CadastreArea *newArea = [CadastreArea areaWithName:name number:[NSNumber numberWithInteger:number]];
     
-    BOOL added = [self.areasByName add:[CadastreAreaNodeByName nodeWithData:newArea]];
-    if (added) {
-        added = [self.areasByNumber add:[CadastreAreaNodeByNumber nodeWithData:newArea]];
-        if (added) return YES;
+    BOOL success = [self.areasByName add:[CadastreAreaNodeByName nodeWithData:newArea]];
+    if (success) {
+        success = [self.areasByNumber add:[CadastreAreaNodeByNumber nodeWithData:newArea]];
+        if (success) return YES;
         else [self.areasByName remove:[CadastreAreaNodeByName nodeWithData:newArea]];
     }
     return NO;
@@ -83,6 +84,40 @@
 - (BOOL)removeCitizenByBirthNumber:(NSString *)birthNumber
 {
     return [self.citizens removeObject:[Citizen citizenWithBirthNumber:birthNumber]];
+}
+
+- (void)exportToCSV
+{
+    [self removeCSVFiles];
+    
+    [self.citizens exportToCSV:kCitizensCSVFile];
+}
+
+- (void)removeCSVFiles
+{
+    NSError *error;
+    NSFileManager *fileMgr = [NSFileManager defaultManager];
+    NSString *documentsDirectory = [NSHomeDirectory() stringByAppendingPathComponent:kHomeDirectory];
+    
+    NSString *path = [documentsDirectory stringByAppendingPathComponent:kCitizensCSVFile];
+    [fileMgr removeItemAtPath:path error:&error];
+//    
+//    path = [documentsDirectory stringByAppendingPathComponent:@"areas.csv"];
+//    [fileMgr removeItemAtPath:path error:&error];
+//    
+//    path = [documentsDirectory stringByAppendingPathComponent:@"ownership.csv"];
+//    [fileMgr removeItemAtPath:path error:&error];
+//    
+//    path = [documentsDirectory stringByAppendingPathComponent:@"propertyLists.csv"];
+//    [fileMgr removeItemAtPath:path error:&error];
+//    
+//    path = [documentsDirectory stringByAppendingPathComponent:@"properties.csv"];
+//    [fileMgr removeItemAtPath:path error:&error];
+}
+
+- (BOOL)importFromCSV
+{
+    return [CSVLoader loadCitizens];
 }
 
 @end
