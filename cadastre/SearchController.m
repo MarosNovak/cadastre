@@ -10,6 +10,7 @@
 #import "Cadastre.h"
 #import "CadastreArea.h"
 #import "CitizenDetailController.h"
+#import "CadastreAreaDetailController.h"
 
 @interface SearchController () <UISearchBarDelegate>
 
@@ -100,9 +101,20 @@
             Citizen *citizen = (Citizen *)self.result;
             [self performSegueWithIdentifier:@"showCitizen" sender:citizen];
         }
-            break;
+//        case SearchTypeCadastreAreaByName: {
+//            CadastreArea *area = (CadastreArea *)self.result;
+//            [self performSegueWithIdentifier:@"showCitizen" sender:area];
+//        }
+//        case SearchTypeNone: {
+//            CadastreArea *area = (CadastreArea *)self.result;
+//            [self performSegueWithIdentifier:@"showCitizen" sender:area];
+//        }
+//            break;
             
-        default:
+        default: {
+            CadastreArea *area = (CadastreArea *)self.result[0];
+            [self performSegueWithIdentifier:@"showArea" sender:area];
+        }
             break;
     }
 }
@@ -129,6 +141,11 @@
         CitizenDetailController *citizenVC = segue.destinationViewController;
         
         citizenVC.citizen = sender;
+    }
+    if ([segue.identifier isEqualToString:@"showArea"]) {
+        CadastreAreaDetailController *areaVC = segue.destinationViewController;
+        
+        areaVC.area = sender;
     }
 }
 

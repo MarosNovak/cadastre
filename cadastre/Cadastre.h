@@ -25,6 +25,10 @@
 - (BOOL)addCadastreAreaWithNumber:(NSInteger)number
                              name:(NSString *)name;
 
+- (BOOL)setShareholdingToCitizen:(NSString *)birthNumber
+                  toPropertyList:(NSNumber *)propertyListNumber
+                  inCadastreArea:(NSNumber *)cadastreAreaNumber;
+
 - (Citizen *)citizenByBirthNumber:(NSString *)birthNumber;
 
 - (CadastreArea *)areaByNumber:(NSNumber *)number;

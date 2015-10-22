@@ -12,5 +12,8 @@
 @interface Shareholding : NSObject
 
 @property (strong, nonatomic) Citizen *owner;
+@property (strong, nonatomic) NSNumber *share;
+
++ (Shareholding *)shareholdingWithOwner:(Citizen *)owner share:(NSNumber *)share;
 
 @end

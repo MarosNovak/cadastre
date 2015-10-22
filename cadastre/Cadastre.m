@@ -61,6 +61,23 @@
     return NO;
 }
 
+- (BOOL)setShareholdingToCitizen:(NSString *)birthNumber
+                  toPropertyList:(NSNumber *)propertyListNumber
+                  inCadastreArea:(NSNumber *)cadastreAreaNumber
+{
+    CadastreArea *area = [self areaByNumber:cadastreAreaNumber];
+    if (area) {
+        Citizen *citizen = [self citizenByBirthNumber:birthNumber];
+        if (citizen) {
+            PropertyList *list = [area propertyListByNumber:propertyListNumber];
+            if (list) {
+                return [list addOwnerWithEqualShare:citizen];
+            }
+        }
+    }
+    return NO;
+}
+
 #pragma mark - Fetches
 
 - (Citizen *)citizenByBirthNumber:(NSString *)birthNumber

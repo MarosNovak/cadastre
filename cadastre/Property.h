@@ -8,13 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
-@class CadastreArea;
+@class CadastreArea, PropertyList;
 
 @interface Property : NSObject
 
 @property (strong, nonatomic) NSNumber *number;
 @property (strong, nonatomic) NSString *address;
+@property (strong, nonatomic) NSString *desc;
 
 @property (strong, nonatomic) CadastreArea *area;
+@property (strong, nonatomic) PropertyList *propertyList;
 
 @end

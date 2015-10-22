@@ -20,6 +20,10 @@
 
 + (CadastreArea *)areaWithNumber:(NSNumber *)number;
 
+- (BOOL)addProperty:(Property *)property;
+
 - (BOOL)addPropertyListWithNumber:(NSNumber *)number;
+
+- (PropertyList *)propertyListByNumber:(NSNumber *)number;
 
 @end

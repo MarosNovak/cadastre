@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CadastreArea.h"
 
 @interface CadastreAreaDetailController : UITableViewController
+
+@property (strong, nonatomic) CadastreArea *area;
 
 @end

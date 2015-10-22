@@ -24,8 +24,10 @@
 
 - (id)initWithNumber:(NSNumber *)number cadastreArea:(CadastreArea *)area;
 + (PropertyList *)propertyListWithCadastreArea:(CadastreArea *)area;
++ (PropertyList *)propertyListWithNumber:(NSNumber *)number inCadastreArea:(CadastreArea *)area;
 
-- (BOOL)addOwner:(Citizen *)owner withShare:(NSNumber *)share;
+- (BOOL)addOwnerWithEqualShare:(Citizen *)owner;
+
 - (BOOL)addProperty:(Property *)property;
 
 - (BOOL)removeOwner:(Citizen *)owner;

@@ -46,10 +46,22 @@
     return [self.number compare:((CadastreArea *)other).number];
 }
 
+- (BOOL)addProperty:(Property *)property
+{
+    return NO;
+}
+
 - (BOOL)addPropertyListWithNumber:(NSNumber *)number
 {
     PropertyList *list = [[PropertyList alloc] initWithNumber:number cadastreArea:self];
     return [self.propertyLists addObject:list];
+}
+
+- (PropertyList *)propertyListByNumber:(NSNumber *)number
+{
+    PropertyList *list = (PropertyList *)[self.propertyLists findObject:[PropertyList propertyListWithNumber:number inCadastreArea:self]];
+    
+    return list;
 }
 
 - (NSString *)CSVString
