@@ -110,6 +110,18 @@
     return (CadastreArea *)[self.areasByNumber findObject:area];
 }
 
+- (CadastreArea *)areaByName:(NSString *)name
+{
+    CadastreArea *area = [CadastreArea areaWithName:name];
+    return (CadastreArea *)[self.areasByName findObject:area];
+}
+
+- (Property *)propertyByNumber:(NSNumber *)number
+                inCadastreArea:(CadastreArea *)area
+{
+    return [area propertyByNumber:number];
+}
+
 - (NSArray *)cadastreAreas
 {
     return [self.areasByName levelOrderTraversal];
@@ -139,11 +151,10 @@
     return NO;
 }
 
-- (BOOL)changePermanentAddressOfOwner:(NSString *)ownerNumber
+- (BOOL)changePermanentAddressOfOwner:(Citizen *)owner
                            toProperty:(NSNumber *)propertyNumber
                        inCadastreArea:(NSNumber *)cadastreAreaNumber
 {
-    Citizen *owner = [self citizenByBirthNumber:ownerNumber];
     CadastreArea *area = [self areaByNumber:cadastreAreaNumber];
     if (owner && area) {
         owner.property = [area propertyByNumber:propertyNumber];
@@ -153,6 +164,42 @@
 }
 
 #pragma mark - Deletions
+
+- (BOOL)removeShareholdingFromOwner:(NSString *)ownerNumber
+                   fromPropertyList:(NSNumber *)listNumber
+                     inCadastreArea:(NSNumber *)cadastreAreaNumber
+{
+    CadastreArea *area = [self areaByNumber:cadastreAreaNumber];
+    if (area) {
+        PropertyList *list = [area propertyListByNumber:listNumber];
+        if (list) {
+            Citizen *owner = [self citizenByBirthNumber:ownerNumber];
+            if (owner) {
+                return [list removeOwner:owner];
+            }
+        }
+    }
+    return NO;
+}
+
+- (BOOL)removeCadastreArea:(CadastreArea *)area
+        andMoveAgendaTo:(NSNumber *)newCadastreArea
+{
+    CadastreArea *newArea = [self areaByNumber:newCadastreArea];
+    if (area && newArea) {
+        [area moveAgendaToArea:newArea];
+        CadastreAreaNodeByName *nodeByName = (CadastreAreaNodeByName *)[self.areasByName find:[CadastreAreaNodeByName nodeWithData:area]];
+        CadastreAreaNodeByNumber *nodeByNumber = (CadastreAreaNodeByNumber *)[self.areasByNumber find:[CadastreAreaNodeByNumber nodeWithData:area]];
+
+        if (nodeByName && nodeByNumber) {
+            BOOL success = [self.areasByName remove:nodeByName];
+            if (success) {
+                return [self.areasByNumber remove:nodeByNumber];
+            }
+        }
+    }
+    return NO;
+}
 
 - (BOOL)removeCitizenByBirthNumber:(NSString *)birthNumber
 {

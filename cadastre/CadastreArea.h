@@ -15,19 +15,30 @@
 @property (strong, nonatomic) NSNumber *number;
 @property (strong, nonatomic) NSString *name;
 
+#pragma mark - Initalization
+
 + (CadastreArea *)areaWithName:(NSString *)name
                         number:(NSNumber *)number;
 
 + (CadastreArea *)areaWithNumber:(NSNumber *)number;
++ (CadastreArea *)areaWithName:(NSString *)name;
+
+#pragma mark - Insertions
 
 - (BOOL)addProperty:(Property *)property;
 
 - (BOOL)addPropertyListWithNumber:(NSNumber *)number;
 
+#pragma mark - Fetches
+
 - (PropertyList *)propertyListByNumber:(NSNumber *)number;
 
 - (Property *)propertyByNumber:(NSNumber *)number;
 
+#pragma mark - Deletions
+
 - (BOOL)removeProperty:(Property *)property;
+
+- (BOOL)moveAgendaToArea:(CadastreArea *)area;
 
 @end

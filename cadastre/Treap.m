@@ -163,7 +163,7 @@
     TreapNode *currentNode = (TreapNode *)node;
     TreapNode *parent = (TreapNode *)node.parent;
     
-    while (![node isLeaf]) {
+    while (![currentNode isLeaf]) {
         if (node.leftChild && node.rightChild) {
             if (((TreapNode *)currentNode.leftChild).priority > ((TreapNode *)node.rightChild).priority) {
                 [self leftRotation:currentNode];

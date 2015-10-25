@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E05CBAA1BDD7FC300F1DA6D /* PropertyDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E05CBA91BDD7FC300F1DA6D /* PropertyDetailController.m */; settings = {ASSET_TAGS = (); }; };
 		1E34EC2F1BC96D6100AE67D8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E34EC2E1BC96D6100AE67D8 /* main.m */; };
 		1E34EC321BC96D6100AE67D8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E34EC311BC96D6100AE67D8 /* AppDelegate.m */; };
 		1E34EC381BC96D6100AE67D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E34EC361BC96D6100AE67D8 /* Main.storyboard */; };
@@ -37,6 +38,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1E05CBA81BDD7FC300F1DA6D /* PropertyDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PropertyDetailController.h; sourceTree = "<group>"; };
+		1E05CBA91BDD7FC300F1DA6D /* PropertyDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PropertyDetailController.m; sourceTree = "<group>"; };
 		1E34EC2A1BC96D6100AE67D8 /* cadastre.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cadastre.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E34EC2E1BC96D6100AE67D8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1E34EC301BC96D6100AE67D8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -178,6 +181,8 @@
 			children = (
 				1E5C847D1BD3EF3900593B96 /* PropertyController.h */,
 				1E5C847E1BD3EF3900593B96 /* PropertyController.m */,
+				1E05CBA81BDD7FC300F1DA6D /* PropertyDetailController.h */,
+				1E05CBA91BDD7FC300F1DA6D /* PropertyDetailController.m */,
 			);
 			name = Property;
 			sourceTree = "<group>";
@@ -414,6 +419,7 @@
 				1EEBCDF51BC97A9300809DC2 /* Shareholding.m in Sources */,
 				1EEBCDDF1BC9720D00809DC2 /* LinkedList.m in Sources */,
 				1E5C84951BD4225C00593B96 /* CadastreAreaNodeByName.m in Sources */,
+				1E05CBAA1BDD7FC300F1DA6D /* PropertyDetailController.m in Sources */,
 				1EEBCDDE1BC9720D00809DC2 /* BSTree.m in Sources */,
 				1E5C847F1BD3EF3900593B96 /* PropertyController.m in Sources */,
 				1EEBCDE01BC9720D00809DC2 /* LLNode.m in Sources */,

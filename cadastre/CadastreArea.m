@@ -53,6 +53,10 @@
     return [[CadastreArea alloc] initWithNumber:number name:nil];
 }
 
++ (CadastreArea *)areaWithName:(NSString *)name
+{
+    return [[CadastreArea alloc] initWithNumber:nil name:name];
+}
 
 - (BOOL)addProperty:(Property *)property
 {
@@ -72,7 +76,16 @@
 - (BOOL)addPropertyListWithNumber:(NSNumber *)number
 {
     PropertyList *list = [[PropertyList alloc] initWithNumber:number cadastreArea:self];
-    return [self.propertyLists addObject:list];
+    return [self addPropertyList:list];
+}
+
+- (BOOL)addPropertyList:(PropertyList *)propertyList
+{
+    if ([self.propertyLists addObject:propertyList]) {
+        propertyList.area = self;
+        return YES;
+    }
+    return NO;
 }
 
 - (PropertyList *)propertyListByNumber:(NSNumber *)number
@@ -87,6 +100,25 @@
     Property *property = (Property *)[self.properties findObject:[Property propertyWithNumber:number inCadastreArea:self]];
     
     return property;
+}
+
+- (BOOL)moveAgendaToArea:(CadastreArea *)area
+{
+    BSNode *currentNode = self.properties.root;
+    while (currentNode) {
+        [area addProperty:(Property *)currentNode.data];
+        [self.properties remove:currentNode];
+        currentNode = self.properties.root;
+    }
+    
+    currentNode = self.propertyLists.root;
+    while (currentNode) {
+        [area addPropertyList:(PropertyList *)currentNode.data];
+        [self.propertyLists remove:currentNode];
+        currentNode = self.propertyLists.root;
+    }
+    
+    return YES;
 }
 
 

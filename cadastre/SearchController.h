@@ -11,6 +11,7 @@
 typedef enum : NSUInteger {
     SearchTypeCitizensByBirthNumber,
     SearchTypeCadastreAreaByName,
+    SearchTypeCadastreAreaByNumber,
     SearchTypeNone,
 } SearchType;
 

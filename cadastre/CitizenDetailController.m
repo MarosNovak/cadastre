@@ -30,15 +30,37 @@
     if (indexPath.section == 1) {
         [self showAlertController];
     }
+    if (indexPath.section == 0 && indexPath.row == 2) {
+        [self updatePermanentAddress];
+        [self.propertyNumberField resignFirstResponder];
+    }
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    if (textField == self.cadastreAreaNameField) {
+        [self.propertyNumberField becomeFirstResponder];
+    }
+    if (textField == self.propertyNumberField) {
+        [self.propertyNumberField resignFirstResponder];
+    }
+    return NO;
 }
 
 - (void)showAlertController
 {
-    UIAlertController *controller = [UIAlertController alertControllerWithTitle:@"Remove citizen" message:@"Rly?" preferredStyle:UIAlertControllerStyleActionSheet];
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+    UIAlertController *controller = [UIAlertController alertControllerWithTitle:@"Remove citizen"
+                                                                        message:@"Rly?"
+                                                                 preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel"
+                                                           style:UIAlertActionStyleCancel
+                                                         handler:^(UIAlertAction *action) {
         [controller dismissViewControllerAnimated:YES completion:nil];
     }];
-    UIAlertAction *deleteAction = [UIAlertAction actionWithTitle:@"Delete" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+    UIAlertAction *deleteAction = [UIAlertAction actionWithTitle:@"Delete"
+                                                           style:UIAlertActionStyleDestructive
+                                                         handler:^(UIAlertAction *action) {
         [self removeCitizen];
     }];
     
@@ -48,12 +70,29 @@
     [self presentViewController:controller animated:YES completion:nil];
 }
 
+- (void)updatePermanentAddress
+{
+    NSString *cadastreAreaNumber = self.cadastreAreaNameField.text;
+    NSString *propertyListNumber = self.propertyNumberField.text;
+
+    [[Cadastre sharedCadastre] changePermanentAddressOfOwner:self.citizen
+                                                  toProperty:@(propertyListNumber.integerValue)
+                                              inCadastreArea:@(cadastreAreaNumber.integerValue)];
+    [self clearFields];
+}
+
 - (void)removeCitizen
 {
     BOOL success = [[Cadastre sharedCadastre] removeCitizenByBirthNumber:self.citizen.birthNumber];
     if (success) {
         [self.navigationController popToRootViewControllerAnimated:YES];
     }
+}
+
+- (void)clearFields
+{
+    self.cadastreAreaNameField.text = nil;
+    self.propertyNumberField.text = nil;
 }
 
 @end

@@ -35,6 +35,12 @@
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:(CGRectZero)];
 
     switch (self.searchType) {
+        case SearchTypeCadastreAreaByName:
+            self.searchBar.placeholder = @"cadastre area name";
+            break;
+        case SearchTypeCadastreAreaByNumber:
+            self.searchBar.placeholder = @"cadastre area number";
+            break;
         case SearchTypeNone:
             self.searchBar.hidden = YES;
             [self.searchBar resignFirstResponder];
@@ -77,6 +83,18 @@
                 return cell;
             }
         }
+        case SearchTypeCadastreAreaByName:
+        case SearchTypeCadastreAreaByNumber: {
+            if ([self.result isKindOfClass:[CadastreArea class]]) {
+                CadastreArea *area = (CadastreArea *)self.result;
+                
+                cell.textLabel.text = area.name;
+                cell.detailTextLabel.text = area.number.stringValue;
+                
+                return cell;
+            }
+        }
+            
         case SearchTypeNone: {
             if ([self.result isKindOfClass:[NSArray class]]) {
                 CadastreArea *area = ((NSArray *)self.result)[indexPath.row];
@@ -102,18 +120,14 @@
             [self performSegueWithIdentifier:@"showCitizen" sender:citizen];
         }
             break;
-//        case SearchTypeCadastreAreaByName: {
-//            CadastreArea *area = (CadastreArea *)self.result;
-//            [self performSegueWithIdentifier:@"showCitizen" sender:area];
-//        }
-//        case SearchTypeNone: {
-//            CadastreArea *area = (CadastreArea *)self.result;
-//            [self performSegueWithIdentifier:@"showCitizen" sender:area];
-//        }
-//            break;
-            
+        case SearchTypeCadastreAreaByName:
+        case SearchTypeCadastreAreaByNumber: {
+            CadastreArea *area = (CadastreArea *)self.result;
+            [self performSegueWithIdentifier:@"showArea" sender:area];
+        }
+            break;
         default: {
-            CadastreArea *area = (CadastreArea *)self.result[0];
+            CadastreArea *area = (CadastreArea *)self.result[indexPath.row];
             [self performSegueWithIdentifier:@"showArea" sender:area];
         }
             break;
@@ -128,7 +142,12 @@
         case SearchTypeCitizensByBirthNumber:
             self.result = [[Cadastre sharedCadastre] citizenByBirthNumber:searchText];
             break;
+        case SearchTypeCadastreAreaByNumber:
+            self.result = [[Cadastre sharedCadastre] areaByNumber:@(searchText.integerValue)];
+            break;
         default:
+            case SearchTypeCadastreAreaByName:
+            self.result = [[Cadastre sharedCadastre] areaByName:searchText];
             break;
     }
     [self.tableView reloadData];

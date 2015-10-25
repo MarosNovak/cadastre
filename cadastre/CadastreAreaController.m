@@ -38,7 +38,7 @@
     NSString *number = self.cadastreAreaNumberField.text;
     NSString *name = self.cadastreAreaNameField.text;
     
-    [[Cadastre sharedCadastre] addCadastreAreaWithNumber:[number integerValue] name:name];
+    [[Cadastre sharedCadastre] addCadastreAreaWithNumber:number.integerValue name:name];
     
     [self clearFields];
 }
@@ -52,7 +52,14 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     SearchController *searchVC = segue.destinationViewController;
-    if ([segue.identifier isEqualToString:@"showList"]) {
+
+    if ([segue.identifier isEqualToString:@"showCadastreSearchByName"]) {
+        searchVC.searchType = SearchTypeCadastreAreaByName;
+    }
+    if ([segue.identifier isEqualToString:@"showCadastreSearchByNumber"]) {
+        searchVC.searchType = SearchTypeCadastreAreaByNumber;
+    }
+    if ([segue.identifier isEqualToString:@"showListOfCadastre"]) {
         searchVC.searchType = SearchTypeNone;
     }
 }
