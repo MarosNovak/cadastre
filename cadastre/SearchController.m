@@ -101,6 +101,7 @@
             Citizen *citizen = (Citizen *)self.result;
             [self performSegueWithIdentifier:@"showCitizen" sender:citizen];
         }
+            break;
 //        case SearchTypeCadastreAreaByName: {
 //            CadastreArea *area = (CadastreArea *)self.result;
 //            [self performSegueWithIdentifier:@"showCitizen" sender:area];

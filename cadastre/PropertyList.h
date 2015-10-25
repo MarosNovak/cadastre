@@ -31,5 +31,6 @@
 - (BOOL)addProperty:(Property *)property;
 
 - (BOOL)removeOwner:(Citizen *)owner;
+- (void)removeProperty:(Property *)property;
 
 @end

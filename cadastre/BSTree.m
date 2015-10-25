@@ -132,7 +132,7 @@
     
     do {
         if (!actual) {
-            NSLog(@"Node not found");
+//            NSLog(@"Node not found");
             return nil;
         }
         
@@ -154,7 +154,7 @@
     
     do {
         if (!actual) {
-            NSLog(@"Node not found");
+//            NSLog(@"Node not found");
             return nil;
         }
         if ([actual compare:node] > 0) {
@@ -162,7 +162,7 @@
         } else if ([actual compare:node] < 0) {
             actual = actual.rightChild;
         } else {
-            NSLog(@"Node found");
+//            NSLog(@"Node found");
             return actual;
         }
     } while (YES);

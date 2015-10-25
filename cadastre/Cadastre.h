@@ -18,6 +18,8 @@
 
 + (Cadastre *)sharedCadastre;
 
+#pragma mark - Insertions
+
 - (BOOL)addCitizenWithBirthNumber:(NSString *)birthNumber
                              name:(NSString *)name
                           surname:(NSString *)surname;
@@ -25,9 +27,26 @@
 - (BOOL)addCadastreAreaWithNumber:(NSInteger)number
                              name:(NSString *)name;
 
+- (BOOL)addProperty:(NSNumber *)propertyNumber
+     toPropertyList:(NSNumber *)propertyListNumber
+     inCadastreArea:(NSNumber *)cadastreAreaNumber;
+
 - (BOOL)setShareholdingToCitizen:(NSString *)birthNumber
                   toPropertyList:(NSNumber *)propertyListNumber
                   inCadastreArea:(NSNumber *)cadastreAreaNumber;
+
+#pragma mark - Updates
+
+- (BOOL)changePermanentAddressOfOwner:(NSString *)ownerNumber
+                           toProperty:(NSNumber *)propertyNumber
+                       inCadastreArea:(NSNumber *)cadastreAreaNumber;
+
+- (BOOL)changeOwner:(NSString *)ownerNumber
+         ofProperty:(NSNumber *)propertyNumber
+     inCadastreArea:(NSNumber *)cadastreAreaNumber
+         toNewOwner:(NSString *)newOwnerNumber;
+
+#pragma mark - Fetches
 
 - (Citizen *)citizenByBirthNumber:(NSString *)birthNumber;
 
@@ -35,7 +54,11 @@
 
 - (NSArray *)cadastreAreas;
 
+#pragma mark - Deletions
+
 - (BOOL)removeCitizenByBirthNumber:(NSString *)birthNumber;
+
+#pragma mark - CSV
 
 - (void)exportToCSV;
 - (BOOL)importFromCSV;

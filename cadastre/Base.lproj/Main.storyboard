@@ -439,13 +439,13 @@ území (definované jeho číslom).</string>
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="49"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Cadastre area number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="apY-kW-aBO">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Property number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="apY-kW-aBO">
                                                     <rect key="frame" x="16" y="8" width="576" height="33"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                     <connections>
-                                                        <outlet property="delegate" destination="1HW-i0-co2" id="Rvz-aN-QKt"/>
+                                                        <outlet property="delegate" destination="PBz-C8-YLR" id="NcZ-j9-AoQ"/>
                                                     </connections>
                                                 </textField>
                                             </subviews>
@@ -466,13 +466,13 @@ území (definované jeho číslom).</string>
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="49"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Cadastre area name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="M23-RF-xev">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Cadastre area number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="M23-RF-xev">
                                                     <rect key="frame" x="16" y="8" width="576" height="33"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                                     <connections>
-                                                        <outlet property="delegate" destination="1HW-i0-co2" id="xhV-RB-7kT"/>
+                                                        <outlet property="delegate" destination="PBz-C8-YLR" id="gND-2F-smm"/>
                                                     </connections>
                                                 </textField>
                                             </subviews>
@@ -493,13 +493,13 @@ území (definované jeho číslom).</string>
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="49"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Cadastre area name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2lQ-5r-N31">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Property list number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2lQ-5r-N31">
                                                     <rect key="frame" x="16" y="8" width="576" height="33"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                                     <connections>
-                                                        <outlet property="delegate" destination="1HW-i0-co2" id="fkm-sB-Cv7"/>
+                                                        <outlet property="delegate" destination="PBz-C8-YLR" id="K2R-mP-o3M"/>
                                                     </connections>
                                                 </textField>
                                             </subviews>
@@ -684,6 +684,11 @@ definovaný rodným číslom.</string>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Properties" id="w5p-XN-iD6"/>
+                    <connections>
+                        <outlet property="cadastreAreaNumberField" destination="M23-RF-xev" id="8HP-TU-cAi"/>
+                        <outlet property="propertyListNumberField" destination="2lQ-5r-N31" id="00f-j1-E7M"/>
+                        <outlet property="propertyNumberField" destination="apY-kW-aBO" id="h6F-Pf-f2E"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JO2-U3-77d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -804,9 +809,9 @@ definovaný rodným číslom.</string>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="deletion" id="g5Q-Xn-Mqt">
-                                <mutableString key="footerTitle">13. Odstránenie majetkového podielu majiteľa (definovaný rodným číslom) z listu vlastníctva (definovaný číslom) v zadanom katastrálnom území (definované jeho číslom).
+                                <string key="footerTitle">13. Odstránenie majetkového podielu majiteľa (definovaný rodným číslom) z listu vlastníctva (definovaný číslom) v zadanom katastrálnom území (definované jeho číslom).
 19. Odstránenie listu vlastníctva (definovaný číslom) v zadanom katastrálnom území
-(definované jeho číslom). Nehnuteľnosti sa presunú na iný list vlastníctva.</mutableString>
+(definované jeho číslom). Nehnuteľnosti sa presunú na iný list vlastníctva.</string>
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="hmX-mY-S6C" style="IBUITableViewCellStyleDefault" id="ZQo-hN-KIv">
                                         <rect key="frame" x="0.0" y="484" width="600" height="44"/>

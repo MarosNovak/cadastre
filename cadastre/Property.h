@@ -7,10 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "BSNodeData.h"
 
 @class CadastreArea, PropertyList;
 
-@interface Property : NSObject
+@interface Property : NSObject <BSNodeData>
 
 @property (strong, nonatomic) NSNumber *number;
 @property (strong, nonatomic) NSString *address;
@@ -18,5 +19,8 @@
 
 @property (strong, nonatomic) CadastreArea *area;
 @property (strong, nonatomic) PropertyList *propertyList;
+
++ (Property *)propertyWithNumber:(NSNumber *)number inCadastreArea:(CadastreArea *)area;
++ (Property *)propertyWithCadastreArea:(CadastreArea *)area;
 
 @end

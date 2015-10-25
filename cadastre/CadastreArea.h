@@ -26,4 +26,8 @@
 
 - (PropertyList *)propertyListByNumber:(NSNumber *)number;
 
+- (Property *)propertyByNumber:(NSNumber *)number;
+
+- (BOOL)removeProperty:(Property *)property;
+
 @end

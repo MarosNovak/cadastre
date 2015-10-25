@@ -61,6 +61,25 @@
     return NO;
 }
 
+- (BOOL)addProperty:(NSNumber *)propertyNumber
+     toPropertyList:(NSNumber *)propertyListNumber
+     inCadastreArea:(NSNumber *)cadastreAreaNumber
+{
+    CadastreArea *area = [self areaByNumber:cadastreAreaNumber];
+    if (area) {
+        PropertyList *list = [area propertyListByNumber:propertyListNumber];
+        if (list) {
+            Property *property = [Property propertyWithNumber:propertyNumber inCadastreArea:area];
+            BOOL success = [area addProperty:property];
+            if (success) {
+                [list addProperty:property];
+                return YES;
+            }
+        }
+    }
+    return NO;
+}
+
 - (BOOL)setShareholdingToCitizen:(NSString *)birthNumber
                   toPropertyList:(NSNumber *)propertyListNumber
                   inCadastreArea:(NSNumber *)cadastreAreaNumber
@@ -96,12 +115,80 @@
     return [self.areasByName levelOrderTraversal];
 }
 
+#pragma mark - Updates
+
+- (BOOL)changeOwner:(NSString *)ownerNumber
+         ofProperty:(NSNumber *)propertyNumber
+     inCadastreArea:(NSNumber *)cadastreAreaNumber
+         toNewOwner:(NSString *)newOwnerNumber
+{
+    CadastreArea *area = [self areaByNumber:cadastreAreaNumber];
+    if (area) {
+        Property *property = [area propertyByNumber:propertyNumber];
+        if (property) {
+            Citizen *oldOwner = [self citizenByBirthNumber:ownerNumber];
+            Citizen *newOwner = [self citizenByBirthNumber:ownerNumber];
+            if (oldOwner && newOwner) {
+                BOOL success = [property.propertyList removeOwner:oldOwner];
+                if (success) {
+                    return [property.propertyList addOwnerWithEqualShare:newOwner];
+                }
+            }
+        }
+    }
+    return NO;
+}
+
+- (BOOL)changePermanentAddressOfOwner:(NSString *)ownerNumber
+                           toProperty:(NSNumber *)propertyNumber
+                       inCadastreArea:(NSNumber *)cadastreAreaNumber
+{
+    Citizen *owner = [self citizenByBirthNumber:ownerNumber];
+    CadastreArea *area = [self areaByNumber:cadastreAreaNumber];
+    if (owner && area) {
+        owner.property = [area propertyByNumber:propertyNumber];
+        return YES;
+    }
+    return NO;
+}
+
 #pragma mark - Deletions
 
 - (BOOL)removeCitizenByBirthNumber:(NSString *)birthNumber
 {
-    return [self.citizens removeObject:[Citizen citizenWithBirthNumber:birthNumber]];
+    Citizen *owner = [Citizen citizenWithBirthNumber:birthNumber];
+    
+    if (owner) {
+        for (PropertyList *list in owner.propertyLists) {
+            [list removeOwner:owner];
+        }
+        return [self.citizens removeObject:owner];
+    }
+    return NO;
 }
+
+- (BOOL)removeProperty:(NSNumber *)propertyNumber
+      fromPropertyList:(NSNumber *)propertyListNumber
+        inCadastreArea:(NSNumber *)cadastreAreaNumber
+{
+    CadastreArea *area = [self areaByNumber:cadastreAreaNumber];
+    if (area) {
+        Property *property = [area propertyByNumber:propertyNumber];
+        if (property) {
+            PropertyList *list = [area propertyListByNumber:propertyNumber];
+            if (list) {
+                BOOL success = [area removeProperty:property];
+                if (success) {
+                    [list removeProperty:property];
+                    return YES;
+                }
+            }
+        }
+    }
+    return NO;
+}
+
+#pragma mark - CSV
 
 - (void)exportToCSV
 {

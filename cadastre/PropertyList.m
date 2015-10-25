@@ -55,6 +55,7 @@ static NSInteger const maxShare = 100;
 {
     if (self.shareholdings.count == 0) {
         [self.shareholdings addObject:[Shareholding shareholdingWithOwner:owner share:@(maxShare)]];
+        [owner.propertyLists addObject:self];
         NSLog(@"Owner added as first shareholder with 100%% share.");
         return YES;
     }
@@ -67,11 +68,9 @@ static NSInteger const maxShare = 100;
     }
     
     [self.shareholdings addObject:[Shareholding shareholdingWithOwner:owner share:@(0)]];
-    double newShare = maxShare / self.shareholdings.count;
+    [owner.propertyLists addObject:self];
+    [self recalculateOwnersShares];
     
-    for (Shareholding *sh in self.shareholdings) {
-        sh.share = @(newShare);
-    }
     NSLog(@"Owner added as shareholder");
     return YES;
 }
@@ -85,10 +84,41 @@ static NSInteger const maxShare = 100;
     return YES;
 }
 
+- (void)recalculateOwnersShares
+{
+    double newShare = maxShare / self.shareholdings.count;
+    
+    for (Shareholding *sh in self.shareholdings) {
+        sh.share = @(newShare);
+    }
+}
+
+#pragma mark - Deletions
+
+- (void)removeProperty:(Property *)property
+{
+    [self.properties removeObject:property];
+}
 
 - (BOOL)removeOwner:(Citizen *)owner
 {
-    return YES;
+    if (self.shareholdings.count == 0) {
+        return NO;
+    }
+    Shareholding *share;
+    
+    for (Shareholding *sh in self.shareholdings){
+        if (sh.owner == owner) {
+            share = sh;
+        }
+    }
+    if (share) {
+        [self.shareholdings removeObject:owner];
+        [owner.propertyLists removeObject:self];
+        [self recalculateOwnersShares];
+        return YES;
+    }
+    return NO;
 }
 
 @end

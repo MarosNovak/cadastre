@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "BSNodeData.h"
 
+@class Property;
+
 @interface Citizen : NSObject <BSNodeData>
 
 @property (strong, nonatomic) NSString *birthNumber;
@@ -16,6 +18,7 @@
 @property (strong, nonatomic) NSString *surname;
 
 @property (strong, nonatomic) NSMutableArray *propertyLists;
+@property (strong, nonatomic) Property *property;
 
 - (id)initWithBirthNumber:(NSString *)birthNumber
                      name:(NSString *)name

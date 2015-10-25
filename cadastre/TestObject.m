@@ -24,7 +24,7 @@ static NSString const *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRS
 {
     NSMutableString *randomString =[NSMutableString stringWithCapacity:4];
     
-    for (NSUInteger i = 0; i < 2; i++) {
+    for (NSUInteger i = 0; i < 4; i++) {
         [randomString appendFormat: @"%C", [letters characterAtIndex: arc4random_uniform([letters length])]];
     }
     return [[TestObject alloc] initWithData:randomString];

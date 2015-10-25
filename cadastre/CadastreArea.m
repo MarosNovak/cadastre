@@ -18,6 +18,8 @@
 
 @implementation CadastreArea
 
+#pragma <#arguments#>
+
 - (id)initWithNumber:(NSNumber *)number
                 name:(NSString *)name
 {
@@ -30,6 +32,16 @@
     return self;
 }
 
+#pragma mark - Overrride
+
+- (NSComparisonResult)compare:(id)other
+{
+    return [self.number compare:((CadastreArea *)other).number];
+}
+
+
+#pragma mark - Fetches
+
 + (CadastreArea *)areaWithName:(NSString *)name
                         number:(NSNumber *)number
 {
@@ -41,14 +53,20 @@
     return [[CadastreArea alloc] initWithNumber:number name:nil];
 }
 
-- (NSComparisonResult)compare:(id)other
-{
-    return [self.number compare:((CadastreArea *)other).number];
-}
 
 - (BOOL)addProperty:(Property *)property
 {
+    BOOL success = [self.properties addObject:property];
+    if (success) {
+        property.area = self;
+        return YES;
+    }
     return NO;
+}
+
+- (BOOL)removeProperty:(Property *)property
+{
+    return [self.properties removeObject:property];
 }
 
 - (BOOL)addPropertyListWithNumber:(NSNumber *)number
@@ -63,6 +81,14 @@
     
     return list;
 }
+
+- (Property *)propertyByNumber:(NSNumber *)number
+{
+    Property *property = (Property *)[self.properties findObject:[Property propertyWithNumber:number inCadastreArea:self]];
+    
+    return property;
+}
+
 
 - (NSString *)CSVString
 {
