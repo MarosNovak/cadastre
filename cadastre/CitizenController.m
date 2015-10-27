@@ -8,6 +8,7 @@
 
 #import "CitizenController.h"
 #import "Cadastre.h"
+#import "UITableViewController+Alerts.h"
 
 @interface CitizenController () <UITextFieldDelegate>
 
@@ -19,10 +20,14 @@
 
 @implementation CitizenController
 
+#pragma mark - Lifecycle
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 }
+
+#pragma mark - UITextFieldDelegate
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
@@ -45,9 +50,16 @@
     NSString *name = self.nameField.text;
     NSString *surname = self.surnameField.text;
     
-    [[Cadastre sharedCadastre] addCitizenWithBirthNumber:birthNumber name:name surname:surname];
-   
-    [self clearFields];
+    if (birthNumber.length > 0 && name.length > 0 && surname.length > 0) {
+        if ([[Cadastre sharedCadastre] addCitizenWithBirthNumber:birthNumber name:name surname:surname]) {
+            [self showSuccessAlertWithMessage:@"Citizen added"];
+        } else {
+            [self showWarningAlertWithMessage:@"Citizen already exists"];
+        }
+        [self clearFields];
+    } else {
+        [self showNotifyAlertWithMessage:@"Fill all fields"];
+    }
 }
 
 - (void)clearFields
@@ -57,7 +69,6 @@
     self.surnameField.text = nil;
 }
 
-#warning pridat feedback do ui
 - (IBAction)save:(id)sender
 {
     [[Cadastre sharedCadastre] exportToCSV];
@@ -65,7 +76,11 @@
 
 - (IBAction)load:(id)sender
 {
-    [[Cadastre sharedCadastre] importFromCSV];
+    if ([[Cadastre sharedCadastre] importFromCSV]) {
+        [self showSuccessAlertWithMessage:@"Data imported."];
+    } else {
+        [self showWarningAlertWithMessage:@"Data wasn't imported."];
+    }
 }
 
 @end

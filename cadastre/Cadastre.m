@@ -286,18 +286,6 @@ static NSInteger const randomAreasCount = 5;
     
     NSString *path = [documentsDirectory stringByAppendingPathComponent:kCitizensCSVFile];
     [fileMgr removeItemAtPath:path error:&error];
-//    
-//    path = [documentsDirectory stringByAppendingPathComponent:@"areas.csv"];
-//    [fileMgr removeItemAtPath:path error:&error];
-//    
-//    path = [documentsDirectory stringByAppendingPathComponent:@"ownership.csv"];
-//    [fileMgr removeItemAtPath:path error:&error];
-//    
-//    path = [documentsDirectory stringByAppendingPathComponent:@"propertyLists.csv"];
-//    [fileMgr removeItemAtPath:path error:&error];
-//    
-//    path = [documentsDirectory stringByAppendingPathComponent:@"properties.csv"];
-//    [fileMgr removeItemAtPath:path error:&error];
 }
 
 - (BOOL)importFromCSV

@@ -7,8 +7,7 @@
 //
 
 #import "TestObject.h"
-
-static NSString const *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+#import "NSString+Random.h"
 
 @implementation TestObject
 
@@ -22,12 +21,7 @@ static NSString const *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRS
 
 + (TestObject *)objectWithRandomData
 {
-    NSMutableString *randomString =[NSMutableString stringWithCapacity:4];
-    
-    for (NSUInteger i = 0; i < 4; i++) {
-        [randomString appendFormat: @"%C", [letters characterAtIndex: arc4random_uniform([letters length])]];
-    }
-    return [[TestObject alloc] initWithData:randomString];
+    return [[TestObject alloc] initWithData:[NSString shortRandom]];
 }
 
 - (NSComparisonResult)compare:(id)other
@@ -36,6 +30,11 @@ static NSString const *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRS
         return [self.data compare:((TestObject *)other).data];
     }
     return -2;
+}
+
+- (NSString *)CSVString
+{
+    return nil;
 }
 
 @end

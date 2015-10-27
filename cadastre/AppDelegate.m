@@ -19,8 +19,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-//    [Treap generateTest];
-    [[Cadastre sharedCadastre] generateData];
+    [Treap generateTest];
+//    [[Cadastre sharedCadastre] generateData];
     return YES;
 }
 
