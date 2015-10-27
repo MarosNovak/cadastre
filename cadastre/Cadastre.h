@@ -27,13 +27,14 @@
 - (BOOL)addCadastreAreaWithNumber:(NSInteger)number
                              name:(NSString *)name;
 
+- (BOOL)addCadastreArea:(CadastreArea *)area;
+
 - (BOOL)addProperty:(NSNumber *)propertyNumber
      toPropertyList:(NSNumber *)propertyListNumber
      inCadastreArea:(NSNumber *)cadastreAreaNumber;
 
 - (BOOL)setShareholdingToCitizen:(NSString *)birthNumber
-                  toPropertyList:(NSNumber *)propertyListNumber
-                  inCadastreArea:(NSNumber *)cadastreAreaNumber;
+                  toPropertyList:(PropertyList *)propertyList;
 
 #pragma mark - Updates
 
@@ -57,6 +58,13 @@
                 inCadastreArea:(CadastreArea *)area;
 
 - (NSArray *)cadastreAreas;
+- (NSArray *)propertiesInCadastreArea:(CadastreArea *)area;
+
+- (NSArray *)propertiesOfOwner:(NSString *)birthNumber
+                inCadastreArea:(CadastreArea *)area;
+
+- (PropertyList *)propertyListByNumber:(NSNumber *)number
+                        inCadastreArea:(CadastreArea *)area;
 
 #pragma mark - Deletions
 
@@ -77,5 +85,10 @@
 
 - (void)exportToCSV;
 - (BOOL)importFromCSV;
+
+#pragma mark - Misc
+
+- (void)generateData;
+
 
 @end

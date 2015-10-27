@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "Treap.h"
+#import "Cadastre.h"
 
 @interface AppDelegate ()
 
@@ -19,7 +20,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
 //    [Treap generateTest];
-    
+    [[Cadastre sharedCadastre] generateData];
     return YES;
 }
 

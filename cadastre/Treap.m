@@ -220,19 +220,24 @@
     return levelOrderArray;
 }
 
+- (NSArray *)inOrderTraversal
+{
+    return [self inOrderTraversalForNode:self.root];
+}
+
 - (NSArray *)inOrderTraversalForNode:(BSNode *)node
 {
     if (!node) return nil;
     
     NSMutableArray *array = [NSMutableArray array];
     if (node.leftChild) [array addObjectsFromArray:[self inOrderTraversalForNode:node.leftChild]];
-    [array addObject:node];
+    [array addObject:node.data];
     if (node.rightChild) [array addObjectsFromArray:[self inOrderTraversalForNode:node.rightChild]];
     
     return array;
 }
 
-#pragma mark - Tests
+#pragma mark - Unit Testing
 
 + (void)generateTest
 {
@@ -261,19 +266,17 @@
         }
     }
     [self treapKeysTest:treap];
+    BOOL priorityTest = [self treapPriorityTest:treap];
     
     NSLog(@"%lu nodes added, %lu nodes removed, %lu was already in tree, %lu not found in tree", (unsigned long)added, (unsigned long)removed, TEST_ADD_COUNT - added, TEST_REMOVE_COUNT - removed);
     
     NSLog(@"Tree count: %ld", [treap count]);
     
-    if (added - removed == [treap count] && array.count == [treap count]) {
+    if (added - removed == [treap count] && array.count == [treap count] && priorityTest) {
         NSLog(@"Test OK");
     } else {
         NSLog(@"Test FAILED");
     }
-    
-//    funkcia skontroluj stukturu - paralelne vkladat do inej nativnej struktury
-//    SKontrolovat priority v treap strome
 }
 
 + (void)treapKeysTest:(Treap *)treap
@@ -282,6 +285,36 @@
     for (TreapNode *node in inOrder) {
         NSLog(@"%ld, %@",(long)node.priority, ((TestObject *)node.data).data);
     }
+}
+
++ (BOOL)treapPriorityTest:(Treap *)treap
+{
+    NSMutableArray *stack = [NSMutableArray array];
+    if (treap.root) {
+        [stack addObject:treap.root];
+    }
+    
+    TreapNode *current;
+    TreapNode *leftChild;
+    TreapNode *rightChild;
+    
+    while (stack.count > 0) {
+        current = (TreapNode *)[stack objectAtIndex:0];
+        leftChild = (TreapNode *)current.leftChild;
+        rightChild = (TreapNode *)current.rightChild;
+        
+        if (leftChild) [stack addObject:leftChild];
+        if (rightChild) [stack addObject:rightChild];
+        
+        if (current.parent) {
+            if (current.priority < ((TreapNode *)current.parent).priority) {
+                return NO;
+            }
+        }
+        
+        [stack removeObjectAtIndex:0];
+    }
+    return YES;
 }
 
 @end

@@ -15,7 +15,6 @@
 
 @property (strong, nonatomic) NSNumber *number;
 @property (strong, nonatomic) NSString *address;
-@property (strong, nonatomic) NSString *desc;
 
 @property (strong, nonatomic) CadastreArea *area;
 @property (strong, nonatomic) PropertyList *propertyList;

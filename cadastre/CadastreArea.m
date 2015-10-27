@@ -8,6 +8,11 @@
 
 #import "CadastreArea.h"
 #import "Treap.h"
+#import "NSString+Random.h"
+
+static NSInteger cadastreAreaNumber = 0;
+static NSInteger const propertyListsRandomValue = 20;
+static NSInteger const propertiesRandomValue = 2;
 
 @interface CadastreArea ()
 
@@ -18,7 +23,7 @@
 
 @implementation CadastreArea
 
-#pragma <#arguments#>
+#pragma mark - Initialization
 
 - (id)initWithNumber:(NSNumber *)number
                 name:(NSString *)name
@@ -32,6 +37,25 @@
     return self;
 }
 
++ (CadastreArea *)areaWithName:(NSString *)name
+                        number:(NSNumber *)number
+{
+    return [[CadastreArea alloc] initWithNumber:number
+                                           name:name];
+}
+
++ (CadastreArea *)areaWithNumber:(NSNumber *)number
+{
+    return [[CadastreArea alloc] initWithNumber:number
+                                           name:nil];
+}
+
++ (CadastreArea *)areaWithName:(NSString *)name
+{
+    return [[CadastreArea alloc] initWithNumber:[NSNumber numberWithInteger:cadastreAreaNumber++]
+                                           name:name];
+}
+
 #pragma mark - Overrride
 
 - (NSComparisonResult)compare:(id)other
@@ -39,38 +63,16 @@
     return [self.number compare:((CadastreArea *)other).number];
 }
 
-
-#pragma mark - Fetches
-
-+ (CadastreArea *)areaWithName:(NSString *)name
-                        number:(NSNumber *)number
+- (NSString *)CSVString
 {
-    return [[CadastreArea alloc] initWithNumber:number name:name];
+    return [NSString stringWithFormat:@"%ld,%@\n",(long)self.number.integerValue, self.name];
 }
 
-+ (CadastreArea *)areaWithNumber:(NSNumber *)number
-{
-    return [[CadastreArea alloc] initWithNumber:number name:nil];
-}
-
-+ (CadastreArea *)areaWithName:(NSString *)name
-{
-    return [[CadastreArea alloc] initWithNumber:nil name:name];
-}
+#pragma mark - Insertions
 
 - (BOOL)addProperty:(Property *)property
 {
-    BOOL success = [self.properties addObject:property];
-    if (success) {
-        property.area = self;
-        return YES;
-    }
-    return NO;
-}
-
-- (BOOL)removeProperty:(Property *)property
-{
-    return [self.properties removeObject:property];
+    return [self.properties addObject:property];
 }
 
 - (BOOL)addPropertyListWithNumber:(NSNumber *)number
@@ -82,10 +84,19 @@
 - (BOOL)addPropertyList:(PropertyList *)propertyList
 {
     if ([self.propertyLists addObject:propertyList]) {
-        propertyList.area = self;
         return YES;
     }
     return NO;
+}
+
+- (BOOL)removeProperty:(Property *)property
+{
+    return [self.properties removeObject:property];
+}
+
+- (NSArray *)allProperties
+{
+    return [self.properties inOrderTraversal];
 }
 
 - (PropertyList *)propertyListByNumber:(NSNumber *)number
@@ -121,10 +132,19 @@
     return YES;
 }
 
-
-- (NSString *)CSVString
++ (CadastreArea *)randomData
 {
-    return [NSString stringWithFormat:@"%ld,%@\n",(long)self.number.integerValue, self.name];
+    CadastreArea *randomArea = [CadastreArea areaWithName:[NSString shortRandom]];
+    
+    for (int i = 0; i < propertyListsRandomValue; i++) {
+        PropertyList *list = [PropertyList propertyListWithCadastreArea:randomArea];
+        if ([randomArea addPropertyList:list]) {
+            for (int j = 0; j < propertiesRandomValue; j++) {
+                [list addProperty:[Property propertyWithCadastreArea:randomArea]];
+            }
+        }
+    }
+    return randomArea;
 }
 
 @end

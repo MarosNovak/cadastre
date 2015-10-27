@@ -11,6 +11,8 @@
 #import "CadastreAreaNodeByNumber.h"
 #import "CSVLoader.h"
 
+static NSInteger const randomAreasCount = 5;
+
 @interface Cadastre ()
 
 @property (strong, nonatomic) Treap *citizens;
@@ -47,6 +49,17 @@
     return [self.citizens addObject:newCitizen];
 }
 
+- (BOOL)addCadastreArea:(CadastreArea *)area
+{
+    BOOL success = [self.areasByName add:[CadastreAreaNodeByName nodeWithData:area]];
+    if (success) {
+        success = [self.areasByNumber add:[CadastreAreaNodeByNumber nodeWithData:area]];
+        if (success) return YES;
+        else [self.areasByName remove:[CadastreAreaNodeByName nodeWithData:area]];
+    }
+    return NO;
+}
+
 - (BOOL)addCadastreAreaWithNumber:(NSInteger)number
                              name:(NSString *)name
 {
@@ -81,18 +94,11 @@
 }
 
 - (BOOL)setShareholdingToCitizen:(NSString *)birthNumber
-                  toPropertyList:(NSNumber *)propertyListNumber
-                  inCadastreArea:(NSNumber *)cadastreAreaNumber
+                  toPropertyList:(PropertyList *)propertyList
 {
-    CadastreArea *area = [self areaByNumber:cadastreAreaNumber];
-    if (area) {
-        Citizen *citizen = [self citizenByBirthNumber:birthNumber];
-        if (citizen) {
-            PropertyList *list = [area propertyListByNumber:propertyListNumber];
-            if (list) {
-                return [list addOwnerWithEqualShare:citizen];
-            }
-        }
+    Citizen *citizen = [self citizenByBirthNumber:birthNumber];
+    if (citizen) {
+        return [propertyList addOwnerWithEqualShare:citizen];
     }
     return NO;
 }
@@ -120,6 +126,34 @@
                 inCadastreArea:(CadastreArea *)area
 {
     return [area propertyByNumber:number];
+}
+
+- (PropertyList *)propertyListByNumber:(NSNumber *)number
+                        inCadastreArea:(CadastreArea *)area
+{
+    return [area propertyListByNumber:number];
+}
+
+- (NSArray *)propertiesOfOwner:(NSString *)birthNumber
+                inCadastreArea:(CadastreArea *)area
+{
+    Citizen *owner = [self citizenByBirthNumber:birthNumber];
+    if (owner) {
+        NSMutableArray *properties = [NSMutableArray new];
+        
+        for (PropertyList *list in owner.propertyLists) {
+            if (list.area == area) {
+                [properties addObjectsFromArray:list.properties];
+            }
+        }
+        return properties;
+    }
+    return nil;
+}
+
+- (NSArray *)propertiesInCadastreArea:(CadastreArea *)area
+{
+    return [area allProperties];
 }
 
 - (NSArray *)cadastreAreas
@@ -270,5 +304,15 @@
 {
     return [CSVLoader loadCitizens];
 }
+
+#pragma mark - Misc
+
+- (void)generateData
+{
+    for (NSInteger i = 0; i < randomAreasCount; i++) {
+        [[Cadastre sharedCadastre] addCadastreArea:[CadastreArea randomData]];
+    }
+}
+
 
 @end

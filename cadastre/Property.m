@@ -7,6 +7,7 @@
 //
 
 #import "Property.h"
+#import "NSString+Random.h"
 
 static NSInteger propertyNumber = 0;
 
@@ -29,6 +30,7 @@ static NSInteger propertyNumber = 0;
     if (self == [super init]) {
         _number = number;
         _area = area;
+        _address = [NSString largeRandom];
     }
     return self;
 }
@@ -36,6 +38,13 @@ static NSInteger propertyNumber = 0;
 - (NSComparisonResult)compare:(id)other
 {
     return [self.number compare:((Property *)other).number];
+}
+
+#warning dorobit format pre property
+
+- (NSString *)CSVString
+{
+    return nil;
 }
 
 @end

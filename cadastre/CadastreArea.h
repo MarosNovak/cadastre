@@ -21,6 +21,7 @@
                         number:(NSNumber *)number;
 
 + (CadastreArea *)areaWithNumber:(NSNumber *)number;
+
 + (CadastreArea *)areaWithName:(NSString *)name;
 
 #pragma mark - Insertions
@@ -35,10 +36,16 @@
 
 - (Property *)propertyByNumber:(NSNumber *)number;
 
+- (NSArray *)allProperties;
+
 #pragma mark - Deletions
 
 - (BOOL)removeProperty:(Property *)property;
 
 - (BOOL)moveAgendaToArea:(CadastreArea *)area;
+
+#pragma mark - Misc
+
++ (CadastreArea *)randomData;
 
 @end

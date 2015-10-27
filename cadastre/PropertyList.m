@@ -77,11 +77,15 @@ static NSInteger const maxShare = 100;
 
 - (BOOL)addProperty:(Property *)property
 {
-    [self.properties addObject:property];
-    property.propertyList = self;
-    [self.area addProperty:property];
+    if (property.area == self.area) {
+        if ([self.area addProperty:property]) {
+            [self.properties addObject:property];
+            property.propertyList = self;
+            return YES;
+        }
+    }
     
-    return YES;
+    return NO;
 }
 
 - (void)recalculateOwnersShares
