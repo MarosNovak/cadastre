@@ -220,6 +220,18 @@
     return levelOrderArray;
 }
 
+- (NSArray *)inOrderTraversalNodes:(BSNode *)node
+{
+    if (!node) return nil;
+    
+    NSMutableArray *array = [NSMutableArray array];
+    if (node.leftChild) [array addObjectsFromArray:[self inOrderTraversalNodes:node.leftChild]];
+    [array addObject:node];
+    if (node.rightChild) [array addObjectsFromArray:[self inOrderTraversalNodes:node.rightChild]];
+    
+    return array;
+}
+
 - (NSArray *)inOrderTraversal
 {
     return [self inOrderTraversalForNode:self.root];
@@ -248,7 +260,7 @@
     for (int i = 0; i < TEST_ADD_COUNT; i++) {
         TestObject *object = [TestObject objectWithRandomData];
         if ([treap add:[TreapNode nodeWithData:object]]) {
-            [array addObject:object.data];
+            [array addObject:object.key];
             added++;
         }
     }
@@ -259,7 +271,7 @@
         TestObject *object = [TestObject objectWithRandomData];
         TreapNode *node = (TreapNode *)[treap find:[TreapNode nodeWithData:object]];
         if (node) {
-            [array removeObject:object.data];
+            [array removeObject:object.key];
             [treap remove:node];
             removed++;
             count--;
@@ -279,11 +291,40 @@
     }
 }
 
+//- (NSArray *)inOrder
+//
+//
+//public String InOrder() {
+//    int i = 1;
+//    String temp = "";
+//    ArrayList<Node> path = new ArrayList<>();
+//    Node node = this.root;
+//    while (node != null) {
+//        path.add(node);
+//        node = node.getLeftChild();
+//    }
+//    while (path.size() > 0) {
+//        node = path.get(path.size() - 1);
+//        path.remove(path.size() - 1);
+//        //System.out.println(i + " | " + node.toString());
+//        temp += i + " | " + node.toString() + "\n";
+//        i++;
+//        if (node.getRightChild() != null) {
+//            node = node.getRightChild();
+//            while (node != null) {
+//                path.add(node);
+//                node = node.getLeftChild();
+//            }
+//        }
+//    }
+//    return temp;
+//}
+
 + (void)treapKeysTest:(Treap *)treap
 {
-    NSArray *inOrder = [treap inOrderTraversalForNode:treap.root];
+    NSArray *inOrder = [treap inOrderTraversalNodes:treap.root];
     for (TreapNode *node in inOrder) {
-        NSLog(@"%ld, %@",(long)node.priority, ((TestObject *)node.data).data);
+        NSLog(@"%@",((TestObject *)node.data).key);
     }
 }
 

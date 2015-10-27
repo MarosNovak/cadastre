@@ -43,7 +43,7 @@
 
 - (NSString *)values
 {
-    return [NSString stringWithFormat:@"%@, Priority: %ld",((TestObject *)self.data).data, (long)self.priority];
+    return [NSString stringWithFormat:@"%@, Priority: %ld",((TestObject *)self.data).key, (long)self.priority];
 }
 
 - (NSString *)description

@@ -11,10 +11,10 @@
 
 @implementation TestObject
 
-- (id)initWithData:(NSString *)data
+- (id)initWithData:(NSString *)key
 {
     if (self == [super init]) {
-        self.data = data;
+        self.key = key;
     }
     return self;
 }
@@ -27,7 +27,7 @@
 - (NSComparisonResult)compare:(id)other
 {
     if ([other isKindOfClass:[TestObject class]]) {
-        return [self.data compare:((TestObject *)other).data];
+        return [self.key compare:((TestObject *)other).key];
     }
     return -2;
 }

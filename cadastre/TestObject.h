@@ -11,9 +11,9 @@
 
 @interface TestObject : NSObject <BSNodeData>
 
-@property (nonatomic, strong) NSString *data;
+@property (nonatomic, strong) NSString *key;
 
-- (id)initWithData:(NSString *)data;
+- (id)initWithData:(NSString *)key;
 
 + (TestObject *)objectWithRandomData;
 
