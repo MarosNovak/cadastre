@@ -16,6 +16,11 @@
     [RKDropdownAlert title:message backgroundColor:[UIColor colorWithRed:0.39 green:0.71 blue:0.28 alpha:1] textColor:[UIColor whiteColor] time:2];
 }
 
+- (void)showNotifyAlertFillAllFields
+{
+    [self showNotifyAlertWithMessage:@"Fill all fields."];
+}
+
 - (void)showNotifyAlertWithMessage:(NSString *)message
 {
     [RKDropdownAlert title:message time:2];

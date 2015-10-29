@@ -7,6 +7,7 @@
 //
 
 #import "PropertyListDetailController.h"
+#import "UITableViewController+Alerts.h"
 #import "Cadastre.h"
 
 @interface PropertyListDetailController ()
@@ -26,14 +27,21 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row == 1) {
+    if (indexPath.section == 0 && indexPath.row == 1) {
+        
+    }
+    if (indexPath.section == 1 && indexPath.row == 1) {
         [self setShareholding];
     }
 }
 
 - (void)setShareholding
 {
-    [[Cadastre sharedCadastre] setShareholdingToCitizen:self.birthNumberField.text toPropertyList:self.list];
+    if ([[Cadastre sharedCadastre] setShareholdingToCitizen:self.birthNumberField.text toPropertyList:self.list]) {
+        [self showSuccessAlertWithMessage:@"Citizen added to property list."];
+    } else {
+        [self showWarningAlertWithMessage:@"Something went wrong"];
+    }
     [self.birthNumberField resignFirstResponder];
 }
 

@@ -16,4 +16,6 @@
 
 - (void)showWarningAlertWithMessage:(NSString *)message;
 
+- (void)showNotifyAlertFillAllFields;
+
 @end

@@ -10,9 +10,8 @@
 #import "TestObject.h"
 #import "LinkedList.h"
 
-#define MAX_VALUE 100000
-#define TEST_ADD_COUNT 100000
-#define TEST_REMOVE_COUNT 50000
+#define TEST_ADD_COUNT 10000
+#define TEST_REMOVE_COUNT 5000
 
 @implementation Treap
 
@@ -198,19 +197,19 @@
 {
     NSMutableArray *stack = [NSMutableArray array];
     NSMutableArray *levelOrderArray = [NSMutableArray array];
-    if (self.root) [stack addObject:self.root];
-    
+    if (self.root) {
+        [stack addObject:self.root];
+    }
     TreapNode *current;
-    TreapNode *leftChild;
-    TreapNode *rightChild;
     
     while (stack.count > 0) {
         current = (TreapNode *)[stack objectAtIndex:0];
-        leftChild = (TreapNode *)current.leftChild;
-        rightChild = (TreapNode *)current.rightChild;
-        
-        if (leftChild) [stack addObject:leftChild];
-        if (rightChild) [stack addObject:rightChild];
+        if ((TreapNode *)current.leftChild) {
+            [stack addObject:(TreapNode *)current.leftChild];
+        }
+        if ((TreapNode *)current.rightChild) {
+            [stack addObject:(TreapNode *)current.rightChild];
+        }
         
         [levelOrderArray addObject:current.data];
         
@@ -253,6 +252,8 @@
 
 + (void)generateTest
 {
+    NSLog(@"Starting TEST");
+
     Treap *treap = [Treap new];
     NSMutableArray *array = [NSMutableArray new];
     
@@ -284,41 +285,12 @@
     
     NSLog(@"Tree count: %ld", [treap count]);
     
-    if (added - removed == [treap count] && array.count == [treap count] && priorityTest) {
-        NSLog(@"Test OK");
+    if (added - removed == [treap count] && count == [treap count] && array.count == [treap count] && priorityTest) {
+        NSLog(@"OK");
     } else {
-        NSLog(@"Test FAILED");
+        NSLog(@"FAILED");
     }
 }
-
-//- (NSArray *)inOrder
-//
-//
-//public String InOrder() {
-//    int i = 1;
-//    String temp = "";
-//    ArrayList<Node> path = new ArrayList<>();
-//    Node node = this.root;
-//    while (node != null) {
-//        path.add(node);
-//        node = node.getLeftChild();
-//    }
-//    while (path.size() > 0) {
-//        node = path.get(path.size() - 1);
-//        path.remove(path.size() - 1);
-//        //System.out.println(i + " | " + node.toString());
-//        temp += i + " | " + node.toString() + "\n";
-//        i++;
-//        if (node.getRightChild() != null) {
-//            node = node.getRightChild();
-//            while (node != null) {
-//                path.add(node);
-//                node = node.getLeftChild();
-//            }
-//        }
-//    }
-//    return temp;
-//}
 
 + (void)treapKeysTest:(Treap *)treap
 {
@@ -330,29 +302,34 @@
 
 + (BOOL)treapPriorityTest:(Treap *)treap
 {
+    BOOL success = YES;
     NSMutableArray *stack = [NSMutableArray array];
     if (treap.root) {
         [stack addObject:treap.root];
     }
-    
     TreapNode *current;
-    TreapNode *leftChild;
-    TreapNode *rightChild;
     
     while (stack.count > 0) {
         current = (TreapNode *)[stack objectAtIndex:0];
-        leftChild = (TreapNode *)current.leftChild;
-        rightChild = (TreapNode *)current.rightChild;
-        
-        if (leftChild) [stack addObject:leftChild];
-        if (rightChild) [stack addObject:rightChild];
-        
+        if ((TreapNode *)current.leftChild) {
+            [stack addObject:(TreapNode *)current.leftChild];
+        }
+        if ((TreapNode *)current.rightChild) {
+            [stack addObject:(TreapNode *)current.rightChild];
+        }
         if (current.parent) {
+            success = YES;
+//            for (NSString *key in array) {
+//                if ([((TestObject *)current.data).key compare:key] == 0) {
+//                    continue;
+//                } else {
+//                    success = NO;
+//                }
+//            }
             if (current.priority < ((TreapNode *)current.parent).priority) {
                 return NO;
             }
         }
-        
         [stack removeObjectAtIndex:0];
     }
     return YES;

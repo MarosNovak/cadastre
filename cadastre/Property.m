@@ -31,6 +31,7 @@ static NSInteger propertyNumber = 0;
         _number = number;
         _area = area;
         _address = [NSString largeRandom];
+        _citizens = [NSMutableArray new];
     }
     return self;
 }

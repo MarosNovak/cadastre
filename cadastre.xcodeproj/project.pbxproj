@@ -13,6 +13,7 @@
 		1E2712DF1BE00C51006A8CC9 /* PropertyListDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E2712DE1BE00C51006A8CC9 /* PropertyListDetailController.m */; };
 		1E2712E21BE02D09006A8CC9 /* RKDropdownAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E2712E11BE02D09006A8CC9 /* RKDropdownAlert.m */; };
 		1E2712E61BE02ECA006A8CC9 /* UITableViewController+Alerts.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E2712E51BE02ECA006A8CC9 /* UITableViewController+Alerts.m */; };
+		1E2712E91BE03979006A8CC9 /* NSNumber+Random.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E2712E81BE03979006A8CC9 /* NSNumber+Random.m */; };
 		1E34EC2F1BC96D6100AE67D8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E34EC2E1BC96D6100AE67D8 /* main.m */; };
 		1E34EC321BC96D6100AE67D8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E34EC311BC96D6100AE67D8 /* AppDelegate.m */; };
 		1E34EC381BC96D6100AE67D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E34EC361BC96D6100AE67D8 /* Main.storyboard */; };
@@ -55,6 +56,8 @@
 		1E2712E11BE02D09006A8CC9 /* RKDropdownAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKDropdownAlert.m; sourceTree = "<group>"; };
 		1E2712E41BE02ECA006A8CC9 /* UITableViewController+Alerts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewController+Alerts.h"; sourceTree = "<group>"; };
 		1E2712E51BE02ECA006A8CC9 /* UITableViewController+Alerts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewController+Alerts.m"; sourceTree = "<group>"; };
+		1E2712E71BE03979006A8CC9 /* NSNumber+Random.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+Random.h"; sourceTree = "<group>"; };
+		1E2712E81BE03979006A8CC9 /* NSNumber+Random.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+Random.m"; sourceTree = "<group>"; };
 		1E34EC2A1BC96D6100AE67D8 /* cadastre.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cadastre.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E34EC2E1BC96D6100AE67D8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1E34EC301BC96D6100AE67D8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -125,6 +128,8 @@
 		1E2712E31BE02D1D006A8CC9 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				1E2712E71BE03979006A8CC9 /* NSNumber+Random.h */,
+				1E2712E81BE03979006A8CC9 /* NSNumber+Random.m */,
 				1E2712E41BE02ECA006A8CC9 /* UITableViewController+Alerts.h */,
 				1E2712E51BE02ECA006A8CC9 /* UITableViewController+Alerts.m */,
 				1E2712DA1BE002F3006A8CC9 /* NSString+Random.h */,
@@ -441,6 +446,7 @@
 			files = (
 				1E2712DC1BE002F3006A8CC9 /* NSString+Random.m in Sources */,
 				1E2712E61BE02ECA006A8CC9 /* UITableViewController+Alerts.m in Sources */,
+				1E2712E91BE03979006A8CC9 /* NSNumber+Random.m in Sources */,
 				1E5C84981BD4261100593B96 /* CadastreAreaNodeByNumber.m in Sources */,
 				1EEBCDE41BC9720D00809DC2 /* TreapNode.m in Sources */,
 				1E5C84821BD3EF6100593B96 /* CadastreAreaController.m in Sources */,

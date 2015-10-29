@@ -9,6 +9,7 @@
 #import "CadastreAreaController.h"
 #import "SearchController.h"
 #import "Cadastre.h"
+#import "UITableViewController+Alerts.h"
 
 @interface CadastreAreaController () <UITextFieldDelegate>
 
@@ -19,10 +20,14 @@
 
 @implementation CadastreAreaController
 
+#pragma mark - Lifecycle
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 }
+
+#pragma mark - UITextFieldDelegate
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
@@ -38,9 +43,16 @@
     NSString *number = self.cadastreAreaNumberField.text;
     NSString *name = self.cadastreAreaNameField.text;
     
-    [[Cadastre sharedCadastre] addCadastreAreaWithNumber:number.integerValue name:name];
-    
-    [self clearFields];
+    if (number.length > 0 && name.length > 0) {
+        if ([[Cadastre sharedCadastre] addCadastreAreaWithNumber:number.integerValue name:name]) {
+            [self showSuccessAlertWithMessage:@"Cadastre Area added."];
+        } else {
+            [self showWarningAlertWithMessage:@"Cadastre Area already exists."];
+        }
+        [self clearFields];
+    } else {
+        [self showNotifyAlertFillAllFields];
+    }
 }
 
 - (void)clearFields

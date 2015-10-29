@@ -11,8 +11,8 @@
 #import "NSString+Random.h"
 
 static NSInteger cadastreAreaNumber = 0;
-static NSInteger const propertyListsRandomValue = 20;
-static NSInteger const propertiesRandomValue = 2;
+static NSInteger const propertyListsRandomValue = 3;
+static NSInteger const propertiesRandomValue = 5;
 
 @interface CadastreArea ()
 

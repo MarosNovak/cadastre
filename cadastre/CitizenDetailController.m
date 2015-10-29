@@ -20,7 +20,7 @@
 
 - (void)viewDidLoad
 {
-    self.title = self.citizen.fullName;
+    self.title = [NSString stringWithFormat:@"%@ (%@)", self.citizen.fullName, self.citizen.birthNumber];
     
     [super viewDidLoad];
 }

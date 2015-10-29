@@ -18,6 +18,7 @@
 
 @property (strong, nonatomic) CadastreArea *area;
 @property (strong, nonatomic) PropertyList *propertyList;
+@property (strong, nonatomic) NSMutableArray *citizens;
 
 + (Property *)propertyWithNumber:(NSNumber *)number inCadastreArea:(CadastreArea *)area;
 + (Property *)propertyWithCadastreArea:(CadastreArea *)area;

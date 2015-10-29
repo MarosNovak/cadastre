@@ -68,8 +68,12 @@ static NSInteger const randomAreasCount = 5;
     BOOL success = [self.areasByName add:[CadastreAreaNodeByName nodeWithData:newArea]];
     if (success) {
         success = [self.areasByNumber add:[CadastreAreaNodeByNumber nodeWithData:newArea]];
-        if (success) return YES;
-        else [self.areasByName remove:[CadastreAreaNodeByName nodeWithData:newArea]];
+        if (success) {
+            return YES;
+        } else {
+            CadastreAreaNodeByName *nodeByName = (CadastreAreaNodeByName *)[self.areasByName find:[CadastreAreaNodeByName nodeWithData:newArea]];
+            [self.areasByName remove:nodeByName];
+        }
     }
     return NO;
 }
@@ -158,7 +162,7 @@ static NSInteger const randomAreasCount = 5;
 
 - (NSArray *)cadastreAreas
 {
-    return [self.areasByName levelOrderTraversal];
+    return [self.areasByNumber inOrderTraversal];
 }
 
 #pragma mark - Updates
@@ -191,8 +195,12 @@ static NSInteger const randomAreasCount = 5;
 {
     CadastreArea *area = [self areaByNumber:cadastreAreaNumber];
     if (owner && area) {
-        owner.property = [area propertyByNumber:propertyNumber];
-        return YES;
+        Property *property = [area propertyByNumber:propertyNumber];
+        if (property) {
+            owner.property = property;
+            [property.citizens addObject:owner];
+            return YES;
+        }
     }
     return NO;
 }

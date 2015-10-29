@@ -138,12 +138,16 @@
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
+    self.result = nil;
     switch (self.searchType) {
         case SearchTypeCitizensByBirthNumber:
             self.result = [[Cadastre sharedCadastre] citizenByBirthNumber:searchText];
             break;
-        case SearchTypeCadastreAreaByNumber:
-            self.result = [[Cadastre sharedCadastre] areaByNumber:@(searchText.integerValue)];
+        case SearchTypeCadastreAreaByNumber: {
+            if (searchText.length > 0) {
+                self.result = [[Cadastre sharedCadastre] areaByNumber:@(searchText.integerValue)];
+            }
+        }
             break;
         default:
             case SearchTypeCadastreAreaByName:
