@@ -7,6 +7,7 @@
 //
 
 #import "Citizen.h"
+#import "PropertyList.h"
 
 @implementation Citizen
 
@@ -40,6 +41,15 @@
 - (NSComparisonResult)compare:(id)other
 {
     return [self.birthNumber compare:((Citizen *)other).birthNumber];
+}
+
+- (NSArray *)allProperties
+{
+    NSMutableArray *properties = [NSMutableArray new];
+    for (PropertyList *list in self.propertyLists) {
+        [properties addObjectsFromArray:list.properties];
+    }
+    return properties;
 }
 
 #pragma mark - Misc

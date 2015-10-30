@@ -60,6 +60,8 @@
 - (NSArray *)cadastreAreas;
 - (NSArray *)propertiesInCadastreArea:(CadastreArea *)area;
 
+- (NSArray *)propertiesOfOwner:(NSString *)birthNumber;
+
 - (NSArray *)propertiesOfOwner:(NSString *)birthNumber
                 inCadastreArea:(CadastreArea *)area;
 

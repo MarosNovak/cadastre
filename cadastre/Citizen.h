@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "BSNodeData.h"
 
-@class Property;
+@class Property, PropertyList;
 
 @interface Citizen : NSObject <BSNodeData>
 
@@ -33,5 +33,7 @@
 #pragma mark - Misc
 
 - (NSString *)fullName;
+
+- (NSArray *)allProperties;
 
 @end

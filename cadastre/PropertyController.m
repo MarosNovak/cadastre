@@ -7,6 +7,7 @@
 //
 
 #import "PropertyController.h"
+#import "SearchController.h"
 #import "Cadastre.h"
 
 @interface PropertyController ()
@@ -33,6 +34,13 @@
     return NO;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 1) {
+        [self performSegueWithIdentifier:@"showSearchOfProperties" sender:nil];
+    }
+}
+
 - (void)addProperty
 {
     NSString *propertyNumber = self.propertyNumberField.text;
@@ -51,6 +59,15 @@
     self.cadastreAreaNumberField.text = nil;
     self.propertyListNumberField.text = nil;
     self.propertyNumberField.text = nil;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    SearchController *searchVC = segue.destinationViewController;
+    
+    if ([segue.identifier isEqualToString:@"showSearchOfProperties"]) {
+        searchVC.searchType = SearchTypePropertiesByBirthNumber;
+    }
 }
 
 @end

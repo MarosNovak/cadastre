@@ -100,8 +100,12 @@
 
 - (void)showPropertyDetail
 {
-    Property *property = [[Cadastre sharedCadastre] propertyByNumber:@(self.propertyNumberField.text.integerValue) inCadastreArea:self.area];
-    [self performSegueWithIdentifier:@"showPropertyDetail" sender:property];
+    if (self.propertyNumberField.text.length) {
+        Property *property = [[Cadastre sharedCadastre] propertyByNumber:@(self.propertyNumberField.text.integerValue) inCadastreArea:self.area];
+        [self performSegueWithIdentifier:@"showPropertyDetail" sender:property];
+    } else {
+        
+    }
 }
 
 - (void)showPropertyListDetail

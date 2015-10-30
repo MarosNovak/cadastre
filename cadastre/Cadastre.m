@@ -155,6 +155,13 @@ static NSInteger const randomAreasCount = 5;
     return nil;
 }
 
+- (NSArray *)propertiesOfOwner:(NSString *)birthNumber
+{
+    Citizen *owner = [self citizenByBirthNumber:birthNumber];
+    
+    return [owner allProperties];
+}
+
 - (NSArray *)propertiesInCadastreArea:(CadastreArea *)area
 {
     return [area allProperties];

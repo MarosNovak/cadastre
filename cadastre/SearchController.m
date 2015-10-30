@@ -35,6 +35,8 @@
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:(CGRectZero)];
 
     switch (self.searchType) {
+        case SearchTypePropertiesByBirthNumber:
+            self.searchBar.placeholder = @"birth number";
         case SearchTypeCadastreAreaByName:
             self.searchBar.placeholder = @"cadastre area name";
             break;
@@ -83,6 +85,17 @@
                 return cell;
             }
         }
+        case SearchTypePropertiesByBirthNumber: {
+            if ([self.result isKindOfClass:[NSArray class]]) {
+                Property *property = ((NSArray *)self.result)[indexPath.row];
+                
+                cell.textLabel.text = property.number.stringValue;
+                cell.detailTextLabel.text = property.address;
+                
+                return cell;
+            }
+        }
+            break;
         case SearchTypeCadastreAreaByName:
         case SearchTypeCadastreAreaByNumber: {
             if ([self.result isKindOfClass:[CadastreArea class]]) {
@@ -94,7 +107,6 @@
                 return cell;
             }
         }
-            
         case SearchTypeNone: {
             if ([self.result isKindOfClass:[NSArray class]]) {
                 CadastreArea *area = ((NSArray *)self.result)[indexPath.row];
@@ -126,11 +138,13 @@
             [self performSegueWithIdentifier:@"showArea" sender:area];
         }
             break;
-        default: {
+        case SearchTypeNone: {
             CadastreArea *area = (CadastreArea *)self.result[indexPath.row];
             [self performSegueWithIdentifier:@"showArea" sender:area];
         }
             break;
+        default:
+        break;
     }
 }
 
@@ -139,22 +153,25 @@
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
     self.result = nil;
-    switch (self.searchType) {
-        case SearchTypeCitizensByBirthNumber:
-            self.result = [[Cadastre sharedCadastre] citizenByBirthNumber:searchText];
+    if (searchText.length > 0) {
+        switch (self.searchType) {
+            case SearchTypePropertiesByBirthNumber:
+                self.result = [[Cadastre sharedCadastre] propertiesOfOwner:searchText];
             break;
-        case SearchTypeCadastreAreaByNumber: {
-            if (searchText.length > 0) {
+            case SearchTypeCitizensByBirthNumber:
+                self.result = [[Cadastre sharedCadastre] citizenByBirthNumber:searchText];
+            break;
+            case SearchTypeCadastreAreaByNumber:
                 self.result = [[Cadastre sharedCadastre] areaByNumber:@(searchText.integerValue)];
-            }
-        }
             break;
-        default:
             case SearchTypeCadastreAreaByName:
-            self.result = [[Cadastre sharedCadastre] areaByName:searchText];
+                self.result = [[Cadastre sharedCadastre] areaByName:searchText];
             break;
+            default:
+            break;
+        }
+        [self.tableView reloadData];
     }
-    [self.tableView reloadData];
 }
 
 #pragma mark - Segue
