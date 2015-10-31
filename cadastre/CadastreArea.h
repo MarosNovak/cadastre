@@ -42,6 +42,8 @@
 
 - (BOOL)removeProperty:(Property *)property;
 
+- (BOOL)removePropertyList:(PropertyList *)list;
+
 - (BOOL)moveAgendaToArea:(CadastreArea *)area;
 
 #pragma mark - Misc

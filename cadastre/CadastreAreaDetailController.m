@@ -11,6 +11,7 @@
 #import "PropertiesController.h"
 #import "PropertyListDetailController.h"
 #import "Cadastre.h"
+#import "UITableViewController+Alerts.h"
 
 @interface CadastreAreaDetailController ()
 
@@ -61,7 +62,7 @@
     }
     if ([segue.identifier isEqualToString:@"showPropertyDetail"]) {
         PropertyDetailController *propertyDetailVC = segue.destinationViewController;
-        propertyDetailVC.property = sender;
+        propertyDetailVC.list = sender;
     }
     if ([segue.identifier isEqualToString:@"showPropertyListDetail"]) {
         PropertyListDetailController *propertyListVC = segue.destinationViewController;
@@ -95,35 +96,68 @@
 - (void)showLisOfProperties
 {
     NSArray *properties = [[Cadastre sharedCadastre] propertiesInCadastreArea:self.area];
-    [self performSegueWithIdentifier:@"showListOfProperties" sender:properties];
+    if (properties.count) {
+        [self performSegueWithIdentifier:@"showListOfProperties" sender:properties];
+    } else {
+        [self showWarningAlertWithMessage:@"Properties not found."];
+    }
 }
 
 - (void)showPropertyDetail
 {
     if (self.propertyNumberField.text.length) {
         Property *property = [[Cadastre sharedCadastre] propertyByNumber:@(self.propertyNumberField.text.integerValue) inCadastreArea:self.area];
-        [self performSegueWithIdentifier:@"showPropertyDetail" sender:property];
+        if (property) {
+            [self performSegueWithIdentifier:@"showPropertyDetail" sender:property.propertyList.shareholdings];
+        } else {
+            [self showWarningAlertWithMessage:@"Property not found."];
+        }
+        self.self.propertyNumberField.text = nil;
     } else {
-        
+        [self showNotifyAlertFillAllFields];
     }
 }
 
 - (void)showPropertyListDetail
 {
-    PropertyList *list = [[Cadastre sharedCadastre] propertyListByNumber:@(self.propertyListNumberField.text.integerValue) inCadastreArea:self.area];
-    [self performSegueWithIdentifier:@"showPropertyListDetail" sender:list];
+    if (self.propertyListNumberField.text.length) {
+        PropertyList *list = [[Cadastre sharedCadastre] propertyListByNumber:@(self.propertyListNumberField.text.integerValue) inCadastreArea:self.area];
+        if (list) {
+            [self performSegueWithIdentifier:@"showPropertyListDetail" sender:list];
+        } else {
+            [self showWarningAlertWithMessage:@"Property list not found."];
+        }
+        self.propertyListNumberField.text = nil;
+    } else {
+        [self showNotifyAlertFillAllFields];
+    }
 }
 
 - (void)showPropertiesOfOwner
 {
-    NSArray *properties = [[Cadastre sharedCadastre] propertiesOfOwner:self.birthNumberField.text inCadastreArea:self.area];
-    [self performSegueWithIdentifier:@"showListOfProperties" sender:properties];
+    if (self.birthNumberField.text.length) {
+        NSArray *properties = [[Cadastre sharedCadastre] propertiesOfOwner:self.birthNumberField.text inCadastreArea:self.area];
+        if (properties.count) {
+            [self performSegueWithIdentifier:@"showListOfProperties" sender:properties];
+        } else {
+            [self showWarningAlertWithMessage:@"Properties not found."];
+        }
+        self.birthNumberField.text = nil;
+    } else {
+        [self showNotifyAlertFillAllFields];
+    }
 }
 
 - (void)removeCadastreArea
 {
-    if ([[Cadastre sharedCadastre] removeCadastreArea:self.area andMoveAgendaTo:@(self.cadastreAreaNameField.text.integerValue)]) {
-        [self.navigationController popToRootViewControllerAnimated:YES];
+    if (self.cadastreAreaNameField.text.length) {
+        if ([[Cadastre sharedCadastre] removeCadastreArea:self.area andMoveAgendaTo:@(self.cadastreAreaNameField.text.integerValue)]) {
+            [self.navigationController popToRootViewControllerAnimated:YES];
+        } else {
+            [self showWarningAlertWithMessage:@"Something went wrong."];
+        }
+    } else {
+        [self showNotifyAlertFillAllFields];
     }
 }
 

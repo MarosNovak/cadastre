@@ -33,4 +33,6 @@
 - (BOOL)removeOwner:(Citizen *)owner;
 - (void)removeProperty:(Property *)property;
 
+- (BOOL)movePropertiesAndOwnersToNewList:(PropertyList *)newList;
+
 @end

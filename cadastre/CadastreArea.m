@@ -99,6 +99,11 @@ static NSInteger const propertiesRandomValue = 5;
     return [self.properties inOrderTraversal];
 }
 
+- (BOOL)removePropertyList:(PropertyList *)list
+{
+    return [self.propertyLists removeObject:list];
+}
+
 - (PropertyList *)propertyListByNumber:(NSNumber *)number
 {
     PropertyList *list = (PropertyList *)[self.propertyLists findObject:[PropertyList propertyListWithNumber:number inCadastreArea:self]];

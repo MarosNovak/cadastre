@@ -9,10 +9,9 @@
 #import "PropertyDetailController.h"
 #import "PropertyList.h"
 #import "Shareholding.h"
+#import <UIScrollView+EmptyDataSet.h>
 
-@interface PropertyDetailController ()
-
-@property (strong, nonatomic) PropertyList *list;
+@interface PropertyDetailController () <DZNEmptyDataSetDelegate, DZNEmptyDataSetSource>
 
 @end
 
@@ -22,8 +21,8 @@
 {
     [super viewDidLoad];
 
-    self.title = self.property.number.stringValue;
-    self.list = self.property.propertyList;
+    self.tableView.emptyDataSetSource = self;
+    self.tableView.emptyDataSetDelegate = self;
    
     [self.tableView reloadData];
 }
@@ -35,19 +34,28 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.list.shareholdings.count;
+    return self.list.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PropertyDetailCell" forIndexPath:indexPath];
     
-    Shareholding *shareholding = self.list.shareholdings[indexPath.row];
-    
-    cell.textLabel.text = [NSString stringWithFormat:@"Owner name: %@",shareholding.owner.fullName];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"Share: %ld%%", (long)shareholding.share.doubleValue];
-    
-    return cell;
+    if ([self.list[0] isKindOfClass:[Shareholding class]]) {
+        Shareholding *shareholding = (Shareholding *)self.list[indexPath.row];
+        
+        cell.textLabel.text = [NSString stringWithFormat:@"Owner name: %@",shareholding.owner.fullName];
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"Share: %ld%%", (long)shareholding.share.doubleValue];
+        
+        return cell;
+    } else if ([self.list[0] isKindOfClass:[Citizen class]]) {
+        Citizen *citizen = (Citizen *)self.list[indexPath.row];
+        
+        cell.textLabel.text = [NSString stringWithFormat:@"Owner name: %@",citizen.fullName];
+        
+        return cell;
+    }
+    return nil;
 }
 
 @end

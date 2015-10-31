@@ -155,6 +155,13 @@ static NSInteger const randomAreasCount = 5;
     return nil;
 }
 
+- (NSArray *)citizensWithPermaAddress:(NSNumber *)propertyNumber
+                       inCadastreArea:(CadastreArea *)area
+{
+    Property *property = [self propertyByNumber:propertyNumber inCadastreArea:area];
+    return property.citizens;
+}
+
 - (NSArray *)propertiesOfOwner:(NSString *)birthNumber
 {
     Citizen *owner = [self citizenByBirthNumber:birthNumber];
@@ -215,18 +222,11 @@ static NSInteger const randomAreasCount = 5;
 #pragma mark - Deletions
 
 - (BOOL)removeShareholdingFromOwner:(NSString *)ownerNumber
-                   fromPropertyList:(NSNumber *)listNumber
-                     inCadastreArea:(NSNumber *)cadastreAreaNumber
+                   fromPropertyList:(PropertyList *)list
 {
-    CadastreArea *area = [self areaByNumber:cadastreAreaNumber];
-    if (area) {
-        PropertyList *list = [area propertyListByNumber:listNumber];
-        if (list) {
-            Citizen *owner = [self citizenByBirthNumber:ownerNumber];
-            if (owner) {
-                return [list removeOwner:owner];
-            }
-        }
+    Citizen *owner = [self citizenByBirthNumber:ownerNumber];
+    if (owner) {
+        return [list removeOwner:owner];
     }
     return NO;
 }
@@ -280,6 +280,20 @@ static NSInteger const randomAreasCount = 5;
                 }
             }
         }
+    }
+    return NO;
+}
+
+- (BOOL)removePropertyList:(PropertyList *)oldList
+          fromCadastreArea:(CadastreArea *)area
+                 toNewList:(NSNumber *)number
+{
+    PropertyList *newList = [self propertyListByNumber:number inCadastreArea:area];
+    if (newList) {
+        if ([oldList movePropertiesAndOwnersToNewList:newList]) {
+            return [area removePropertyList:oldList];
+        }
+        
     }
     return NO;
 }

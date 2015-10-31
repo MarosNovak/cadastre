@@ -50,7 +50,7 @@
         default:
             break;
     }
-    [self.tableView reloadData];
+    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationTop];
 }
 
 #pragma mark - Table view data source
@@ -170,8 +170,8 @@
             default:
             break;
         }
-        [self.tableView reloadData];
     }
+    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationTop];
 }
 
 #pragma mark - Segue

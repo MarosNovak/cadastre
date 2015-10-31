@@ -90,10 +90,12 @@ static NSInteger const maxShare = 100;
 
 - (void)recalculateOwnersShares
 {
-    double newShare = maxShare / self.shareholdings.count;
-    
-    for (Shareholding *sh in self.shareholdings) {
-        sh.share = @(newShare);
+    if (self.shareholdings.count) {
+        double newShare = maxShare / self.shareholdings.count;
+        
+        for (Shareholding *sh in self.shareholdings) {
+            sh.share = @(newShare);
+        }
     }
 }
 
@@ -117,12 +119,56 @@ static NSInteger const maxShare = 100;
         }
     }
     if (share) {
-        [self.shareholdings removeObject:owner];
+        [self.shareholdings removeObject:share];
         [owner.propertyLists removeObject:self];
         [self recalculateOwnersShares];
         return YES;
     }
     return NO;
 }
+
+- (BOOL)movePropertiesAndOwnersToNewList:(PropertyList *)newList
+{
+    for (Property *property in self.properties) {
+        property.propertyList = newList;
+    }
+    [newList.properties addObjectsFromArray:self.properties];
+    
+    for (Shareholding *shareholding in self.shareholdings) {
+        [newList addOwnerWithEqualShare:shareholding.owner];
+        [self removeOwner:shareholding.owner];
+    }
+    
+    return YES;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @end

@@ -201,8 +201,8 @@
 			children = (
 				1E5C848C1BD3EFE100593B96 /* Citizen */,
 				1E5C848A1BD3EFCE00593B96 /* Cadastre area */,
-				1E5C84891BD3EFC700593B96 /* Property */,
 				1E5C848B1BD3EFD500593B96 /* Property List */,
+				1E5C84891BD3EFC700593B96 /* Property */,
 				1E5C84901BD41FCF00593B96 /* Search */,
 			);
 			name = Controller;

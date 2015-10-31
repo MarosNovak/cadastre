@@ -68,11 +68,13 @@
 - (PropertyList *)propertyListByNumber:(NSNumber *)number
                         inCadastreArea:(CadastreArea *)area;
 
+- (NSArray *)citizensWithPermaAddress:(NSNumber *)propertyNumber
+                       inCadastreArea:(CadastreArea *)area;
+
 #pragma mark - Deletions
 
 - (BOOL)removeShareholdingFromOwner:(NSString *)ownerNumber
-                   fromPropertyList:(NSNumber *)listNumber
-                     inCadastreArea:(NSNumber *)cadastreAreaNumber;
+                   fromPropertyList:(PropertyList *)list;
 
 - (BOOL)removeCitizenByBirthNumber:(NSString *)birthNumber;
 
@@ -82,6 +84,10 @@
 
 - (BOOL)removeCadastreArea:(CadastreArea *)area
            andMoveAgendaTo:(NSNumber *)newCadastreArea;
+
+- (BOOL)removePropertyList:(PropertyList *)oldList
+          fromCadastreArea:(CadastreArea *)area
+                 toNewList:(NSNumber *)number;
 
 #pragma mark - CSV
 
