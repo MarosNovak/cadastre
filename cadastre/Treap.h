@@ -11,9 +11,8 @@
 
 @interface Treap : BSTree
 
-+ (void)generateTest;
-
 - (NSArray *)levelOrderTraversal;
+
 - (NSArray *)inOrderTraversal;
 
 @end

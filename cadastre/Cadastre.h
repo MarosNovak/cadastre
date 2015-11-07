@@ -16,7 +16,6 @@
 #define kPropertiesCSVFile      @"properties.csv"
 #define kAreasCSVFile           @"areas.csv"
 #define kListsCSVFile           @"lists.csv"
-#define kShareholdingsCSVFile   @"shareholdings.csv"
 
 static NSInteger const propertiesInList = 5;
 static NSInteger const ownersInList = 3;

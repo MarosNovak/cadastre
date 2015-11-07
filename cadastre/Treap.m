@@ -197,6 +197,7 @@
 {
     NSMutableArray *stack = [NSMutableArray array];
     NSMutableArray *levelOrderArray = [NSMutableArray array];
+    
     if (self.root) {
         [stack addObject:self.root];
     }
@@ -219,33 +220,28 @@
     return levelOrderArray;
 }
 
-- (NSArray *)inOrderTraversalNodes:(BSNode *)node
-{
-    if (!node) return nil;
-    
-    NSMutableArray *array = [NSMutableArray array];
-    if (node.leftChild) [array addObjectsFromArray:[self inOrderTraversalNodes:node.leftChild]];
-    [array addObject:node];
-    if (node.rightChild) [array addObjectsFromArray:[self inOrderTraversalNodes:node.rightChild]];
-    
-    return array;
-}
-
 - (NSArray *)inOrderTraversal
 {
-    return [self inOrderTraversalForNode:self.root];
-}
+    NSMutableArray *stack = [NSMutableArray array];
+    NSMutableArray *inOrderArray = [NSMutableArray array];
 
-- (NSArray *)inOrderTraversalForNode:(BSNode *)node
-{
-    if (!node) return nil;
-    
-    NSMutableArray *array = [NSMutableArray array];
-    if (node.leftChild) [array addObjectsFromArray:[self inOrderTraversalForNode:node.leftChild]];
-    [array addObject:node.data];
-    if (node.rightChild) [array addObjectsFromArray:[self inOrderTraversalForNode:node.rightChild]];
-    
-    return array;
+    if (self.root == nil) {
+        return inOrderArray;
+    }
+    TreapNode *current = (TreapNode *)self.root;
+
+    while (stack.count > 0 ||  current != nil) {
+        if (current != nil) {
+            [stack addObject:current];
+            current = (TreapNode *)current.leftChild;
+        } else {
+            TreapNode *node = (TreapNode *)[stack lastObject];
+            [stack removeLastObject];
+            [inOrderArray addObject:node.data];
+            current = (TreapNode *)node.rightChild;
+        }
+    }
+    return inOrderArray;
 }
 
 @end

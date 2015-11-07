@@ -278,10 +278,7 @@
     
     path = [documentsDirectory stringByAppendingPathComponent:kAreasCSVFile];
     [fileMgr removeItemAtPath:path error:&error];
-    
-    path = [documentsDirectory stringByAppendingPathComponent:kShareholdingsCSVFile];
-    [fileMgr removeItemAtPath:path error:&error];
-    
+        
     path = [documentsDirectory stringByAppendingPathComponent:kListsCSVFile];
     [fileMgr removeItemAtPath:path error:&error];
 }
