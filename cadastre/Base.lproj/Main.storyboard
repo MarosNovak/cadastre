@@ -838,8 +838,7 @@ číslom) v zadanom katastrálnom území (definované jeho číslom).</
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
                             <tableViewSection headerTitle="Properties" id="6Qt-eH-5N0">
-                                <string key="footerTitle">4. Vyhľadanie listu vlastníctva podľa jeho čísla a čísla katastrálneho územia.
-6. Vyhľadanie listu vlastníctva podľa jeho čísla a názvu katastrálneho územia. Po nájdení listu vlastníctva je potrebné zobraziť všetky evidované údaje vrátane všetkých údajov o majiteľoch nehnuteľností zapísaných na liste vlastníctva (mená, priezviská, majetkové podiely...).</string>
+                                <string key="footerTitle">Všetky evidované údaje vrátane všetkých údajov o majiteľoch nehnuteľností zapísaných na liste vlastníctva (mená, priezviská, majetkové podiely...).</string>
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="otc-d9-ZQ3" rowHeight="50" style="IBUITableViewCellStyleDefault" id="uUo-o9-Jft">
                                         <rect key="frame" x="0.0" y="114" width="600" height="50"/>
@@ -863,62 +862,13 @@ číslom) v zadanom katastrálnom území (definované jeho číslom).</
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Search citizens in property" id="Rox-zz-kah">
-                                <string key="footerTitle">3. Výpis všetkých osôb, ktoré majú trvalý pobyt v zadanej nehnuteľnosti (zadá sa číslo katastrálneho územia, číslo listu vlastníctva a súpisné číslo)</string>
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="50" id="1BP-Q2-2rN">
-                                        <rect key="frame" x="0.0" y="279" width="600" height="50"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1BP-Q2-2rN" id="SyH-ya-5Sy">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="49"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Property number" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="fyO-BY-vya">
-                                                    <rect key="frame" x="16" y="8" width="576" height="33"/>
-                                                    <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="next"/>
-                                                </textField>
-                                            </subviews>
-                                            <animations/>
-                                            <constraints>
-                                                <constraint firstItem="fyO-BY-vya" firstAttribute="bottom" secondItem="SyH-ya-5Sy" secondAttribute="bottomMargin" id="3m2-9S-9Oe"/>
-                                                <constraint firstItem="fyO-BY-vya" firstAttribute="trailing" secondItem="SyH-ya-5Sy" secondAttribute="trailingMargin" id="Kxl-pD-rAe"/>
-                                                <constraint firstItem="fyO-BY-vya" firstAttribute="leading" secondItem="SyH-ya-5Sy" secondAttribute="leadingMargin" constant="8" id="OJk-qG-6nm"/>
-                                                <constraint firstItem="fyO-BY-vya" firstAttribute="top" secondItem="SyH-ya-5Sy" secondAttribute="topMargin" id="lBK-qg-nk8"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <animations/>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="hsQ-PZ-8L8" style="IBUITableViewCellStyleDefault" id="BNG-QJ-ROh">
-                                        <rect key="frame" x="0.0" y="329" width="600" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BNG-QJ-ROh" id="zWY-0W-W8r">
-                                            <rect key="frame" x="0.0" y="0.0" width="567" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Property detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hsQ-PZ-8L8">
-                                                    <rect key="frame" x="15" y="0.0" width="550" height="43"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <animations/>
-                                        </tableViewCellContentView>
-                                        <animations/>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
                             <tableViewSection headerTitle="update" id="kLG-Su-qWJ">
                                 <string key="footerTitle">12. Zapísanie majetkového podielu majiteľa (definovaný rodným číslom) na list vlastníctva
 (definovaný číslom) v zadanom katastrálnom území (definované jeho číslom)13. Odstránenie majetkového podielu majiteľa (definovaný rodným číslom) z listu vlastníctva (definovaný číslom) v zadanom katastrálnom území (definované jeho číslom).
 </string>
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="50" id="8HX-fE-kUv">
-                                        <rect key="frame" x="0.0" y="456" width="600" height="50"/>
+                                        <rect key="frame" x="0.0" y="247" width="600" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8HX-fE-kUv" id="WCu-IG-IYn">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="49"/>
@@ -942,7 +892,7 @@ číslom) v zadanom katastrálnom území (definované jeho číslom).</
                                         <animations/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="gdq-e6-Btr" style="IBUITableViewCellStyleDefault" id="aRB-TA-W6g">
-                                        <rect key="frame" x="0.0" y="506" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="297" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aRB-TA-W6g" id="5lu-cB-F1R">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
@@ -962,7 +912,7 @@ číslom) v zadanom katastrálnom území (definované jeho číslom).</
                                         <animations/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="mgj-sJ-a7P" style="IBUITableViewCellStyleDefault" id="lOR-45-V27">
-                                        <rect key="frame" x="0.0" y="550" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="341" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lOR-45-V27" id="ltR-5T-AaB">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
@@ -988,7 +938,7 @@ číslom) v zadanom katastrálnom území (definované jeho číslom).</
 (definované jeho číslom). Nehnuteľnosti sa presunú na iný list vlastníctva.</string>
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="50" id="BmZ-dP-PEO">
-                                        <rect key="frame" x="0.0" y="725" width="600" height="50"/>
+                                        <rect key="frame" x="0.0" y="516" width="600" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BmZ-dP-PEO" id="m8N-jZ-JUg">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="49"/>
@@ -1012,7 +962,7 @@ číslom) v zadanom katastrálnom území (definované jeho číslom).</
                                         <animations/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="x2y-uc-QSO" style="IBUITableViewCellStyleDefault" id="haz-AX-CQx">
-                                        <rect key="frame" x="0.0" y="775" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="566" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="haz-AX-CQx" id="GB2-tR-fLx">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
@@ -1043,7 +993,6 @@ číslom) v zadanom katastrálnom území (definované jeho číslom).</
                     <connections>
                         <outlet property="birthNumberField" destination="LdE-Ur-ADP" id="lVs-Wr-Uh1"/>
                         <outlet property="propertyListNumber" destination="5q6-lU-LMP" id="PhE-90-5p9"/>
-                        <outlet property="propertyNumberField" destination="fyO-BY-vya" id="HmS-Mf-Zf9"/>
                         <segue destination="fkX-W6-2uK" kind="show" identifier="showList" id="azH-Oe-jIm"/>
                     </connections>
                 </tableViewController>
@@ -1594,7 +1543,7 @@ území (definované jeho číslom).</string>
         <image name="PropertyList" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="T6q-A1-k3S"/>
+        <segue reference="azH-Oe-jIm"/>
         <segue reference="6tK-sc-okj"/>
     </inferredMetricsTieBreakers>
 </document>

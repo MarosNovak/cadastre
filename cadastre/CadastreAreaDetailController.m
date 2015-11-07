@@ -96,11 +96,7 @@
 - (void)showLisOfProperties
 {
     NSArray *properties = [[Cadastre sharedCadastre] propertiesInCadastreArea:self.area];
-    if (properties.count) {
-        [self performSegueWithIdentifier:@"showListOfProperties" sender:properties];
-    } else {
-        [self showWarningAlertWithMessage:@"Properties not found."];
-    }
+    [self performSegueWithIdentifier:@"showListOfProperties" sender:properties];
 }
 
 - (void)showPropertyDetail
@@ -136,11 +132,12 @@
 - (void)showPropertiesOfOwner
 {
     if (self.birthNumberField.text.length) {
-        NSArray *properties = [[Cadastre sharedCadastre] propertiesOfOwner:self.birthNumberField.text inCadastreArea:self.area];
-        if (properties.count) {
+        Citizen *citizen = [[Cadastre sharedCadastre] citizenByBirthNumber:self.birthNumberField.text];
+        if (citizen) {
+            NSArray *properties = [[Cadastre sharedCadastre] propertiesOfOwner:citizen inCadastreArea:self.area];
             [self performSegueWithIdentifier:@"showListOfProperties" sender:properties];
         } else {
-            [self showWarningAlertWithMessage:@"Properties not found."];
+            [self showWarningAlertWithMessage:@"Owner not found."];
         }
         self.birthNumberField.text = nil;
     } else {
@@ -151,10 +148,15 @@
 - (void)removeCadastreArea
 {
     if (self.cadastreAreaNameField.text.length) {
-        if ([[Cadastre sharedCadastre] removeCadastreArea:self.area andMoveAgendaTo:@(self.cadastreAreaNameField.text.integerValue)]) {
-            [self.navigationController popToRootViewControllerAnimated:YES];
+        CadastreArea *newCadastre = [[Cadastre sharedCadastre] areaByNumber:@(self.cadastreAreaNameField.text.integerValue)];
+        if (newCadastre && newCadastre != self.area) {
+            if ([[Cadastre sharedCadastre] removeCadastreArea:self.area andMoveAgendaTo:newCadastre]) {
+                [self.navigationController popToRootViewControllerAnimated:YES];
+            } else {
+                [self showWarningAlertWithMessage:@"Something went wrong."];
+            }
         } else {
-            [self showWarningAlertWithMessage:@"Something went wrong."];
+            [self showWarningAlertWithMessage:@"Cadastre not found."];
         }
     } else {
         [self showNotifyAlertFillAllFields];

@@ -27,7 +27,7 @@
 {
     [super viewDidLoad];
 
-    self.title = [NSString stringWithFormat:@"Property:%@ (address: %@)",self.property.number, self.property.address];
+    self.title = [NSString stringWithFormat:@"%@ (address: %@)",self.property.number, self.property.address];
     self.tableView.emptyDataSetSource = self;
     self.tableView.emptyDataSetDelegate = self;
    

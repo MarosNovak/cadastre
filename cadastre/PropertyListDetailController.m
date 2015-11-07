@@ -35,49 +35,29 @@
         [self performSegueWithIdentifier:@"showList" sender:self.list.shareholdings];
     }
     if (indexPath.section == 1 && indexPath.row == 1) {
-        [self showOwnersWithPermaAddress];
-    }
-    if (indexPath.section == 2 && indexPath.row == 1) {
         [self setShareholding];
     }
-    if (indexPath.section == 2 && indexPath.row == 2) {
+    if (indexPath.section == 1 && indexPath.row == 2) {
         [self removeShareholding];
     }
-    if (indexPath.section == 3 && indexPath.row == 1) {
+    if (indexPath.section == 2 && indexPath.row == 1) {
         [self showAlertController];
     }
     self.birthNumberField.text = nil;
 }
 
-- (void)showOwnersWithPermaAddress
-{
-    if (self.propertyNumberField.text.length) {
-        NSArray *citizens = [NSArray new];
-        if ((citizens = [[Cadastre sharedCadastre] citizensWithPermaAddress:@(self.propertyNumberField.text.integerValue)
-                                                             inCadastreArea:self.list.area])) {
-            if (citizens.count) {
-                [self performSegueWithIdentifier:@"showList" sender:citizens];
-            } else {
-                [self showWarningAlertWithMessage:@"Citizens not found."];
-            }
-        } else {
-            [self showWarningAlertWithMessage:@"Something went wrong"];
-        }
-    } else {
-        [self showNotifyAlertFillAllFields];
-    }
-    
-    [self.propertyNumberField resignFirstResponder];
-}
-
 - (void)removeShareholding
 {
     if (self.birthNumberField.text.length) {
-        if ([[Cadastre sharedCadastre] removeShareholdingFromOwner:self.birthNumberField.text
-                                                  fromPropertyList:self.list]) {
-            [self showSuccessAlertWithMessage:@"Citizen removed from property list."];
+        Citizen *owner = [[Cadastre sharedCadastre] citizenByBirthNumber:self.birthNumberField.text];
+        if (owner) {
+            if ([self.list removeOwner:owner]) {
+                [self showSuccessAlertWithMessage:@"Citizen removed from property list."];
+            } else {
+                [self showWarningAlertWithMessage:@"Citizen can't be removed."];
+            }
         } else {
-            [self showWarningAlertWithMessage:@"Something went wrong"];
+            [self showWarningAlertWithMessage:@"Citizen not found."];
         }
     } else {
         [self showNotifyAlertFillAllFields];
@@ -89,11 +69,15 @@
 - (void)setShareholding
 {
     if (self.birthNumberField.text.length) {
-        if ([[Cadastre sharedCadastre] setShareholdingToCitizen:self.birthNumberField.text
-                                                 toPropertyList:self.list]) {
-            [self showSuccessAlertWithMessage:@"Citizen added to property list."];
+        Citizen *owner = [[Cadastre sharedCadastre] citizenByBirthNumber:self.birthNumberField.text];
+        if (owner) {
+            if ([self.list addOwnerWithEqualShare:owner]) {
+                [self showSuccessAlertWithMessage:@"Citizen added to property list."];
+            } else {
+                [self showWarningAlertWithMessage:@"Citizen can't be added."];
+            }
         } else {
-            [self showWarningAlertWithMessage:@"Something went wrong"];
+            [self showWarningAlertWithMessage:@"Citizen not found."];
         }
     } else {
         [self showNotifyAlertFillAllFields];
@@ -104,12 +88,17 @@
 - (void)removePropertyList
 {
     if (self.propertyListNumber.text.length) {
-        if ([[Cadastre sharedCadastre] removePropertyList:self.list
-                                         fromCadastreArea:self.list.area
-                                                toNewList:@(self.propertyListNumber.text.integerValue)]) {
-            [self.navigationController popViewControllerAnimated:YES];
+        PropertyList *newList = [[Cadastre sharedCadastre] propertyListByNumber:@(self.propertyListNumber.text.integerValue) inCadastreArea:self.list.area];
+        if (newList && newList != self.list) {
+            if ([[Cadastre sharedCadastre] removePropertyList:self.list
+                                             fromCadastreArea:self.list.area
+                                                    toNewList:newList]) {
+                [self.navigationController popViewControllerAnimated:YES];
+            } else {
+                [self showWarningAlertWithMessage:@"Property list can't be removed."];
+            }
         } else {
-            [self showWarningAlertWithMessage:@"Something went wrong"];
+            [self showWarningAlertWithMessage:@"Property list not found."];
         }
     } else {
         [self showNotifyAlertFillAllFields];

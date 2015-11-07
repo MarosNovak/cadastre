@@ -14,11 +14,18 @@
 #define kHomeDirectory      @"Documents"
 #define kCitizensCSVFile    @"citizens.csv"
 
+static NSInteger const propertiesInList = 5;
+static NSInteger const ownersInList = 3;
+static NSInteger const listsInArea = 2;
+static NSInteger const areas = 20;
+
 @interface Cadastre : NSObject
 
 + (Cadastre *)sharedCadastre;
 
 #pragma mark - Insertions
+
+- (BOOL)addCitizen:(Citizen *)citizen;
 
 - (BOOL)addCitizenWithBirthNumber:(NSString *)birthNumber
                              name:(NSString *)name
@@ -30,8 +37,8 @@
 - (BOOL)addCadastreArea:(CadastreArea *)area;
 
 - (BOOL)addProperty:(NSNumber *)propertyNumber
-     toPropertyList:(NSNumber *)propertyListNumber
-     inCadastreArea:(NSNumber *)cadastreAreaNumber;
+     toPropertyList:(PropertyList *)list
+     inCadastreArea:(CadastreArea *)area;
 
 - (BOOL)setShareholdingToCitizen:(NSString *)birthNumber
                   toPropertyList:(PropertyList *)propertyList;
@@ -39,8 +46,7 @@
 #pragma mark - Updates
 
 - (BOOL)changePermanentAddressOfOwner:(Citizen *)owner
-                           toProperty:(NSNumber *)propertyNumber
-                       inCadastreArea:(NSNumber *)cadastreAreaNumber;
+                           toProperty:(Property *)property;
 
 - (BOOL)changeOwner:(Citizen *)owner
          ofProperty:(Property *)property
@@ -61,7 +67,7 @@
 
 - (NSArray *)propertiesOfOwner:(NSString *)birthNumber;
 
-- (NSArray *)propertiesOfOwner:(NSString *)birthNumber
+- (NSArray *)propertiesOfOwner:(Citizen *)owner
                 inCadastreArea:(CadastreArea *)area;
 
 - (PropertyList *)propertyListByNumber:(NSNumber *)number
@@ -72,9 +78,6 @@
 
 #pragma mark - Deletions
 
-- (BOOL)removeShareholdingFromOwner:(NSString *)ownerNumber
-                   fromPropertyList:(PropertyList *)list;
-
 - (BOOL)removeCitizenByBirthNumber:(NSString *)birthNumber;
 
 - (BOOL)removeProperty:(Property *)property
@@ -82,11 +85,11 @@
         inCadastreArea:(CadastreArea *)cadastreArea;
 
 - (BOOL)removeCadastreArea:(CadastreArea *)area
-           andMoveAgendaTo:(NSNumber *)newCadastreArea;
+           andMoveAgendaTo:(CadastreArea *)newArea;
 
 - (BOOL)removePropertyList:(PropertyList *)oldList
           fromCadastreArea:(CadastreArea *)area
-                 toNewList:(NSNumber *)number;
+                 toNewList:(PropertyList *)newList;
 
 #pragma mark - CSV
 

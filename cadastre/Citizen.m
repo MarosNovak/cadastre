@@ -8,6 +8,7 @@
 
 #import "Citizen.h"
 #import "PropertyList.h"
+#import "NSString+Random.h"
 
 @implementation Citizen
 
@@ -34,6 +35,11 @@
                             surname:(NSString *)surname
 {
     return [[Citizen alloc] initWithBirthNumber:birthNumber name:name surname:surname];
+}
+
++ (Citizen *)randomCitizen
+{
+    return [[Citizen alloc] initWithBirthNumber:[NSString randomBirthNumber] name:[NSString largeRandom] surname:[NSString largeRandom]];
 }
 
 #pragma mark - Override

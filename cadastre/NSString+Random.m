@@ -9,6 +9,7 @@
 #import "NSString+Random.h"
 
 static NSString const *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+static NSString const *numbers = @"0123456789";
 
 @implementation NSString (Random)
 
@@ -29,11 +30,23 @@ static NSString const *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRS
 
 + (NSString *)randomStringWithSize:(NSInteger)size
 {
-    NSMutableString *randomString =[NSMutableString stringWithCapacity:size];
+    NSMutableString *randomString = [NSMutableString stringWithCapacity:size];
 
     for (int i = 0; i < size; i++) {
         [randomString appendFormat: @"%C", [letters characterAtIndex: arc4random_uniform((u_int32_t)[letters length])]];
     }
     return randomString;
 }
+
++ (NSString *)randomBirthNumber
+{
+    NSMutableString *randomString = [NSMutableString stringWithCapacity:3];
+    
+    for (int i = 0; i < 3; i++) {
+        [randomString appendFormat: @"%C", [numbers characterAtIndex: arc4random_uniform((u_int32_t)[numbers length])]];
+    }
+    return randomString;
+}
+
+
 @end

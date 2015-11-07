@@ -9,6 +9,7 @@
 #import "PropertyController.h"
 #import "SearchController.h"
 #import "Cadastre.h"
+#import "UITableViewController+Alerts.h"
 
 @interface PropertyController ()
 
@@ -43,15 +44,26 @@
 
 - (void)addProperty
 {
-    NSString *propertyNumber = self.propertyNumberField.text;
-    NSString *cadastreAreaNumber = self.cadastreAreaNumberField.text;
-    NSString *propertyListNumber = self.propertyListNumberField.text;
-    
-    [[Cadastre sharedCadastre] addProperty:@(propertyNumber.integerValue)
-                            toPropertyList:@(propertyListNumber.integerValue)
-                            inCadastreArea:@(cadastreAreaNumber.integerValue)];
-    
-    [self clearFields];
+    if (self.propertyNumberField.text.length && self.cadastreAreaNumberField.text.length && self.propertyListNumberField.text.length) {
+        CadastreArea *area = [[Cadastre sharedCadastre] areaByNumber:@(self.cadastreAreaNumberField.text.integerValue)];
+        if (area) {
+            PropertyList *propertyList = [[Cadastre sharedCadastre] propertyListByNumber:@(self.propertyListNumberField.text.integerValue) inCadastreArea:area];
+            if (propertyList) {
+                if ([[Cadastre sharedCadastre] addProperty:@(self.propertyNumberField.text.integerValue) toPropertyList:propertyList inCadastreArea:area]) {
+                    [self showSuccessAlertWithMessage:@"Property added successfully."];
+                } else {
+                    [self showWarningAlertWithMessage:@"Property already exists."];
+                }
+            } else {
+                [self showWarningAlertWithMessage:@"Property list not found."];
+            }
+        } else {
+            [self showWarningAlertWithMessage:@"Cadastre area not found."];
+        }
+        [self clearFields];
+    } else {
+        [self showNotifyAlertFillAllFields];
+    }
 }
 
 - (void)clearFields

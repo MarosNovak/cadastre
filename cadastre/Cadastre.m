@@ -11,8 +11,6 @@
 #import "CadastreAreaNodeByNumber.h"
 #import "CSVLoader.h"
 
-static NSInteger const randomAreasCount = 2000;
-
 @interface Cadastre ()
 
 @property (strong, nonatomic) Treap *citizens;
@@ -41,6 +39,11 @@ static NSInteger const randomAreasCount = 2000;
 
 #pragma mark - Insertion
 
+- (BOOL)addCitizen:(Citizen *)citizen
+{
+    return [self.citizens addObject:citizen];
+}
+
 - (BOOL)addCitizenWithBirthNumber:(NSString *)birthNumber
                              name:(NSString *)name
                           surname:(NSString *)surname
@@ -54,8 +57,12 @@ static NSInteger const randomAreasCount = 2000;
     BOOL success = [self.areasByName add:[CadastreAreaNodeByName nodeWithData:area]];
     if (success) {
         success = [self.areasByNumber add:[CadastreAreaNodeByNumber nodeWithData:area]];
-        if (success) return YES;
-        else [self.areasByName remove:[CadastreAreaNodeByName nodeWithData:area]];
+        if (success) {
+            return YES;
+        } else {
+            CadastreAreaNodeByName *nodeByName = (CadastreAreaNodeByName *)[self.areasByName find:[CadastreAreaNodeByName nodeWithData:area]];
+            [self.areasByName remove:nodeByName];
+        }
     }
     return NO;
 }
@@ -79,20 +86,14 @@ static NSInteger const randomAreasCount = 2000;
 }
 
 - (BOOL)addProperty:(NSNumber *)propertyNumber
-     toPropertyList:(NSNumber *)propertyListNumber
-     inCadastreArea:(NSNumber *)cadastreAreaNumber
+     toPropertyList:(PropertyList *)list
+     inCadastreArea:(CadastreArea *)area
 {
-    CadastreArea *area = [self areaByNumber:cadastreAreaNumber];
-    if (area) {
-        PropertyList *list = [area propertyListByNumber:propertyListNumber];
-        if (list) {
-            Property *property = [Property propertyWithNumber:propertyNumber inCadastreArea:area];
-            BOOL success = [area addProperty:property];
-            if (success) {
-                [list addProperty:property];
-                return YES;
-            }
-        }
+    Property *property = [Property propertyWithNumber:propertyNumber inCadastreArea:area];
+    BOOL success = [area addProperty:property];
+    if (success) {
+        [list addProperty:property];
+        return YES;
     }
     return NO;
 }
@@ -138,21 +139,17 @@ static NSInteger const randomAreasCount = 2000;
     return [area propertyListByNumber:number];
 }
 
-- (NSArray *)propertiesOfOwner:(NSString *)birthNumber
+- (NSArray *)propertiesOfOwner:(Citizen *)owner
                 inCadastreArea:(CadastreArea *)area
 {
-    Citizen *owner = [self citizenByBirthNumber:birthNumber];
-    if (owner) {
-        NSMutableArray *properties = [NSMutableArray new];
-        
-        for (PropertyList *list in owner.propertyLists) {
-            if (list.area == area) {
-                [properties addObjectsFromArray:list.properties];
-            }
+    NSMutableArray *properties = [NSMutableArray new];
+    
+    for (PropertyList *list in owner.propertyLists) {
+        if (list.area == area) {
+            [properties addObjectsFromArray:list.properties];
         }
-        return properties;
     }
-    return nil;
+    return properties;
 }
 
 - (NSArray *)citizensWithPermaAddress:(NSNumber *)propertyNumber
@@ -193,47 +190,26 @@ static NSInteger const randomAreasCount = 2000;
 }
 
 - (BOOL)changePermanentAddressOfOwner:(Citizen *)owner
-                           toProperty:(NSNumber *)propertyNumber
-                       inCadastreArea:(NSNumber *)cadastreAreaNumber
+                           toProperty:(Property *)property
 {
-    CadastreArea *area = [self areaByNumber:cadastreAreaNumber];
-    if (owner && area) {
-        Property *property = [area propertyByNumber:propertyNumber];
-        if (property) {
-            owner.property = property;
-            [property.citizens addObject:owner];
-            return YES;
-        }
-    }
-    return NO;
+    owner.property = property;
+    [property.citizens addObject:owner];
+    return YES;
 }
 
 #pragma mark - Deletions
 
-- (BOOL)removeShareholdingFromOwner:(NSString *)ownerNumber
-                   fromPropertyList:(PropertyList *)list
-{
-    Citizen *owner = [self citizenByBirthNumber:ownerNumber];
-    if (owner) {
-        return [list removeOwner:owner];
-    }
-    return NO;
-}
-
 - (BOOL)removeCadastreArea:(CadastreArea *)area
-        andMoveAgendaTo:(NSNumber *)newCadastreArea
+           andMoveAgendaTo:(CadastreArea *)newArea
 {
-    CadastreArea *newArea = [self areaByNumber:newCadastreArea];
-    if (area && newArea) {
-        [area moveAgendaToArea:newArea];
-        CadastreAreaNodeByName *nodeByName = (CadastreAreaNodeByName *)[self.areasByName find:[CadastreAreaNodeByName nodeWithData:area]];
-        CadastreAreaNodeByNumber *nodeByNumber = (CadastreAreaNodeByNumber *)[self.areasByNumber find:[CadastreAreaNodeByNumber nodeWithData:area]];
+    [area moveAgendaToArea:newArea];
+    CadastreAreaNodeByName *nodeByName = (CadastreAreaNodeByName *)[self.areasByName find:[CadastreAreaNodeByName nodeWithData:area]];
+    CadastreAreaNodeByNumber *nodeByNumber = (CadastreAreaNodeByNumber *)[self.areasByNumber find:[CadastreAreaNodeByNumber nodeWithData:area]];
 
-        if (nodeByName && nodeByNumber) {
-            BOOL success = [self.areasByName remove:nodeByName];
-            if (success) {
-                return [self.areasByNumber remove:nodeByNumber];
-            }
+    if (nodeByName && nodeByNumber) {
+        BOOL success = [self.areasByName remove:nodeByName];
+        if (success) {
+            return [self.areasByNumber remove:nodeByNumber];
         }
     }
     return NO;
@@ -266,14 +242,10 @@ static NSInteger const randomAreasCount = 2000;
 
 - (BOOL)removePropertyList:(PropertyList *)oldList
           fromCadastreArea:(CadastreArea *)area
-                 toNewList:(NSNumber *)number
+                 toNewList:(PropertyList *)newList
 {
-    PropertyList *newList = [self propertyListByNumber:number inCadastreArea:area];
-    if (newList) {
-        if ([oldList movePropertiesAndOwnersToNewList:newList]) {
-            return [area removePropertyList:oldList];
-        }
-        
+    if ([oldList movePropertiesAndOwnersToNewList:newList]) {
+        return [area removePropertyList:oldList];
     }
     return NO;
 }
@@ -306,10 +278,9 @@ static NSInteger const randomAreasCount = 2000;
 
 - (void)generateData
 {
-    for (NSInteger i = 0; i < randomAreasCount; i++) {
+    for (NSInteger i = 0; i < areas; i++) {
         [[Cadastre sharedCadastre] addCadastreArea:[CadastreArea randomData]];
     }
 }
-
 
 @end

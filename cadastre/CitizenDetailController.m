@@ -8,6 +8,7 @@
 
 #import "CitizenDetailController.h"
 #import "Cadastre.h"
+#import "UITableViewController+Alerts.h"
 
 @interface CitizenDetailController ()
 
@@ -72,13 +73,24 @@
 
 - (void)updatePermanentAddress
 {
-    NSString *cadastreAreaNumber = self.cadastreAreaNameField.text;
-    NSString *propertyListNumber = self.propertyNumberField.text;
-
-    [[Cadastre sharedCadastre] changePermanentAddressOfOwner:self.citizen
-                                                  toProperty:@(propertyListNumber.integerValue)
-                                              inCadastreArea:@(cadastreAreaNumber.integerValue)];
-    [self clearFields];
+    if (self.propertyNumberField.text.length && self.cadastreAreaNameField.text.length) {
+        CadastreArea *area = [[Cadastre sharedCadastre] areaByName:self.cadastreAreaNameField.text];
+        if (area) {
+            Property *property = [[Cadastre sharedCadastre] propertyByNumber:@(self.propertyNumberField.text.integerValue) inCadastreArea:area];
+            if (property) {
+                [[Cadastre sharedCadastre] changePermanentAddressOfOwner:self.citizen
+                                                              toProperty:property];
+                [self showSuccessAlertWithMessage:@"Permanent address changed successfully."];
+            } else {
+                [self showWarningAlertWithMessage:@"Property not found."];
+            }
+        } else {
+            [self showWarningAlertWithMessage:@"Cadastre area not found."];
+        }
+        [self clearFields];
+    } else {
+        [self showNotifyAlertFillAllFields];
+    }
 }
 
 - (void)removeCitizen

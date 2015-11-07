@@ -9,11 +9,9 @@
 #import "CadastreArea.h"
 #import "Treap.h"
 #import "NSString+Random.h"
+#import "Cadastre.h"
 
 static NSInteger cadastreAreaNumber = 0;
-
-static NSInteger const propertyListsRandomValue = 2;
-static NSInteger const propertiesRandomValue = 4;
 
 @interface CadastreArea ()
 
@@ -73,7 +71,11 @@ static NSInteger const propertiesRandomValue = 4;
 
 - (BOOL)addProperty:(Property *)property
 {
-    return [self.properties addObject:property];
+    if ([self.properties addObject:property]) {
+        property.area = self;
+        return YES;
+    }
+    return NO;
 }
 
 - (BOOL)addPropertyListWithNumber:(NSNumber *)number
@@ -85,6 +87,7 @@ static NSInteger const propertiesRandomValue = 4;
 - (BOOL)addPropertyList:(PropertyList *)propertyList
 {
     if ([self.propertyLists addObject:propertyList]) {
+        propertyList.area = self;
         return YES;
     }
     return NO;
@@ -142,13 +145,8 @@ static NSInteger const propertiesRandomValue = 4;
 {
     CadastreArea *randomArea = [CadastreArea areaWithName:[NSString shortRandom]];
     
-    for (int i = 0; i < propertyListsRandomValue; i++) {
-        PropertyList *list = [PropertyList propertyListWithCadastreArea:randomArea];
-        if ([randomArea addPropertyList:list]) {
-            for (int j = 0; j < propertiesRandomValue; j++) {
-                [list addProperty:[Property propertyWithCadastreArea:randomArea]];
-            }
-        }
+    for (int i = 0; i < listsInArea; i++) {
+        [randomArea addPropertyList:[PropertyList randomListInCadastreArea:randomArea]];
     }
     return randomArea;
 }

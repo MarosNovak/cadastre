@@ -8,6 +8,7 @@
 
 #import "PropertyList.h"
 #import "Shareholding.h"
+#import "Cadastre.h"
 
 static NSInteger propertyListNumber = 0;
 static NSInteger const maxShare = 100;
@@ -35,6 +36,22 @@ static NSInteger const maxShare = 100;
         _shareholdings = [NSMutableArray new];
     }
     return self;
+}
+
++ (PropertyList *)randomListInCadastreArea:(CadastreArea *)area
+{
+    PropertyList *list = [[PropertyList alloc] initWithNumber:[NSNumber numberWithInteger:propertyListNumber++] cadastreArea:area];
+    
+    for (int j = 0; j < propertiesInList; j++) {
+        [list addProperty:[Property propertyWithCadastreArea:area]];
+    }
+    for (int i = 0; i < ownersInList; i++) {
+        Citizen *owner = [Citizen randomCitizen];
+        if([[Cadastre sharedCadastre] addCitizen:owner]) {
+            [list addOwnerWithEqualShare:owner];
+        }
+    }
+    return list;
 }
 
 #pragma mark - Override
@@ -84,7 +101,6 @@ static NSInteger const maxShare = 100;
             return YES;
         }
     }
-    
     return NO;
 }
 
@@ -148,7 +164,6 @@ static NSInteger const maxShare = 100;
         [newList addOwnerWithEqualShare:shareholding.owner];
         [self removeOwner:shareholding.owner];
     }
-    
     return YES;
 }
 

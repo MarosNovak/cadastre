@@ -16,4 +16,6 @@
 
 + (NSString *)largeRandom;
 
++ (NSString *)randomBirthNumber;
+
 @end

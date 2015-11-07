@@ -40,6 +40,7 @@
     switch (self.searchType) {
         case SearchTypePropertiesByBirthNumber:
             self.searchBar.placeholder = @"birth number";
+            break;
         case SearchTypeCadastreAreaByName:
             self.searchBar.placeholder = @"cadastre area name";
             break;

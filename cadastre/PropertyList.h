@@ -25,6 +25,7 @@
 - (id)initWithNumber:(NSNumber *)number cadastreArea:(CadastreArea *)area;
 + (PropertyList *)propertyListWithCadastreArea:(CadastreArea *)area;
 + (PropertyList *)propertyListWithNumber:(NSNumber *)number inCadastreArea:(CadastreArea *)area;
++ (PropertyList *)randomListInCadastreArea:(CadastreArea *)area;
 
 - (BOOL)addOwnerWithEqualShare:(Citizen *)owner;
 

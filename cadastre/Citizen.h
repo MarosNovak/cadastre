@@ -30,6 +30,8 @@
                                name:(NSString *)name
                             surname:(NSString *)surname;
 
++ (Citizen *)randomCitizen;
+
 #pragma mark - Misc
 
 - (NSString *)fullName;
