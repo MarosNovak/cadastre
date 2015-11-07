@@ -9,6 +9,7 @@
 #import "PropertyListDetailController.h"
 #import "UITableViewController+Alerts.h"
 #import "PropertyDetailController.h"
+#import "InfoController.h"
 #import "Cadastre.h"
 
 @interface PropertyListDetailController ()
@@ -31,7 +32,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 0) {
-        [self performSegueWithIdentifier:@"showCitizens" sender:self.list.shareholdings];
+        [self performSegueWithIdentifier:@"showList" sender:self.list.shareholdings];
     }
     if (indexPath.section == 1 && indexPath.row == 1) {
         [self showOwnersWithPermaAddress];
@@ -55,7 +56,7 @@
         if ((citizens = [[Cadastre sharedCadastre] citizensWithPermaAddress:@(self.propertyNumberField.text.integerValue)
                                                              inCadastreArea:self.list.area])) {
             if (citizens.count) {
-                [self performSegueWithIdentifier:@"showCitizens" sender:citizens];
+                [self performSegueWithIdentifier:@"showList" sender:citizens];
             } else {
                 [self showWarningAlertWithMessage:@"Citizens not found."];
             }
@@ -140,9 +141,9 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.identifier isEqualToString:@"showCitizens"]) {
-        PropertyDetailController *propertyDetailVC = segue.destinationViewController;
-        propertyDetailVC.list = sender;
+    if ([segue.identifier isEqualToString:@"showList"]) {
+        InfoController *infoVC = segue.destinationViewController;
+        infoVC.list = sender;
     }
 }
 

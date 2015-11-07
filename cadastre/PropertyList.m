@@ -127,6 +127,16 @@ static NSInteger const maxShare = 100;
     return NO;
 }
 
+- (BOOL)isCitizenOnPropertyList:(Citizen *)citizen
+{
+    for (Shareholding *shareholding in self.shareholdings) {
+        if (shareholding.owner == citizen) {
+            return YES;
+        }
+    }
+    return NO;
+}
+
 - (BOOL)movePropertiesAndOwnersToNewList:(PropertyList *)newList
 {
     for (Property *property in self.properties) {
@@ -141,34 +151,5 @@ static NSInteger const maxShare = 100;
     
     return YES;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 @end

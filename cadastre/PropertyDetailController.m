@@ -9,9 +9,15 @@
 #import "PropertyDetailController.h"
 #import "PropertyList.h"
 #import "Shareholding.h"
+#import "InfoController.h"
+#import "UITableViewController+Alerts.h"
 #import <UIScrollView+EmptyDataSet.h>
+#import "Cadastre.h"
 
 @interface PropertyDetailController () <DZNEmptyDataSetDelegate, DZNEmptyDataSetSource>
+
+@property (weak, nonatomic) IBOutlet UITextField *oldBirthNumberField;
+@property (weak, nonatomic) IBOutlet UITextField *birthNumberField;
 
 @end
 
@@ -21,41 +27,96 @@
 {
     [super viewDidLoad];
 
+    self.title = [NSString stringWithFormat:@"Property:%@ (address: %@)",self.property.number, self.property.address];
     self.tableView.emptyDataSetSource = self;
     self.tableView.emptyDataSetDelegate = self;
    
     [self.tableView reloadData];
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return self.list.count;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PropertyDetailCell" forIndexPath:indexPath];
-    
-    if ([self.list[0] isKindOfClass:[Shareholding class]]) {
-        Shareholding *shareholding = (Shareholding *)self.list[indexPath.row];
-        
-        cell.textLabel.text = [NSString stringWithFormat:@"Owner name: %@",shareholding.owner.fullName];
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"Share: %ld%%", (long)shareholding.share.doubleValue];
-        
-        return cell;
-    } else if ([self.list[0] isKindOfClass:[Citizen class]]) {
-        Citizen *citizen = (Citizen *)self.list[indexPath.row];
-        
-        cell.textLabel.text = [NSString stringWithFormat:@"Owner name: %@",citizen.fullName];
-        
-        return cell;
+    if (indexPath.section == 0) {
+        [self performSegueWithIdentifier:@"showList" sender:self.property.propertyList.shareholdings];
     }
-    return nil;
+    if (indexPath.section == 1) {
+        [self performSegueWithIdentifier:@"showList" sender:self.property.citizens];
+    }
+    if (indexPath.section == 2) {
+        [self changeOwner];
+    }
+    if (indexPath.section == 3) {
+        [self showAlertController];
+    }
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"showList"]) {
+        InfoController *infoVC = segue.destinationViewController;
+        infoVC.list = sender;
+    }
+}
+
+- (void)changeOwner
+{
+    if (self.oldBirthNumberField.text.length || self.birthNumberField.text.length) {
+        Citizen *oldOwner = [[Cadastre sharedCadastre] citizenByBirthNumber:self.oldBirthNumberField.text];
+        if (oldOwner) {
+            if ([self.property.propertyList isCitizenOnPropertyList:oldOwner]) {
+                Citizen *newOwner =  [[Cadastre sharedCadastre] citizenByBirthNumber:self.birthNumberField.text];
+                if (newOwner) {
+                    if ([[Cadastre sharedCadastre] changeOwner:oldOwner ofProperty:self.property toNewOwner:newOwner]) {
+                        [self showSuccessAlertWithMessage:@"Owner changed."];
+                        self.oldBirthNumberField.text = nil;
+                        self.birthNumberField.text = nil;
+                    } else {
+                        [self showWarningAlertWithMessage:@"Owner can't be changed"];
+                    }
+                } else {
+                    [self showWarningAlertWithMessage:@"New citizen not found."];
+                    self.birthNumberField.text = nil;
+                }
+            } else {
+                [self showWarningAlertWithMessage:@"Citizen is not owner of property."];
+            }
+        } else {
+            [self showWarningAlertWithMessage:@"Old citizen not found."];
+            self.oldBirthNumberField.text = nil;
+        }
+    } else {
+        [self showNotifyAlertFillAllFields];
+    }
+}
+
+- (void)showAlertController
+{
+    UIAlertController *controller = [UIAlertController alertControllerWithTitle:@"Remove property"
+                                                                        message:[NSString stringWithFormat:@"Property will be removed permanently"]
+                                                                 preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel"
+                                                           style:UIAlertActionStyleCancel
+                                                         handler:^(UIAlertAction *action) {
+                                                             [controller dismissViewControllerAnimated:YES completion:nil];
+                                                         }];
+    UIAlertAction *deleteAction = [UIAlertAction actionWithTitle:@"Delete"
+                                                           style:UIAlertActionStyleDestructive
+                                                         handler:^(UIAlertAction *action) {
+                                                             [self removeProperty];
+                                                         }];
+    
+    [controller addAction:deleteAction];
+    [controller addAction:cancelAction];
+    
+    [self presentViewController:controller animated:YES completion:nil];
+}
+
+- (void)removeProperty
+{
+    if ([[Cadastre sharedCadastre] removeProperty:self.property fromPropertyList:self.property.propertyList inCadastreArea:self.property.area]) {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 @end

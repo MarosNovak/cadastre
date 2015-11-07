@@ -42,10 +42,9 @@
                            toProperty:(NSNumber *)propertyNumber
                        inCadastreArea:(NSNumber *)cadastreAreaNumber;
 
-- (BOOL)changeOwner:(NSString *)ownerNumber
-         ofProperty:(NSNumber *)propertyNumber
-     inCadastreArea:(NSNumber *)cadastreAreaNumber
-         toNewOwner:(NSString *)newOwnerNumber;
+- (BOOL)changeOwner:(Citizen *)owner
+         ofProperty:(Property *)property
+         toNewOwner:(Citizen *)newOwner;
 
 #pragma mark - Fetches
 
@@ -78,9 +77,9 @@
 
 - (BOOL)removeCitizenByBirthNumber:(NSString *)birthNumber;
 
-- (BOOL)removeProperty:(NSNumber *)propertyNumber
-      fromPropertyList:(NSNumber *)propertyListNumber
-        inCadastreArea:(NSNumber *)cadastreAreaNumber;
+- (BOOL)removeProperty:(Property *)property
+      fromPropertyList:(PropertyList *)propertyList
+        inCadastreArea:(CadastreArea *)cadastreArea;
 
 - (BOOL)removeCadastreArea:(CadastreArea *)area
            andMoveAgendaTo:(NSNumber *)newCadastreArea;

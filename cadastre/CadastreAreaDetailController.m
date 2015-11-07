@@ -62,7 +62,7 @@
     }
     if ([segue.identifier isEqualToString:@"showPropertyDetail"]) {
         PropertyDetailController *propertyDetailVC = segue.destinationViewController;
-        propertyDetailVC.list = sender;
+        propertyDetailVC.property = sender;
     }
     if ([segue.identifier isEqualToString:@"showPropertyListDetail"]) {
         PropertyListDetailController *propertyListVC = segue.destinationViewController;
@@ -108,7 +108,7 @@
     if (self.propertyNumberField.text.length) {
         Property *property = [[Cadastre sharedCadastre] propertyByNumber:@(self.propertyNumberField.text.integerValue) inCadastreArea:self.area];
         if (property) {
-            [self performSegueWithIdentifier:@"showPropertyDetail" sender:property.propertyList.shareholdings];
+            [self performSegueWithIdentifier:@"showPropertyDetail" sender:property];
         } else {
             [self showWarningAlertWithMessage:@"Property not found."];
         }

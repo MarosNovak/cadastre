@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1E05CBAA1BDD7FC300F1DA6D /* PropertyDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E05CBA91BDD7FC300F1DA6D /* PropertyDetailController.m */; };
+		1E12209D1BEE4A4600A729F9 /* InfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E12209C1BEE4A4600A729F9 /* InfoController.m */; };
 		1E2712D91BDFFDC5006A8CC9 /* PropertiesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E2712D81BDFFDC5006A8CC9 /* PropertiesController.m */; };
 		1E2712DC1BE002F3006A8CC9 /* NSString+Random.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E2712DB1BE002F3006A8CC9 /* NSString+Random.m */; };
 		1E2712DF1BE00C51006A8CC9 /* PropertyListDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E2712DE1BE00C51006A8CC9 /* PropertyListDetailController.m */; };
@@ -47,6 +48,8 @@
 /* Begin PBXFileReference section */
 		1E05CBA81BDD7FC300F1DA6D /* PropertyDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PropertyDetailController.h; sourceTree = "<group>"; };
 		1E05CBA91BDD7FC300F1DA6D /* PropertyDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PropertyDetailController.m; sourceTree = "<group>"; };
+		1E12209B1BEE4A4600A729F9 /* InfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoController.h; sourceTree = "<group>"; };
+		1E12209C1BEE4A4600A729F9 /* InfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoController.m; sourceTree = "<group>"; };
 		1E2712D71BDFFDC5006A8CC9 /* PropertiesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PropertiesController.h; sourceTree = "<group>"; };
 		1E2712D81BDFFDC5006A8CC9 /* PropertiesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PropertiesController.m; sourceTree = "<group>"; };
 		1E2712DA1BE002F3006A8CC9 /* NSString+Random.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Random.h"; sourceTree = "<group>"; };
@@ -199,11 +202,11 @@
 		1E34EC451BC9704200AE67D8 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				1E5C84901BD41FCF00593B96 /* Search */,
 				1E5C848C1BD3EFE100593B96 /* Citizen */,
 				1E5C848A1BD3EFCE00593B96 /* Cadastre area */,
 				1E5C848B1BD3EFD500593B96 /* Property List */,
 				1E5C84891BD3EFC700593B96 /* Property */,
-				1E5C84901BD41FCF00593B96 /* Search */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -226,6 +229,8 @@
 				1E2712D81BDFFDC5006A8CC9 /* PropertiesController.m */,
 				1E05CBA81BDD7FC300F1DA6D /* PropertyDetailController.h */,
 				1E05CBA91BDD7FC300F1DA6D /* PropertyDetailController.m */,
+				1E12209B1BEE4A4600A729F9 /* InfoController.h */,
+				1E12209C1BEE4A4600A729F9 /* InfoController.m */,
 			);
 			name = Property;
 			sourceTree = "<group>";
@@ -341,8 +346,8 @@
 			children = (
 				1EEBCDF01BC97A8200809DC2 /* Cadastre.h */,
 				1EEBCDF11BC97A8200809DC2 /* Cadastre.m */,
-				1E5C84921BD4223D00593B96 /* Cadastre Area */,
 				1E769B591BD829D8007BEE42 /* Citizen */,
+				1E5C84921BD4223D00593B96 /* Cadastre Area */,
 				1E769B5A1BD829E0007BEE42 /* Property List */,
 				1E769B5B1BD829F0007BEE42 /* Property */,
 			);
@@ -524,6 +529,7 @@
 				1E2712E91BE03979006A8CC9 /* NSNumber+Random.m in Sources */,
 				1E5C84981BD4261100593B96 /* CadastreAreaNodeByNumber.m in Sources */,
 				1EEBCDE41BC9720D00809DC2 /* TreapNode.m in Sources */,
+				1E12209D1BEE4A4600A729F9 /* InfoController.m in Sources */,
 				1E5C84821BD3EF6100593B96 /* CadastreAreaController.m in Sources */,
 				1EEBCDEF1BC97A6400809DC2 /* CadastreArea.m in Sources */,
 				1E5C848F1BD4139100593B96 /* SearchController.m in Sources */,

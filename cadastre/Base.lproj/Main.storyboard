@@ -381,8 +381,8 @@ názvom).</string>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="Search property" id="DW1-U8-GN2">
-                                <string key="footerTitle">1. Vyhľadanie nehnuteľnosti podľa súpisného čísla a čísla katastrálneho územia. 
-5. Vyhľadanie nehnuteľnosti podľa súpisného čísla a názvu katastrálneho územia. Po nájdení nehnuteľnosti je potrebné zobraziť všetky evidované údaje vrátane všetkých údajov z listu vlastníctva na ktorom je nehnuteľnosť zapísa</string>
+                                <mutableString key="footerTitle">1. Vyhľadanie nehnuteľnosti podľa súpisného čísla a čísla katastrálneho územia. 
+5. Vyhľadanie nehnuteľnosti podľa súpisného čísla a názvu katastrálneho územia. Po nájdení nehnuteľnosti je potrebné zobraziť všetky evidované údaje vrátane všetkých údajov z listu vlastníctva na ktorom je nehnuteľnosť zapísana</mutableString>
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="50" id="8aF-8N-UXT">
                                         <rect key="frame" x="0.0" y="247" width="600" height="50"/>
@@ -590,19 +590,196 @@ názvom).</string>
                         <outlet property="cadastreAreaNameField" destination="kLR-T5-sE1" id="Cjz-ea-40Y"/>
                         <outlet property="propertyListNumberField" destination="oc7-vy-esl" id="NrS-2P-3ij"/>
                         <outlet property="propertyNumberField" destination="tlx-9m-Mde" id="7SL-TX-JNO"/>
-                        <segue destination="fkX-W6-2uK" kind="show" identifier="showPropertyDetail" id="bmz-du-bmS"/>
                         <segue destination="8aD-oO-X3C" kind="show" identifier="showListOfProperties" id="4s5-WY-8yA"/>
                         <segue destination="JFf-30-Vnx" kind="show" identifier="showPropertyListDetail" id="E39-Kk-wOx"/>
+                        <segue destination="g8X-Oz-qFh" kind="show" identifier="showPropertyDetail" id="ops-HH-5lO"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ro4-XC-wan" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1325" y="-96"/>
         </scene>
+        <!--Property detail-->
+        <scene sceneID="QbA-10-jri">
+            <objects>
+                <tableViewController id="g8X-Oz-qFh" customClass="PropertyDetailController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="Nrc-dj-er5">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection headerTitle="Detail" footerTitle="Všetky evidované údaje vrátane všetkých údajov z listu vlastníctva na ktorom je nehnuteľnosť zapísaná" id="SWb-Y5-bAv">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="gG1-pc-eSp" style="IBUITableViewCellStyleDefault" id="zT3-Dy-q3t">
+                                        <rect key="frame" x="0.0" y="114" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zT3-Dy-q3t" id="8y5-IS-Kh4">
+                                            <rect key="frame" x="0.0" y="0.0" width="567" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gG1-pc-eSp">
+                                                    <rect key="frame" x="15" y="0.0" width="550" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <animations/>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Search citizens in property" id="LnE-IT-2Dt">
+                                <string key="footerTitle">3. Výpis všetkých osôb, ktoré majú trvalý pobyt v zadanej nehnuteľnosti (zadá sa číslo katastrálneho územia, číslo listu vlastníctva a súpisné číslo)</string>
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="uLw-OK-Vpk" style="IBUITableViewCellStyleDefault" id="LNV-Yx-egq">
+                                        <rect key="frame" x="0.0" y="241" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LNV-Yx-egq" id="AEe-g4-hCW">
+                                            <rect key="frame" x="0.0" y="0.0" width="567" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="List of citizens with perma address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uLw-OK-Vpk">
+                                                    <rect key="frame" x="15" y="0.0" width="550" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <animations/>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="EDITING" id="7BF-29-PXT">
+                                <string key="footerTitle">11.Zmena majiteľa (definovaný rodným číslom) nehnuteľnosti (definovaná súpisným
+číslom) v zadanom katastrálnom území (definované jeho číslom). Nový majiteľ je
+definovaný rodným číslom.</string>
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="50" id="XEU-nM-qIl">
+                                        <rect key="frame" x="0.0" y="368" width="600" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XEU-nM-qIl" id="d2k-Ni-2Up">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="49"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Old owner birth number" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="g9k-Oh-QGp">
+                                                    <rect key="frame" x="16" y="8" width="576" height="33"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="next"/>
+                                                </textField>
+                                            </subviews>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstItem="g9k-Oh-QGp" firstAttribute="trailing" secondItem="d2k-Ni-2Up" secondAttribute="trailingMargin" id="O7E-xB-gtv"/>
+                                                <constraint firstItem="g9k-Oh-QGp" firstAttribute="leading" secondItem="d2k-Ni-2Up" secondAttribute="leadingMargin" constant="8" id="UJj-y2-4Nh"/>
+                                                <constraint firstItem="g9k-Oh-QGp" firstAttribute="top" secondItem="d2k-Ni-2Up" secondAttribute="topMargin" id="cbz-1k-PIX"/>
+                                                <constraint firstItem="g9k-Oh-QGp" firstAttribute="bottom" secondItem="d2k-Ni-2Up" secondAttribute="bottomMargin" id="ieo-ua-Vxs"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="50" id="EBg-v9-jho">
+                                        <rect key="frame" x="0.0" y="418" width="600" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EBg-v9-jho" id="IRb-KE-G3h">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="49"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="New owner birth number" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="J2h-Hp-eFn">
+                                                    <rect key="frame" x="16" y="8" width="576" height="33"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="next"/>
+                                                </textField>
+                                            </subviews>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstItem="J2h-Hp-eFn" firstAttribute="bottom" secondItem="IRb-KE-G3h" secondAttribute="bottomMargin" id="MXA-O0-vxv"/>
+                                                <constraint firstItem="J2h-Hp-eFn" firstAttribute="top" secondItem="IRb-KE-G3h" secondAttribute="topMargin" id="UfO-8c-nmf"/>
+                                                <constraint firstItem="J2h-Hp-eFn" firstAttribute="leading" secondItem="IRb-KE-G3h" secondAttribute="leadingMargin" constant="8" id="boH-zH-MCM"/>
+                                                <constraint firstItem="J2h-Hp-eFn" firstAttribute="trailing" secondItem="IRb-KE-G3h" secondAttribute="trailingMargin" id="uYx-hu-3cz"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="dv6-4W-FHw" rowHeight="50" style="IBUITableViewCellStyleDefault" id="vPQ-dS-MNy">
+                                        <rect key="frame" x="0.0" y="468" width="600" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vPQ-dS-MNy" id="ybG-dR-KOy">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="49"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Update" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dv6-4W-FHw">
+                                                    <rect key="frame" x="15" y="0.0" width="570" height="49"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <animations/>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="deletion" id="oDE-2q-n3V">
+                                <string key="footerTitle">20. Odstránenie nehnuteľnosti (definovaná popisným číslom) z listu vlastníctva (definovaný
+číslom) v zadanom katastrálnom území (definované jeho číslom).</string>
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="j6q-z8-Rgr" style="IBUITableViewCellStyleDefault" id="APo-zh-FAK">
+                                        <rect key="frame" x="0.0" y="617" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="APo-zh-FAK" id="OwO-YG-U9W">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Delete" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="j6q-z8-Rgr">
+                                                    <rect key="frame" x="15" y="0.0" width="570" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <animations/>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="g8X-Oz-qFh" id="6UO-jF-Rg1"/>
+                            <outlet property="delegate" destination="g8X-Oz-qFh" id="gzw-dK-wnQ"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Property detail" id="mrj-PF-ngY"/>
+                    <connections>
+                        <outlet property="birthNumberField" destination="J2h-Hp-eFn" id="zq2-vR-eMm"/>
+                        <outlet property="oldBirthNumberField" destination="g9k-Oh-QGp" id="x4w-Pz-Zf4"/>
+                        <segue destination="fkX-W6-2uK" kind="show" identifier="showList" id="T6q-A1-k3S"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8fQ-eC-9kR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2005" y="-96"/>
+        </scene>
         <!--Owners list with shares-->
         <scene sceneID="PSR-ZE-0yb">
             <objects>
-                <tableViewController id="fkX-W6-2uK" customClass="PropertyDetailController" sceneMemberID="viewController">
+                <tableViewController id="fkX-W6-2uK" customClass="InfoController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="aZ0-b6-gmK">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -648,7 +825,7 @@ názvom).</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="09c-eJ-aY0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2149" y="-96"/>
+            <point key="canvasLocation" x="2751" y="-96"/>
         </scene>
         <!--Property list detail-->
         <scene sceneID="Wtm-Jh-r4I">
@@ -720,7 +897,7 @@ názvom).</string>
                                             <rect key="frame" x="0.0" y="0.0" width="567" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="List of citizens with perma address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hsQ-PZ-8L8">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Property detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hsQ-PZ-8L8">
                                                     <rect key="frame" x="15" y="0.0" width="550" height="43"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <animations/>
@@ -867,12 +1044,12 @@ názvom).</string>
                         <outlet property="birthNumberField" destination="LdE-Ur-ADP" id="lVs-Wr-Uh1"/>
                         <outlet property="propertyListNumber" destination="5q6-lU-LMP" id="PhE-90-5p9"/>
                         <outlet property="propertyNumberField" destination="fyO-BY-vya" id="HmS-Mf-Zf9"/>
-                        <segue destination="fkX-W6-2uK" kind="show" identifier="showCitizens" id="E7K-Nk-9GE"/>
+                        <segue destination="fkX-W6-2uK" kind="show" identifier="showList" id="azH-Oe-jIm"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D5O-8R-yhg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1325" y="670"/>
+            <point key="canvasLocation" x="1325" y="662"/>
         </scene>
         <!--List of properties-->
         <scene sceneID="sZr-0y-Xa3">
@@ -922,7 +1099,7 @@ názvom).</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dhg-72-e7O" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2149" y="670"/>
+            <point key="canvasLocation" x="2005" y="662"/>
         </scene>
         <!--Properties-->
         <scene sceneID="Vfi-Mz-jwF">
@@ -1031,59 +1208,6 @@ území (definované jeho číslom).</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Search properties of owner" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Jy4-n0-bzU">
-                                                    <rect key="frame" x="15" y="0.0" width="550" height="43"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <animations/>
-                                        </tableViewCellContentView>
-                                        <animations/>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                            <tableViewSection headerTitle="deletion" id="U5I-GL-OFz">
-                                <string key="footerTitle">20. Odstránenie nehnuteľnosti (definovaná popisným číslom) z listu vlastníctva (definovaný
-číslom) v zadanom katastrálnom území (definované jeho číslom).</string>
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="xGT-Zq-DzI" style="IBUITableViewCellStyleDefault" id="HNl-Gl-X8A">
-                                        <rect key="frame" x="0.0" y="458" width="600" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HNl-Gl-X8A" id="TVw-74-Apq">
-                                            <rect key="frame" x="0.0" y="0.0" width="567" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Delete from property list in cadastre area" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xGT-Zq-DzI">
-                                                    <rect key="frame" x="15" y="0.0" width="550" height="43"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <animations/>
-                                        </tableViewCellContentView>
-                                        <animations/>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                            <tableViewSection headerTitle="update" id="NEp-MH-BI9">
-                                <string key="footerTitle">11.Zmena majiteľa (definovaný rodným číslom) nehnuteľnosti (definovaná súpisným
-číslom) v zadanom katastrálnom území (definované jeho číslom). Nový majiteľ je
-definovaný rodným číslom.</string>
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="9Lz-Bw-McO" style="IBUITableViewCellStyleDefault" id="XxZ-DU-XSQ">
-                                        <rect key="frame" x="0.0" y="585" width="600" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XxZ-DU-XSQ" id="KHM-v8-zL8">
-                                            <rect key="frame" x="0.0" y="0.0" width="567" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Change owner of property in cadastre area" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9Lz-Bw-McO">
                                                     <rect key="frame" x="15" y="0.0" width="550" height="43"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <animations/>
@@ -1470,7 +1594,7 @@ definovaný rodným číslom.</string>
         <image name="PropertyList" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="yaK-f3-JG2"/>
-        <segue reference="E7K-Nk-9GE"/>
+        <segue reference="T6q-A1-k3S"/>
+        <segue reference="6tK-sc-okj"/>
     </inferredMetricsTieBreakers>
 </document>

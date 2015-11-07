@@ -11,7 +11,7 @@
 #import "CadastreAreaNodeByNumber.h"
 #import "CSVLoader.h"
 
-static NSInteger const randomAreasCount = 5;
+static NSInteger const randomAreasCount = 2000;
 
 @interface Cadastre ()
 
@@ -181,24 +181,13 @@ static NSInteger const randomAreasCount = 5;
 
 #pragma mark - Updates
 
-- (BOOL)changeOwner:(NSString *)ownerNumber
-         ofProperty:(NSNumber *)propertyNumber
-     inCadastreArea:(NSNumber *)cadastreAreaNumber
-         toNewOwner:(NSString *)newOwnerNumber
+- (BOOL)changeOwner:(Citizen *)owner
+         ofProperty:(Property *)property
+         toNewOwner:(Citizen *)newOwner
 {
-    CadastreArea *area = [self areaByNumber:cadastreAreaNumber];
-    if (area) {
-        Property *property = [area propertyByNumber:propertyNumber];
-        if (property) {
-            Citizen *oldOwner = [self citizenByBirthNumber:ownerNumber];
-            Citizen *newOwner = [self citizenByBirthNumber:ownerNumber];
-            if (oldOwner && newOwner) {
-                BOOL success = [property.propertyList removeOwner:oldOwner];
-                if (success) {
-                    return [property.propertyList addOwnerWithEqualShare:newOwner];
-                }
-            }
-        }
+    BOOL success = [property.propertyList removeOwner:owner];
+    if (success) {
+        return [property.propertyList addOwnerWithEqualShare:newOwner];
     }
     return NO;
 }
@@ -263,24 +252,15 @@ static NSInteger const randomAreasCount = 5;
     return NO;
 }
 
-- (BOOL)removeProperty:(NSNumber *)propertyNumber
-      fromPropertyList:(NSNumber *)propertyListNumber
-        inCadastreArea:(NSNumber *)cadastreAreaNumber
+- (BOOL)removeProperty:(Property *)property
+      fromPropertyList:(PropertyList *)propertyList
+        inCadastreArea:(CadastreArea *)cadastreArea
 {
-    CadastreArea *area = [self areaByNumber:cadastreAreaNumber];
-    if (area) {
-        Property *property = [area propertyByNumber:propertyNumber];
-        if (property) {
-            PropertyList *list = [area propertyListByNumber:propertyNumber];
-            if (list) {
-                BOOL success = [area removeProperty:property];
-                if (success) {
-                    [list removeProperty:property];
-                    return YES;
-                }
-            }
+    BOOL success = [cadastreArea removeProperty:property];
+        if (success) {
+            [propertyList removeProperty:property];
+            return YES;
         }
-    }
     return NO;
 }
 

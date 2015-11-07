@@ -34,5 +34,6 @@
 - (void)removeProperty:(Property *)property;
 
 - (BOOL)movePropertiesAndOwnersToNewList:(PropertyList *)newList;
+- (BOOL)isCitizenOnPropertyList:(Citizen *)citizen;
 
 @end

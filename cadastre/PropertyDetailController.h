@@ -11,6 +11,6 @@
 
 @interface PropertyDetailController : UITableViewController
 
-@property (strong, nonatomic) NSArray *list;
+@property (strong, nonatomic) Property *property;
 
 @end
