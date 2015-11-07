@@ -11,8 +11,9 @@
 #import "CadastreArea.h"
 #import "CitizenDetailController.h"
 #import "CadastreAreaDetailController.h"
+#import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
 
-@interface SearchController () <UISearchBarDelegate>
+@interface SearchController () <UISearchBarDelegate, DZNEmptyDataSetDelegate, DZNEmptyDataSetSource>
 
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
@@ -25,6 +26,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.tableView.emptyDataSetSource = self;
+    self.tableView.emptyDataSetDelegate = self;
     
     [self.searchBar becomeFirstResponder];
     [self setupView];
@@ -44,13 +47,13 @@
             self.searchBar.placeholder = @"cadastre area number";
             break;
         case SearchTypeNone:
-            self.searchBar.hidden = YES;
-            [self.searchBar resignFirstResponder];
+            [self.searchBar removeFromSuperview];
             self.result = [[Cadastre sharedCadastre] cadastreAreas];
         default:
             break;
     }
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationTop];
+    [self.tableView reloadData];
 }
 
 #pragma mark - Table view data source
@@ -171,7 +174,8 @@
             break;
         }
     }
-    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationTop];
+    [self.tableView reloadData];
+    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
 }
 
 #pragma mark - Segue
@@ -188,6 +192,36 @@
         
         areaVC.area = sender;
     }
+}
+
+#pragma mark - Empty state
+
+- (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView
+{
+    return [UIImage imageNamed:@"search"];
+}
+
+- (NSAttributedString *)descriptionForEmptyDataSet:(UIScrollView *)scrollView
+{
+    NSString *text = @"Not Found.\nFill search bar above and see results.";
+    
+    NSMutableParagraphStyle *paragraph = [NSMutableParagraphStyle new];
+    paragraph.lineBreakMode = NSLineBreakByWordWrapping;
+    paragraph.alignment = NSTextAlignmentCenter;
+    
+    NSDictionary *attributes = @{NSFontAttributeName: [UIFont systemFontOfSize:14.0f],
+                                 NSForegroundColorAttributeName: [UIColor lightGrayColor],
+                                 NSParagraphStyleAttributeName: paragraph};
+    
+    return [[NSAttributedString alloc] initWithString:text attributes:attributes];
+}
+
+- (BOOL)emptyDataSetShouldDisplay:(UIScrollView *)scrollView
+{
+    if (self.result) {
+        return NO;
+    }
+    return YES;
 }
 
 @end
