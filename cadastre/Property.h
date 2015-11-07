@@ -20,7 +20,9 @@
 @property (strong, nonatomic) PropertyList *propertyList;
 @property (strong, nonatomic) NSMutableArray *citizens;
 
-+ (Property *)propertyWithNumber:(NSNumber *)number inCadastreArea:(CadastreArea *)area;
++ (Property *)propertyWithNumber:(NSNumber *)number
+                  inCadastreArea:(CadastreArea *)area;
+
 + (Property *)propertyWithCadastreArea:(CadastreArea *)area;
 
 @end

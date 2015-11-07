@@ -79,7 +79,7 @@
     if ([[Cadastre sharedCadastre] importFromCSV]) {
         [self showSuccessAlertWithMessage:@"Data imported."];
     } else {
-        [self showWarningAlertWithMessage:@"Data wasn't imported."];
+        [self showWarningAlertWithMessage:@"Data failed to import."];
     }
 }
 

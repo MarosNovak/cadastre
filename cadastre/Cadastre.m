@@ -257,6 +257,11 @@
     [self removeCSVFiles];
     
     [self.citizens exportToCSV:kCitizensCSVFile];
+    [self.areasByNumber exportToCSV:kAreasCSVFile];
+    for (CadastreArea *area in [self cadastreAreas]) {
+        [area.propertyLists exportToCSV:kListsCSVFile];
+        [area.properties exportToCSV:kPropertiesCSVFile];
+    }
 }
 
 - (void)removeCSVFiles
@@ -267,11 +272,32 @@
     
     NSString *path = [documentsDirectory stringByAppendingPathComponent:kCitizensCSVFile];
     [fileMgr removeItemAtPath:path error:&error];
+    
+    path = [documentsDirectory stringByAppendingPathComponent:kPropertiesCSVFile];
+    [fileMgr removeItemAtPath:path error:&error];
+    
+    path = [documentsDirectory stringByAppendingPathComponent:kAreasCSVFile];
+    [fileMgr removeItemAtPath:path error:&error];
+    
+    path = [documentsDirectory stringByAppendingPathComponent:kShareholdingsCSVFile];
+    [fileMgr removeItemAtPath:path error:&error];
+    
+    path = [documentsDirectory stringByAppendingPathComponent:kListsCSVFile];
+    [fileMgr removeItemAtPath:path error:&error];
 }
 
 - (BOOL)importFromCSV
 {
-    return [CSVLoader loadCitizens];
+    if ([CSVLoader loadAreas]) {
+        if ([CSVLoader loadCitizens]) {
+            if ([CSVLoader loadLists]) {
+                if ([CSVLoader loadProperties]) {
+                    return YES;
+                }
+            }
+        }
+    }
+    return NO;
 }
 
 #pragma mark - Misc

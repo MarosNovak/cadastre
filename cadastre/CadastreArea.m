@@ -13,13 +13,6 @@
 
 static NSInteger cadastreAreaNumber = 0;
 
-@interface CadastreArea ()
-
-@property (strong, nonatomic) Treap *properties;
-@property (strong, nonatomic) Treap *propertyLists;
-
-@end
-
 @implementation CadastreArea
 
 #pragma mark - Initialization

@@ -28,4 +28,6 @@
     return [[Shareholding alloc] initWithOwner:owner share:share];
 }
 
+
+
 @end

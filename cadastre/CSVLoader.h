@@ -12,9 +12,10 @@
 
 + (BOOL)loadCitizens;
 
-+ (BOOL)parseAreas;
-+ (BOOL)parseCertificates;
-+ (BOOL)parseProperties;
-+ (BOOL)parseOwnership;
++ (BOOL)loadAreas;
+
++ (BOOL)loadLists;
+
++ (BOOL)loadProperties;
 
 @end

@@ -11,8 +11,12 @@
 #import "Citizen.h"
 #import "CadastreArea.h"
 
-#define kHomeDirectory      @"Documents"
-#define kCitizensCSVFile    @"citizens.csv"
+#define kHomeDirectory          @"Documents"
+#define kCitizensCSVFile        @"citizens.csv"
+#define kPropertiesCSVFile      @"properties.csv"
+#define kAreasCSVFile           @"areas.csv"
+#define kListsCSVFile           @"lists.csv"
+#define kShareholdingsCSVFile   @"shareholdings.csv"
 
 static NSInteger const propertiesInList = 5;
 static NSInteger const ownersInList = 3;
@@ -57,12 +61,14 @@ static NSInteger const areas = 20;
 - (Citizen *)citizenByBirthNumber:(NSString *)birthNumber;
 
 - (CadastreArea *)areaByNumber:(NSNumber *)number;
+
 - (CadastreArea *)areaByName:(NSString *)name;
 
 - (Property *)propertyByNumber:(NSNumber *)number
                 inCadastreArea:(CadastreArea *)area;
 
 - (NSArray *)cadastreAreas;
+
 - (NSArray *)propertiesInCadastreArea:(CadastreArea *)area;
 
 - (NSArray *)propertiesOfOwner:(NSString *)birthNumber;
@@ -94,6 +100,7 @@ static NSInteger const areas = 20;
 #pragma mark - CSV
 
 - (void)exportToCSV;
+
 - (BOOL)importFromCSV;
 
 #pragma mark - Misc

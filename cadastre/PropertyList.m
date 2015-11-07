@@ -63,7 +63,13 @@ static NSInteger const maxShare = 100;
 
 - (NSString *)CSVString
 {
-    return [NSString stringWithFormat:@"%ld",(long)self.number.integerValue];
+    NSString *csvFormat = [NSString stringWithFormat:@"%ld,%ld,%ld,",(long)self.number.integerValue, self.area.number.integerValue, self.shareholdings.count];
+    for (Shareholding *shareholding in self.shareholdings) {
+        csvFormat = [csvFormat stringByAppendingString:[NSString stringWithFormat:@"%@,",shareholding.owner.birthNumber]];
+    }
+    csvFormat = [csvFormat stringByAppendingString:@"\n"];
+    
+    return csvFormat;
 }
 
 #pragma mark - Isnertions
@@ -95,11 +101,9 @@ static NSInteger const maxShare = 100;
 - (BOOL)addProperty:(Property *)property
 {
     if (property.area == self.area) {
-        if ([self.area addProperty:property]) {
-            [self.properties addObject:property];
-            property.propertyList = self;
-            return YES;
-        }
+        [self.properties addObject:property];
+        property.propertyList = self;
+        return YES;
     }
     return NO;
 }

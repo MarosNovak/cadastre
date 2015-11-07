@@ -8,21 +8,11 @@
 
 #import "Property.h"
 #import "NSString+Random.h"
+#import "CadastreArea.h"
 
 static NSInteger propertyNumber = 0;
 
 @implementation Property
-
-+ (Property *)propertyWithNumber:(NSNumber *)number inCadastreArea:(CadastreArea *)area
-{
-    return [[Property alloc] initWithNumber:number cadastreArea:area];
-}
-
-+ (Property *)propertyWithCadastreArea:(CadastreArea *)area
-{
-    return [[Property alloc] initWithNumber:[NSNumber numberWithInteger:propertyNumber++]
-                               cadastreArea:area];
-}
 
 - (id)initWithNumber:(NSNumber *)number
         cadastreArea:(CadastreArea *)area
@@ -36,16 +26,31 @@ static NSInteger propertyNumber = 0;
     return self;
 }
 
++ (Property *)propertyWithNumber:(NSNumber *)number inCadastreArea:(CadastreArea *)area
+{
+    return [[Property alloc] initWithNumber:number cadastreArea:area];
+}
+
++ (Property *)propertyWithCadastreArea:(CadastreArea *)area
+{
+    return [[Property alloc] initWithNumber:[NSNumber numberWithInteger:propertyNumber++]
+                               cadastreArea:area];
+}
+
 - (NSComparisonResult)compare:(id)other
 {
     return [self.number compare:((Property *)other).number];
 }
 
-#warning dorobit format pre property
-
 - (NSString *)CSVString
 {
-    return nil;
+    NSString *csvFormat = [NSString stringWithFormat:@"%ld,%ld,%ld,%@,%ld,",self.area.number.integerValue, self.propertyList.number.integerValue, self.number.integerValue, self.address, self.citizens.count];
+    for (Citizen *citizen in self.citizens) {
+        csvFormat = [csvFormat stringByAppendingString:[NSString stringWithFormat:@"%@,",citizen.birthNumber]];
+    }
+    csvFormat = [csvFormat stringByAppendingString:@"\n"];
+    
+    return csvFormat;
 }
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Treap.h"
 #import "BSNodeData.h"
 #import "PropertyList.h"
 
@@ -14,6 +15,8 @@
 
 @property (strong, nonatomic) NSNumber *number;
 @property (strong, nonatomic) NSString *name;
+@property (strong, nonatomic) Treap *properties;
+@property (strong, nonatomic) Treap *propertyLists;
 
 #pragma mark - Initalization
 
@@ -27,6 +30,8 @@
 #pragma mark - Insertions
 
 - (BOOL)addProperty:(Property *)property;
+
+- (BOOL)addPropertyList:(PropertyList *)propertyList;
 
 - (BOOL)addPropertyListWithNumber:(NSNumber *)number;
 
