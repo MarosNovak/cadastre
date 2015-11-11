@@ -15,25 +15,39 @@ static NSInteger propertyNumber = 0;
 @implementation Property
 
 - (id)initWithNumber:(NSNumber *)number
+             address:(NSString *)address
         cadastreArea:(CadastreArea *)area
 {
     if (self == [super init]) {
         _number = number;
         _area = area;
-        _address = [NSString largeRandom];
+        _address = address;
         _citizens = [NSMutableArray new];
     }
     return self;
 }
 
-+ (Property *)propertyWithNumber:(NSNumber *)number inCadastreArea:(CadastreArea *)area
++ (Property *)propertyWithNumber:(NSNumber *)number
+                         address:(NSString *)address
+                  inCadastreArea:(CadastreArea *)area
 {
-    return [[Property alloc] initWithNumber:number cadastreArea:area];
+    return [[Property alloc] initWithNumber:number
+                                    address:address
+                               cadastreArea:area];
+}
+
++ (Property *)propertyWithNumber:(NSNumber *)number
+                  inCadastreArea:(CadastreArea *)area
+{
+    return [[Property alloc] initWithNumber:number
+                                    address:[NSString largeRandom]
+                               cadastreArea:area];
 }
 
 + (Property *)propertyWithCadastreArea:(CadastreArea *)area
 {
     return [[Property alloc] initWithNumber:[NSNumber numberWithInteger:propertyNumber++]
+                                    address:[NSString largeRandom]
                                cadastreArea:area];
 }
 
@@ -44,7 +58,12 @@ static NSInteger propertyNumber = 0;
 
 - (NSString *)CSVString
 {
-    NSString *csvFormat = [NSString stringWithFormat:@"%ld,%ld,%ld,%@,%ld,",self.area.number.integerValue, self.propertyList.number.integerValue, self.number.integerValue, self.address, self.citizens.count];
+    NSString *csvFormat = [NSString stringWithFormat:@"%ld,%ld,%ld,%@,%ld,",
+                           self.area.number.integerValue,
+                           self.propertyList.number.integerValue,
+                           self.number.integerValue, self.address,
+                           self.citizens.count];
+    
     for (Citizen *citizen in self.citizens) {
         csvFormat = [csvFormat stringByAppendingString:[NSString stringWithFormat:@"%@,",citizen.birthNumber]];
     }

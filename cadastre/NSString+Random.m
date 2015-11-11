@@ -42,7 +42,7 @@ static NSString const *numbers = @"0123456789";
 {
     NSMutableString *randomString = [NSMutableString stringWithCapacity:3];
     
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < 4; i++) {
         [randomString appendFormat: @"%C", [numbers characterAtIndex: arc4random_uniform((u_int32_t)[numbers length])]];
     }
     return randomString;

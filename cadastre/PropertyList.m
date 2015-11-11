@@ -43,7 +43,9 @@ static NSInteger const maxShare = 100;
     PropertyList *list = [[PropertyList alloc] initWithNumber:[NSNumber numberWithInteger:propertyListNumber++] cadastreArea:area];
     
     for (int j = 0; j < propertiesInList; j++) {
-        [list addProperty:[Property propertyWithCadastreArea:area]];
+        Property *property = [Property propertyWithCadastreArea:area];
+        [area addProperty:property];
+        [list addProperty:property];
     }
     for (int i = 0; i < ownersInList; i++) {
         Citizen *owner = [Citizen randomCitizen];

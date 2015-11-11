@@ -23,6 +23,8 @@
 
 #pragma mark - Singleton
 
+static Cadastre *sharedCadastre = nil;
+
 + (Cadastre *)sharedCadastre
 {
     static dispatch_once_t once;
@@ -35,6 +37,13 @@
         cadastre.areasByNumber = [Treap new];
     });
     return cadastre;
+}
+
+- (void)resetData
+{
+    self.citizens = [Treap new];
+    self.areasByName = [Treap new];
+    self.areasByNumber = [Treap new];
 }
 
 #pragma mark - Insertion
@@ -86,10 +95,16 @@
 }
 
 - (BOOL)addProperty:(NSNumber *)propertyNumber
+        withAddress:(NSString *)address
      toPropertyList:(PropertyList *)list
      inCadastreArea:(CadastreArea *)area
 {
-    Property *property = [Property propertyWithNumber:propertyNumber inCadastreArea:area];
+    Property *property;
+    if (address.length) {
+        property = [Property propertyWithNumber:propertyNumber address:address inCadastreArea:area];
+    } else {
+        property = [Property propertyWithNumber:propertyNumber inCadastreArea:area];
+    }
     BOOL success = [area addProperty:property];
     if (success) {
         [list addProperty:property];
@@ -176,6 +191,11 @@
     return [self.areasByNumber inOrderTraversal];
 }
 
+- (NSArray *)cadastreAreasByName
+{
+    return [self.areasByName inOrderTraversal];
+}
+
 #pragma mark - Updates
 
 - (BOOL)changeOwner:(Citizen *)owner
@@ -217,7 +237,7 @@
 
 - (BOOL)removeCitizenByBirthNumber:(NSString *)birthNumber
 {
-    Citizen *owner = [Citizen citizenWithBirthNumber:birthNumber];
+    Citizen *owner = (Citizen *)[self.citizens findObject:[Citizen citizenWithBirthNumber:birthNumber]];
     
     if (owner) {
         for (PropertyList *list in owner.propertyLists) {

@@ -25,4 +25,8 @@
 
 + (Property *)propertyWithCadastreArea:(CadastreArea *)area;
 
++ (Property *)propertyWithNumber:(NSNumber *)number
+                         address:(NSString *)address
+                  inCadastreArea:(CadastreArea *)area;
+
 @end

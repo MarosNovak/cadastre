@@ -49,7 +49,7 @@
             break;
         case SearchTypeNone:
             [self.searchBar removeFromSuperview];
-            self.result = [[Cadastre sharedCadastre] cadastreAreas];
+            self.result = [[Cadastre sharedCadastre] cadastreAreasByName];
         default:
             break;
     }

@@ -119,14 +119,20 @@ static NSInteger cadastreAreaNumber = 0;
 {
     BSNode *currentNode = self.properties.root;
     while (currentNode) {
-        [area addProperty:(Property *)currentNode.data];
+        Property *property = (Property *)currentNode.data;
+        while (![area addProperty:property]) {
+            property.number = @(property.number.integerValue + 1);
+        }
         [self.properties remove:currentNode];
         currentNode = self.properties.root;
     }
     
     currentNode = self.propertyLists.root;
     while (currentNode) {
-        [area addPropertyList:(PropertyList *)currentNode.data];
+        PropertyList *propertyList = (PropertyList *)currentNode.data;
+        while (![area addPropertyList:propertyList]) {
+            propertyList.number = @(propertyList.number.integerValue + 1);
+        }
         [self.propertyLists remove:currentNode];
         currentNode = self.propertyLists.root;
     }

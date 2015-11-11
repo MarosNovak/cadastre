@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *propertyNumberField;
 @property (weak, nonatomic) IBOutlet UITextField *cadastreAreaNumberField;
 @property (weak, nonatomic) IBOutlet UITextField *propertyListNumberField;
+@property (weak, nonatomic) IBOutlet UITextField *addressField;
 
 @end
 
@@ -28,8 +29,8 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    if (textField == self.propertyListNumberField) {
-        [self.propertyListNumberField resignFirstResponder];
+    if (textField == self.propertyNumberField) {
+        [self.propertyNumberField resignFirstResponder];
         [self addProperty];
     }
     return NO;
@@ -49,7 +50,10 @@
         if (area) {
             PropertyList *propertyList = [[Cadastre sharedCadastre] propertyListByNumber:@(self.propertyListNumberField.text.integerValue) inCadastreArea:area];
             if (propertyList) {
-                if ([[Cadastre sharedCadastre] addProperty:@(self.propertyNumberField.text.integerValue) toPropertyList:propertyList inCadastreArea:area]) {
+                if ([[Cadastre sharedCadastre] addProperty:@(self.propertyNumberField.text.integerValue)
+                                               withAddress:self.addressField.text
+                                            toPropertyList:propertyList
+                                            inCadastreArea:area]) {
                     [self showSuccessAlertWithMessage:@"Property added successfully."];
                 } else {
                     [self showWarningAlertWithMessage:@"Property already exists."];
@@ -71,6 +75,7 @@
     self.cadastreAreaNumberField.text = nil;
     self.propertyListNumberField.text = nil;
     self.propertyNumberField.text = nil;
+    self.addressField.text = nil;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

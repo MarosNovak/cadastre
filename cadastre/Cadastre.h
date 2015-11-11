@@ -17,14 +17,16 @@
 #define kAreasCSVFile           @"areas.csv"
 #define kListsCSVFile           @"lists.csv"
 
-static NSInteger const propertiesInList = 5;
-static NSInteger const ownersInList = 3;
-static NSInteger const listsInArea = 2;
-static NSInteger const areas = 20;
+static NSInteger const propertiesInList = 3;
+static NSInteger const ownersInList = 500;
+static NSInteger const listsInArea = 500;
+static NSInteger const areas = 500;
 
 @interface Cadastre : NSObject
 
 + (Cadastre *)sharedCadastre;
+
+- (void)resetData;
 
 #pragma mark - Insertions
 
@@ -40,6 +42,7 @@ static NSInteger const areas = 20;
 - (BOOL)addCadastreArea:(CadastreArea *)area;
 
 - (BOOL)addProperty:(NSNumber *)propertyNumber
+        withAddress:(NSString *)address
      toPropertyList:(PropertyList *)list
      inCadastreArea:(CadastreArea *)area;
 
@@ -67,6 +70,8 @@ static NSInteger const areas = 20;
                 inCadastreArea:(CadastreArea *)area;
 
 - (NSArray *)cadastreAreas;
+
+- (NSArray *)cadastreAreasByName;
 
 - (NSArray *)propertiesInCadastreArea:(CadastreArea *)area;
 

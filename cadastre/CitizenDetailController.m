@@ -14,6 +14,7 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *propertyNumberField;
 @property (weak, nonatomic) IBOutlet UITextField *cadastreAreaNameField;
+@property (weak, nonatomic) IBOutlet UILabel *permanentAddressField;
 
 @end
 
@@ -22,16 +23,22 @@
 - (void)viewDidLoad
 {
     self.title = [NSString stringWithFormat:@"%@ (%@)", self.citizen.fullName, self.citizen.birthNumber];
+    [self setupPermanentAddress];
     
     [super viewDidLoad];
 }
 
+- (void)setupPermanentAddress
+{
+    self.permanentAddressField.text = self.citizen.property.address ? self.citizen.property.address : @"Citizen is homeless.";
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == 1) {
+    if (indexPath.section == 2) {
         [self showAlertController];
     }
-    if (indexPath.section == 0 && indexPath.row == 2) {
+    if (indexPath.section == 1 && indexPath.row == 2) {
         [self updatePermanentAddress];
         [self.propertyNumberField resignFirstResponder];
     }
@@ -81,6 +88,7 @@
                 [[Cadastre sharedCadastre] changePermanentAddressOfOwner:self.citizen
                                                               toProperty:property];
                 [self showSuccessAlertWithMessage:@"Permanent address changed successfully."];
+                [self setupPermanentAddress];
             } else {
                 [self showWarningAlertWithMessage:@"Property not found."];
             }

@@ -86,10 +86,11 @@
             for (int i = 0; i < [components[2] integerValue]; i++) {
                 [propertyList addOwnerWithEqualShare:[[Cadastre sharedCadastre] citizenByBirthNumber:components[i+3]]];
             }
-            return YES;
+        } else {
+            return NO;
         }
     }
-    return NO;
+    return YES;
 }
 
 + (BOOL)loadProperties
@@ -113,12 +114,15 @@
             property.address = components[3];
             
             for (int i = 0; i < [components[4] integerValue]; i++) {
-                [property.citizens addObject:[[Cadastre sharedCadastre] citizenByBirthNumber:components[i+5]]];
+                Citizen *citizenWithPermaAddress = [[Cadastre sharedCadastre] citizenByBirthNumber:components[i+5]];
+                [property.citizens addObject:citizenWithPermaAddress];
+                citizenWithPermaAddress.property = property;
             }
-            return YES;
+        } else {
+            return NO;
         }
     }
-    return NO;
+    return YES;
 }
 
 @end

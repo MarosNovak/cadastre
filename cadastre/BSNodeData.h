@@ -13,4 +13,5 @@
 - (NSComparisonResult)compare:(id)other;
 
 - (NSString *)CSVString;
+
 @end

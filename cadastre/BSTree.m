@@ -246,7 +246,6 @@
     return [self countNode:self.root];
 }
 
-#warning rekurziu odstranit
 - (NSUInteger)countNode:(BSNode *)node
 {
     if (!node) return 0;

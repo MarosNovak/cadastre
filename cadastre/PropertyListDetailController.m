@@ -9,6 +9,7 @@
 #import "PropertyListDetailController.h"
 #import "UITableViewController+Alerts.h"
 #import "PropertyDetailController.h"
+#import "PropertiesController.h"
 #import "InfoController.h"
 #import "Cadastre.h"
 
@@ -31,8 +32,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == 0) {
+    if (indexPath.section == 0 && indexPath.row == 0) {
         [self performSegueWithIdentifier:@"showList" sender:self.list.shareholdings];
+    }
+    if (indexPath.section == 0 && indexPath.row == 1) {
+        [self performSegueWithIdentifier:@"showProperties" sender:self.list.properties];
     }
     if (indexPath.section == 1 && indexPath.row == 1) {
         [self setShareholding];
@@ -62,7 +66,6 @@
     } else {
         [self showNotifyAlertFillAllFields];
     }
-
     [self.birthNumberField resignFirstResponder];
 }
 
@@ -133,6 +136,10 @@
     if ([segue.identifier isEqualToString:@"showList"]) {
         InfoController *infoVC = segue.destinationViewController;
         infoVC.list = sender;
+    }
+    if ([segue.identifier isEqualToString:@"showProperties"]) {
+        PropertiesController *propertiesVC = segue.destinationViewController;
+        propertiesVC.properties = sender;
     }
 }
 
